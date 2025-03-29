@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon GO - Register</title>
+    <link rel="stylesheet" href="signInStyles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Pokémon GO - Register</h1>
+        <form id="registrationForm">
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" required placeholder="someone@example.com">
+            
+            <label for="password">Password:</label>
+            <div class="password-container">
+                <input type="password" id="password" placeholder="Enter your password">
+                <span class="toggle-password" onclick="togglePassword('password', 'toggleIcon1')">
+                    <i id="toggleIcon1" class="fa fa-eye"></i>
+                </span>
+            </div>
+            
+                <ul id="password-requirements">
+                    <li id="req-length">❌ At least 8 characters</li>
+                    <li id="req-uppercase">❌ At least one uppercase letter</li>
+                    <li id="req-lowercase">❌ At least one lowercase letter</li>
+                    <li id="req-number">❌ At least one number</li>
+                    <li id="req-special">❌ At least one special character (@, #, $, etc.)</li>
+                </ul>       
+            
+            <div class="password-container">
+                <input type="password" id="confirmPassword" placeholder="Confirm your password">
+                <span class="toggle-password" onclick="togglePassword('confirmPassword', 'toggleIcon2')">
+                    <i id="toggleIcon2" class="fa fa-eye"></i>
+                </span>
+            </div>     
+            <p id="password-match-msg" style="font-size: 14px; margin-top: 5px;"></p>
+
+            <label for="playerID">In-Game Player ID:</label>
+            <input type="text" id="playerID" readonly>
+            
+            <label for="ign">In-Game Name (IGN):</label>
+            <input type="text" id="ign" required placeholder="binibirocha">
+            
+            <button type="submit" id="registerButton" disabled>Register</button>
+
+            <p class="signin-text">Already have an account? <a href="logIn.html" class="signin-link">Sign In</a></p>
+
+
+        </form>
+    </div>
+
+    <footer>
+        <p style="text-align: center; margin-top: 20px; font-size: 14px; color: #555;">
+            © 2025 Binibirocha. All Rights Reserved.  
+            <br>All images used are copyrighted by Niantic. This project is for educational purposes only, and no copyright infringement is intended.
+        </p>
+    </footer>
+    
+    
+    
+    <script src="signInScript.js"></script>
+</body>
+</html>
