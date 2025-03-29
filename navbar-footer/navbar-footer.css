@@ -43,15 +43,8 @@ body {
     margin-right: 1px;
 }
 
-.navbar a {
-    text-decoration: none;
-    color: #023247; 
-    font-size: 17px;
-    font-weight: bold;
-}
-
 .navbar .links {
-    margin-left: 500px;
+    margin-left: 420px;
     display: flex;
     gap: 20px;
 }
@@ -250,18 +243,6 @@ strong {
     }
 }
 
-@media (max-width: 1000px) {
-    .navbar {
-        flex-direction: column;
-        align-items: center;
-    }
-    .navbar .links {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
-}
-
 /* footer */
 footer {
     background: linear-gradient(to bottom right, #97adb8, #061738);
@@ -453,12 +434,95 @@ footer {
     max-width: 150px; 
 }
 
-@media (max-width: 1000px) {
-    .footer-container {
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    .navbar {
+        padding: 15px 5%;
+    }
+    
+    .navbar .links {
+        margin-left: 0;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .btn {
+        width: 7rem;
+        height: 2.2rem;
+        font-size: 12px;
+    }
+
+    .footer-content {
         flex-direction: column;
         align-items: center;
     }
-    .footer-bottom {
+}
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
         text-align: center;
+    }
+
+    .navbar .links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .btn {
+        width: 6.5rem;
+        height: 2rem;
+        font-size: 11px;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .banner {
+        font-size: 10px;
+        padding: 5px;
+    }
+
+    .navbar {
+        padding: 8px 3%;
+    }
+
+    .navbar .logo img {
+        height: 35px;
+    }
+
+    .navbar .links a {
+        font-size: 12px;
+        padding: 5px 8px;
+    }
+
+    .btn {
+        width: 5.5rem;
+        height: 1.6rem;
+        font-size: 9px;
+    }
+
+    .footer-logos img {
+        height: 35px;
+    }
+
+    .footer-links a {
+        font-size: 12px;
+    }
+
+    .footer-disclaimer,
+    .footer-policy a,
+    .copyright {
+        font-size: 10px;
+    }
+
+    .footer-group-logo {
+        max-width: 120px;
     }
 }
