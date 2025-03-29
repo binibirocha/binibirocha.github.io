@@ -1,0 +1,177 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* 🔹 Container: Centered and Responsive */
+.container {
+    width: 90%;
+    max-width: 400px;
+    background: white;
+    padding: 25px;
+    margin: 50px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 🔹 Title Styling */
+h1 {
+    color: #ffcb05;
+    text-shadow: 1px 1px 2px #3b4cca;
+}
+
+/* 🔹 Form Layout */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* 🔹 Labels */
+label {
+    font-weight: bold;
+    margin: 10px 0 5px;
+    text-align: left;
+}
+
+/* 🔹 Input Fields */
+input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+}
+
+/* 🔹 Focus Effect on Inputs */
+input:focus {
+    border-color: #3b4cca;
+    outline: none;
+}
+
+/* 🔹 Adjusted Spacing for Confirm Password */
+#confirmPassword {
+    margin-top: 15px;
+}
+
+/* 🔹 Password Input with Eye Icon */
+.password-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+/* 🔹 Password Fields with Proper Padding */
+.password-container input {
+    width: 100%;
+    padding-right: 45px; /* Space for the eye icon */
+}
+
+/* 🔹 Eye Icon Styling */
+.password-container .toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 60%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 18px;
+    color: #333;
+}
+
+.toggle-password:hover {
+    color: #3b4cca;
+}
+
+/* 🔹 Password Requirements */
+#password-requirements {
+    display: none;
+    list-style: none;
+    padding: 0;
+    font-size: 14px;
+    color: red;
+    margin-top: 5px;
+    text-align: left;
+}
+
+/* 🔹 Make valid password rules turn green */
+#password-requirements li.valid {
+    color: green;
+}
+
+/* 🔹 Password Match Message */
+#password-match-msg {
+    font-size: 14px;
+    margin-top: 5px;
+    color: red;
+    display: none;
+}
+
+/* 🔹 Register Button */
+button {
+    background-color: #3b4cca;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+/* 🔹 Hover Effect for Register Button */
+button:hover {
+    background-color: #2a2fa4;
+}
+
+/* 🔹 Disabled Register Button */
+button:disabled {
+    background-color: #cccccc52;
+    cursor: not-allowed;
+}
+
+/* 🔹 Player ID & IGN Field Styling */
+#playerID,
+#ign {
+    width: 100%;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+}
+
+/* 🔹 Responsive Adjustments */
+@media (max-width: 450px) {
+    .container {
+        width: 95%;
+        padding: 20px;
+    }
+    
+    .password-container input {
+        padding-right: 40px;
+    }
+    
+    .toggle-password {
+        right: 12px;
+    }
+}
+
+/* Sign-in text below register button */
+.signin-text {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #333;
+}
+
+.signin-link {
+    color: #3b4cca;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.signin-link:hover {
+    color: #2a2fa4;
+    text-decoration: underline;
+}
