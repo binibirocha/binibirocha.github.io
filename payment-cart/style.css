@@ -1,0 +1,415 @@
+@import url('https://fonts.googleapis.com/css2?family=Bubbler+One&family=Fuzzy+Bubbles:wght@400;700&family=Hachi+Maru+Pop&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #9EB8D9;
+}
+
+header{
+    background-color: #7C93C3;
+    position: sticky;
+    width: 100%;
+}
+
+header .navbar{
+    padding: 40px;
+    padding-left: 60px;
+    padding-right: 60px;
+    display: flex;
+    justify-content: space-between;
+}
+
+header .navbar a{
+    text-decoration: none;
+    color: #EEF5FF;
+}
+
+header .navbar .logo-text{
+    font-size: 35px;
+}
+
+header .navbar ul{
+    list-style: none;
+}
+
+header .navbar ul li{
+    font-size: 25px;
+}
+
+header .navbar ul li a:hover{
+    color: #A25772;
+    font-size: 35px;
+    transition: 0.2s;
+}
+
+.card {
+    position: static;
+    width: 190px;
+    height: 254px;
+    background: #07182E;
+    position: relative;
+    display: flex;
+    place-content: center;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 20px;
+    top: 100px;
+    left: 600px;
+}
+
+.card h2 {
+    z-index: 1;
+    color: white;
+    font-size: 2em;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    width: 100px;
+    background-image: linear-gradient(180deg, rgb(0, 183, 255), rgb(255, 48, 255));
+    height: 130%;
+    animation: rotBGimg 3s linear infinite;
+    transition: all 0.2s linear;
+}
+
+@keyframes rotBGimg {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.card::after {
+    content: '';
+    position: absolute;
+    background: #07182E;
+    inset: 5px;
+    border-radius: 15px;
+}
+
+.content h2 {
+    color: #184e4e;
+}
+.content p {
+    color: #527b7b;
+}
+.price {
+    color: white;
+    padding: 10px 15px;
+    border-radius: 20px;
+    display: inline-block;
+    font-weight: bold;
+    align-self: flex-start;
+    margin-top: auto;
+}
+.featured-tag {
+    color: white;
+    padding: 6px 12px;
+    font-size: 12px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+header .navbar .cart-icon .cart-container {
+    position: relative;
+    display: inline-block;
+}
+
+header .navbar .cart-icon .cart-container .cart-badge{
+    background-color: #A25772;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    width: 18px;
+    height: 18px;
+    display: none;
+    border-radius: 50%;
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    text-align: center;
+    line-height: 18px;
+}
+
+.wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.thirteen h1 {
+    position: relative;
+    width: 250px;
+    margin: auto;
+    padding: 5px 11px 3px 11px;
+    border: 2px solid #7C93C3;
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0px;
+    white-space: nowrap;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-radius: 30px;
+    color: #A25772;
+}
+  
+.thirteen h1::before,.thirteen h1::after {
+    content: '';
+    position: absolute;
+    bottom: 12px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: #A25772;
+}
+  
+.thirteen h1::before {
+    left: -20px;
+}
+  
+.thirteen h1::after {
+    right: -20px;
+}
+
+.project {
+    display: flex;
+}
+.shop {
+    flex: 75%;
+}
+.box {
+    display: flex;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    background: #fff;
+    transition: all .6s ease;
+    border-radius: 30px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.box:hover {
+    border: none;
+    transform: scale(1.01);
+}
+.box img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+}
+.content {
+    padding: 20px;
+    width: 100%;
+    position: relative;
+}
+.content h3 {
+    margin-bottom: 30px;
+    font-weight: 800;
+}
+.content h4 {
+    margin-bottom: 50px;
+}
+
+.content .unit{
+    position: relative;
+    bottom: 15px;
+    font-weight: 550;
+    text-decoration: underline dotted;
+
+}
+.btn-area {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 25px;
+    background-color: #7C93C3;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn2{
+    color: white;
+}
+
+.btn-area i{
+    color: white;
+}
+
+.btn-area:hover {
+    background-color: #A25772;
+    color: #fff;
+    font-weight: 600;
+}
+.unit {
+    display: flex;
+    align-items: center;
+}
+.quantity-controls {
+    display: flex;
+    align-items: center;
+}
+.quantity-input {
+    width: 40px;
+    padding: 5px;
+    text-align: center;
+    margin: 0 5px;
+}
+.decrease-quantity, .increase-quantity {
+    padding: 8px 15px;
+    cursor: pointer;
+    border: 2px solid #9EB8D9;
+    background-color: #9EB8D9;
+    color: #3a71a9;
+    border-radius: 400px;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.decrease-quantity:hover, .increase-quantity:hover {
+    background-color: #A25772;
+    border-color: #A25772;
+    color: white;
+}
+
+.decrease-quantity svg, .increase-quantity svg {
+    width: 16px;
+    height: 16px;
+}
+
+.right-bar {
+    flex: 25%;
+    margin-left: 20px;
+    padding: 20px;
+    padding-top: 40px;
+    height: 300px;
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.right-bar hr {
+    margin-bottom: 25px;
+}
+
+.right-bar p {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    font-size: 20px;
+}
+
+.right-bar p span:first-child { /* Selects the first span in each p */
+    font-weight: bold; /* Makes the label bold */
+}
+
+.right-bar a {
+    background-color: #7C93C3;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    font-weight: 900;
+    border-radius: 50px;
+}
+
+.right-bar i {
+    margin-right: 15px;
+}
+
+.right-bar a:hover {
+    background-color: #A25772;
+}
+
+hr.hr-16 {
+    border: 0;
+    border-top: 1px dashed #8c8c8c;
+    text-align: center;
+}
+
+hr.hr-16:after {
+    content: '\002702';
+    display: inline-block;
+    position: relative;
+    top: -13px;
+    padding: 0 3px;
+    background: #fff;
+    color: #8c8c8c;
+    font-size: 18px;
+}
+
+@media screen and (max-width: 700px) {
+    .content h3 {
+        margin-bottom: 15px;
+    }
+    .content h4 {
+        margin-bottom: 20px;
+    }
+    .btn2 {
+        display: none;
+    }
+    .box {
+        height: 150px;
+    }
+    .box img {
+        height: 150px;
+        width: 200px;
+    }
+}
+@media screen and (max-width: 900px) {
+    .project {
+        flex-direction: column;
+    }
+    .right-bar {
+        margin-left: 0;
+        margin-bottom: 20px;
+    }
+}
+@media screen and (max-width: 1250px) {
+    .wrapper {
+        max-width: 95%;
+    }
+}
+
+.quantity-input {
+    width: 40px;
+    padding: 5px;
+    text-align: center;
+    margin: 0 5px;
+    -moz-appearance: textfield; /* Firefox */
+}
+
+.quantity-input::-webkit-outer-spin-button,
+.quantity-input::-webkit-inner-spin-button {
+    -webkit-appearance: none; /* Chrome, Safari, Edge */
+    margin: 0;
+}
+
+/* ... your existing CSS ... */
+
+.cart-container { /* Style the new div */
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 3px solid #EEF5FF;
+    border-radius: 20px;
+    background-color: #EEF5FF;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+}
