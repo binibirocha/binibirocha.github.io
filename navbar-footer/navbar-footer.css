@@ -21,8 +21,12 @@ body {
     justify-content: space-between;
     padding: 1rem 2rem;
     background-image: url(banner.gif);
-    background-position: center top; 
+    background-position: center top;
     background-size: cover;
+}
+
+nav a {
+    text-decoration: none;
 }
 
 .navbar .logo {
@@ -33,13 +37,70 @@ body {
 
 .logo a {
     color: #023247; 
+    font-size: 1.2rem; /* Default font size */
     font-weight: 600;
     text-decoration: none;
+    transition: font-size 0.3s ease; 
 }
 
 .navbar .logo img {
     max-height: 60px;
     width: auto;
+    transition: all 0.3s ease;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Hidden by default */
+    width: 250px;
+    height: 100%;
+    background-color: #384B70;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: right 0.3s ease; /* Smooth slide-in effect */
+    z-index: 1000;
+}
+
+.sidebar.active {
+    right: 0;
+}
+
+.sidebar .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+}
+
+.sidebar-links {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+}
+
+.sidebar-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.sidebar-links a:hover {
+    color: #7C93C3;
+    padding: 10px;
+    border-radius: 20px; 
+    background-color: #152647;
+    box-shadow: 4px 4px 0px rgba(124, 147, 195, 0.8); 
 }
 
 .hamburger {
@@ -52,9 +113,10 @@ body {
 }
 
 .navbar .links {
-    align-items: right;
     display: flex;
     gap: 20px;
+    margin-left: auto; /* Push links to the right */
+    align-items: center; /* Align links vertically with the Sign In button */
 }
 
 .navbar .links a {
@@ -62,9 +124,8 @@ body {
     color: #000; 
     font-size: 1rem;
     font-weight: 600;
-    transition: border-radius 0.3s ease-in-out, background-color 0.3s ease-in-out;
-    padding: 8px 12px;
-    border-radius: 1rem;
+    padding: 7px 12px;
+    transition: font-size 0.3s ease, padding 0.3s ease; 
 }
 
 .navbar .links a:hover {
@@ -75,19 +136,19 @@ body {
 }
 
 .btn {
-    font-size: 1rem;
-    padding: 0.8rem 1.5rem;
+    font-size: 1rem; /* Default font size */
+    padding: 0.7rem 1.5rem; /* Default padding */
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 9rem;
+    width: 9rem; /* Default width */
+    height: 3rem; /* Default height */
     overflow: hidden;
-    height: 3rem;
     background-size: 300% 300%;
     cursor: pointer;
     backdrop-filter: blur(1rem);
     border-radius: 5rem;
-    transition: 0.5s;
+    transition: 0.5s; /* Smooth resizing */
     animation: gradient_301 5s ease infinite;
     border: double 4px transparent;
     background-image: linear-gradient(#6689e9, #1f6899),
@@ -100,6 +161,7 @@ body {
       );
     background-origin: border-box;
     background-clip: content-box, border-box;
+    margin-left: 10px;
 }
   
 #container-stars {
@@ -452,22 +514,37 @@ footer {
 }
 
 /* Responsive Design */
-/* Responsive Design */
 @media (max-width: 1024px) {
     .navbar {
         padding: 15px 20px;
     }
-    
+
+    .navbar .logo img {
+        height: 50px; /* Slightly smaller for medium screens */
+    }
+
+    .navbar .logo a {
+        font-size: 1rem; /* Adjust font size for medium screens */
+    }
+
     .navbar .links {
         gap: 10px;
     }
-    
+
+    .navbar .links a {
+        font-size: 0.9rem; /* Adjust font size for medium screens */
+        padding: 6px 10px; /* Adjust padding for medium screens */
+    }
+
     .btn {
-        padding: 8px 15px;
-        font-size: 14px;
+        font-size: 0.9rem; /* Slightly smaller font size */
+        padding: 0.7rem 1.3rem; /* Adjust padding */
+        width: 9rem; /* Adjust width */
+        height: 2.8rem; /* Adjust height */
     }
 }
 
+/* Responsive Design */
 @media (max-width: 768px) {
     /* Navbar */
     .navbar {
@@ -476,80 +553,70 @@ footer {
         padding: 10px 20px;
     }
 
-    .navbar .links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        background-color: rgba(255, 255, 255, 0.9);
-        width: 100%;
-        padding: 15px 0;
-        text-align: center;
+    .navbar .logo img {
+        height: 40px; /* Smaller for tablet screens */
+    }
+
+    .navbar .logo a {
+        font-size: 0.9rem; /* Adjust font size for tablet screens */
     }
 
     .navbar .links a {
-        display: block;
-        padding: 10px;
+        display: none;
     }
 
     .hamburger {
         display: flex;
-        font-size: 22px;
-        background: none;
-        border: none;
-        cursor: pointer;
     }
 
-    .navbar .links.show {
-        display: block;
+    .btn {
+        font-size: 0.8rem; /* Smaller font size */
+        padding: 0.6rem 1.2rem; /* Adjust padding */
+        width: 8rem; /* Adjust width */
+        height: 2.5rem; /* Adjust height */
     }
 
     /* Footer */
     .footer-content {
-        display: flex;
         flex-direction: column;
         align-items: center;
-        text-align: center;
     }
 
     .footer-logos {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-bottom: 20px; 
-        order: -1;
-    }
-
-    .footer-links-container {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+        order: -1; /* Move logos to the top */
+        margin-bottom: 20px;
     }
 
     .footer-links {
         display: grid;
-        grid-template-columns: repeat(2, 1fr); /* Two columns */
+        grid-template-columns: repeat(2, 1fr);
         gap: 10px;
-        justify-content: center;
-        text-align: left;
+        justify-content: center; /* Center the grid items */
+        text-align: center; /* Center-align the text */
         width: 100%;
         max-width: 300px;
     }
 
     .footer-links a {
         display: block;
-        color: #FFF;
-        text-decoration: none;
         font-size: 14px;
         padding: 5px 0;
-        transition: color 0.3s ease;
     }
 
-    .footer-links a:hover {
-        color: #384B70;
-        text-decoration: underline;
+    .footer-bottom {
+        display: flex;
+        flex-direction: column; /* Stack social media and language selector vertically */
+        align-items: center; /* Center-align both elements */
+        gap: 15px; /* Add spacing between social media icons and language selector */
+    }
+
+    .social-media {
+        justify-content: center; /* Center the social media icons */
+    }
+
+    .language-selector {
+        margin: 0; /* Reset any conflicting margins */
+        text-align: center; /* Center-align the language selector */
     }
 
     .footer-policy {
@@ -561,42 +628,103 @@ footer {
 @media (max-width: 480px) {
     /* Navbar */
     .navbar {
-        flex-direction: row;
+        display: flex;
+        flex-direction: column; /* Stack elements vertically */
+        align-items: flex-start; /* Align logos to the top-left */
         padding: 10px;
+        position: relative; /* Allow positioning of the hamburger */
     }
 
-    .btn {
-        padding: 6px 12px;
-        font-size: 12px;
+    .navbar .logo {
+        display: flex;
+        align-items: center; /* Align logos vertically */
+        gap: 10px; /* Add spacing between logo elements */
+        margin-bottom: 20px; /* Add margin below the logos */
+    }
+
+    .navbar .logo img {
+        height: 35px; /* Adjust logo size for mobile screens */
+    }
+
+    .navbar .btn {
+        font-size: 0.6rem; /* Adjust font size for Sign In button */
+        padding: 0.4rem 0.8rem; /* Adjust padding */
+        width: 20rem; /* Adjust width */
+        height: 2rem; /* Adjust height */
+        margin: 0 auto; /* Center the button horizontally */
+    }
+
+    .hamburger {
+        position: absolute; /* Position the hamburger menu */
+        top: 10px; /* Align it to the top */
+        right: 10px; /* Align it to the right */
+        display: flex;
+        font-size: 1.5rem; /* Adjust hamburger size */
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #000;
     }
 
     /* Footer */
     .footer-content {
         display: flex;
-        flex-direction: row;
-        align-items: center;
-        text-align: center;
+        flex-direction: column; /* Stack footer elements vertically */
+        align-items: center; /* Center-align all elements */
+        gap: 20px; /* Add spacing between footer elements */
+    }
+
+    .footer-logos {
+        display: flex;
+        justify-content: center; /* Center the logos */
+        gap: 20px; /* Add spacing between logos */
+        margin-bottom: 20px; /* Add spacing below the logos */
+    }
+
+    .footer-links-container {
+        display: flex;
+        justify-content: center; /* Center the links container */
+        flex-wrap: wrap; /* Allow wrapping for smaller screens */
+        width: 100%; /* Full width */
+        max-width: 300px; /* Limit the width of the links container */
+        text-align: left; /* Center-align the text */
     }
 
     .footer-links {
-        grid-template-columns: 1fr 1fr;
-        gap: 5px;
+        display: grid; /* Use grid layout for links */
+        grid-template-columns: 1fr 1fr; /* Two equal-width columns */
+        gap: 10px; /* Add spacing between links */
+        justify-content: center; /* Center the grid items */
+        width: 100%; /* Full width */
+    }
+
+    .footer-links a {
+        font-size: 14px; /* Adjust font size */
+        padding: 5px 0; /* Add spacing between links */
+        text-align: center; /* Center-align each link */
+        color: #FFF; /* Ensure text color matches the footer theme */
+        text-decoration: none; /* Remove underline */
+        transition: color 0.3s ease;
+    }
+
+    .footer-bottom {
+        display: flex;
+        flex-direction: column; /* Stack social media and language selector vertically */
+        align-items: center; /* Center-align both elements */
+        gap: 15px; /* Add spacing between social media icons and language selector */
+    }
+
+    .social-media {
+        justify-content: center; /* Center the social media icons */
+    }
+
+    .language-selector {
+        margin: 0; /* Reset any conflicting margins */
+        text-align: center; /* Center-align the language selector */
     }
 
     .footer-policy {
         flex-direction: column;
         text-align: center;
-    }
-
-    .social-media {
-        flex-direction: row;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .language-selector {
-        display: flex;
-        align-items: center;
-        margin-top: 15px;
     }
 }
