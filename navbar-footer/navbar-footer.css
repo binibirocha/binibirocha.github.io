@@ -638,7 +638,6 @@ footer {
     .navbar .logo {
         display: flex;
         align-items: center; /* Align logos vertically */
-        gap: 10px; /* Add spacing between logo elements */
         margin-bottom: 20px; /* Add margin below the logos */
     }
 
@@ -649,7 +648,7 @@ footer {
     .navbar .btn {
         font-size: 0.6rem; /* Adjust font size for Sign In button */
         padding: 0.4rem 0.8rem; /* Adjust padding */
-        width: 20rem; /* Adjust width */
+        width: 10rem; /* Adjust width */
         height: 2rem; /* Adjust height */
         display: flex;
         justify-content: center;
