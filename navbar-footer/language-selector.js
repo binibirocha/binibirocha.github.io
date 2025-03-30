@@ -9,7 +9,7 @@ function redirectToSignIn() {
 
 document.querySelector('.close-btn').addEventListener('click', () => {
     const sidebar = document.getElementById('sidebar');
-    sidebar.classList.remove('active'); // Remove the "active" class to hide the sidebar
+    sidebar.classList.remove('active'); 
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
     languageOptions.forEach(option => {
         option.addEventListener("click", function () {
             languageButton.innerHTML = `🌏︎ ${this.textContent}`; 
-            languageDropdown.style.display = "none"; // Close the dropdown after selecting a language
+            languageDropdown.style.display = "none"; 
         });
     });
 
