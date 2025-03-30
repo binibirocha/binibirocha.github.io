@@ -1,11 +1,16 @@
 function toggleMenu() {
-    let links = document.querySelector(".navbar .links");
-    if (links.style.display === "flex") {
-        links.style.display = "none";
-    } else {
-        links.style.display = "flex";
-    }
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('active');
 }
+
+function redirectToSignIn() {
+    window.location.href = "https://binibirocha.github.io/registration-logIn/signIn.html";
+}
+
+document.querySelector('.close-btn').addEventListener('click', () => {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.remove('active'); // Remove the "active" class to hide the sidebar
+});
 
 document.addEventListener("DOMContentLoaded", function () {
     const languageButton = document.querySelector(".language-button");
