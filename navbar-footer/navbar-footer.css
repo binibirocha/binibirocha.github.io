@@ -634,6 +634,11 @@ footer {
         padding: 10px;
     }
 
+    .navbar .logo a[href="navbar-footer.html"],
+    .navbar .logo h1 {
+        display: none; /* Hide the Web Store link and the "×" on mobile screens */
+    }
+    
     .navbar .logo {
         display: flex;
         align-items: center;
@@ -649,10 +654,10 @@ footer {
     }
 
     .navbar .btn {
-        font-size: 0.6rem; /* Adjust font size for Sign In button */
-        padding: 0.4rem 0.8rem; /* Adjust padding */
-        width: 6rem; /* Adjust width */
-        height: 2rem; /* Adjust height */
+        font-size: 0.5rem; /* Smaller font size for Sign In button */
+        padding: 0.3rem 0.6rem; /* Adjust padding */
+        width: 5rem; /* Smaller width */
+        height: 1.8rem; /* Smaller height */
     }
 
     .hamburger {
@@ -692,7 +697,7 @@ footer {
         flex-wrap: wrap; /* Allow wrapping for smaller screens */
         width: 100%; /* Full width */
         max-width: 300px; /* Limit the width of the links container */
-        text-align: center; /* Center-align the text */
+        text-align: left; /* Center-align the text */
     }
 
     .footer-links {
