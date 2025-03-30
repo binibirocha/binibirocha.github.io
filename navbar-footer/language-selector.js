@@ -1,3 +1,7 @@
+function toggleMenu() {
+    document.getElementById("navMenu").classList.toggle("show");
+}
+
 document.addEventListener("DOMContentLoaded", function () {
     const languageButton = document.querySelector(".language-button");
     const languageDropdown = document.querySelector(".language-dropdown");
