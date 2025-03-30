@@ -1,6 +1,6 @@
 // Function to check if the user is logged in
 function checkAuth() {
-    if (!localStorage.getItem("loggedIn")) {
+    if (!localStorage.getItem("loggedInUser")) {
         window.location.href = "login.html"; // Redirect if not logged in
     }
 }
@@ -9,38 +9,31 @@ function checkAuth() {
 function login(event) {
     event.preventDefault(); // Prevent form submission
 
-    const ign = document.getElementById("ign").value.trim(); // Get IGN
+    const ign = document.getElementById("ign").value.trim();
     const password = document.getElementById("password").value;
 
-    // Retrieve user data using IGN from localStorage
-    const userData = localStorage.getItem(ign);
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+    let user = users.find((u) => u.ign === ign && u.password === password);
 
-    if (!userData) {
+    if (user) {
+        // Save the logged-in user
+        localStorage.setItem("loggedInUser", JSON.stringify(user));
+
+        alert(`✅ Login successful! Welcome back, ${ign}.`);
+        window.location.href = "profile page\profile.html"; // Redirect to profile page
+    } else {
         alert("❌ Invalid username or password.");
-        return;
     }
-
-    const { email, password: storedPassword } = JSON.parse(userData);
-
-    if (password !== storedPassword) {
-        alert("❌ Invalid username or password.");
-        return;
-    }
-
-    // Store login status and redirect
-    localStorage.setItem("loggedIn", "true");
-    alert(`✅ Login successful! Welcome back, ${ign}.`);
-    window.location.href = "profile.html";
 }
 
 // Function to log out the user
 function logout() {
-    localStorage.removeItem("loggedIn"); // Remove login status
+    localStorage.removeItem("loggedInUser"); // Remove user session
     alert("You have been logged out!");
     window.location.href = "login.html"; // Redirect to login page
 }
 
-// Check authentication when loading profile page
+// Check authentication when loading the profile page
 if (window.location.pathname.includes("profile.html")) {
     checkAuth();
 }
