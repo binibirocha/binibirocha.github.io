@@ -649,7 +649,7 @@ footer {
     }
 
     .navbar .btn {
-        display: none;
+        padding: 8rem;
     }
 
     .hamburger {
