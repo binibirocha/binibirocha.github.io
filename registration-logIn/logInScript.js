@@ -9,20 +9,20 @@ function checkAuth() {
 function login(event) {
     event.preventDefault(); // Prevent form submission
 
-    const ign = document.getElementById("ign").value.trim();
+    const loginInput = document.getElementById("ign").value.trim(); // This will accept both IGN and email
     const password = document.getElementById("password").value;
 
     let users = JSON.parse(localStorage.getItem("users")) || [];
-    let user = users.find((u) => u.ign === ign && u.password === password);
+    let user = users.find((u) => (u.ign === loginInput || u.email === loginInput) && u.password === password);
 
     if (user) {
-        // Save the logged-in user
+        // Save the logged-in user in localStorage
         localStorage.setItem("loggedInUser", JSON.stringify(user));
 
-        alert(`✅ Login successful! Welcome back, ${ign}.`);
+        alert(`✅ Login successful! Welcome back, ${user.ign}.`);
         window.location.href = "profile.html"; // Redirect to profile page
     } else {
-        alert("❌ Invalid username or password.");
+        alert("❌ Invalid IGN, email, or password.");
     }
 }
 
