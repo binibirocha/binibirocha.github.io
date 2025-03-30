@@ -24,24 +24,6 @@ document.addEventListener("DOMContentLoaded", function () {
         console.error("Player ID input field not found!");
     }
 
-    // Function to toggle password visibility
-    function togglePassword(inputID, iconID) {
-        let input = document.getElementById(inputID);
-        let icon = document.getElementById(iconID);
-
-        if (input.type === "password") {
-            input.type = "text";
-            icon.classList.remove("fa-eye");
-            icon.classList.add("fa-eye-slash");
-        } else {
-            input.type = "password";
-            icon.classList.remove("fa-eye-slash");
-            icon.classList.add("fa-eye");
-        }
-    }
-
-    window.togglePassword = togglePassword;
-
     // Password validation elements
     const reqLength = document.getElementById("req-length");
     const reqUppercase = document.getElementById("req-uppercase");
@@ -60,19 +42,10 @@ document.addEventListener("DOMContentLoaded", function () {
         const specialValid = /[@$!%*?&]/.test(password);
 
         reqLength.classList.toggle("valid", lengthValid);
-        reqLength.innerHTML = lengthValid ? "✅ At least 8 characters" : "❌ At least 8 characters";
-
         reqUppercase.classList.toggle("valid", uppercaseValid);
-        reqUppercase.innerHTML = uppercaseValid ? "✅ At least one uppercase letter" : "❌ At least one uppercase letter";
-
         reqLowercase.classList.toggle("valid", lowercaseValid);
-        reqLowercase.innerHTML = lowercaseValid ? "✅ At least one lowercase letter" : "❌ At least one lowercase letter";
-
         reqNumber.classList.toggle("valid", numberValid);
-        reqNumber.innerHTML = numberValid ? "✅ At least one number" : "❌ At least one number";
-
         reqSpecial.classList.toggle("valid", specialValid);
-        reqSpecial.innerHTML = specialValid ? "✅ At least one special character (@, #, $, etc.)" : "❌ At least one special character (@, #, $, etc.)";
 
         passwordRequirements.style.display = (lengthValid && uppercaseValid && lowercaseValid && numberValid && specialValid) ? "none" : "block";
 
@@ -92,7 +65,6 @@ document.addEventListener("DOMContentLoaded", function () {
             passwordMatchMsg.innerHTML = "❌ Passwords do not match!";
             passwordMatchMsg.style.display = "block";
         }
-
         validateForm();
     });
 
@@ -109,7 +81,6 @@ document.addEventListener("DOMContentLoaded", function () {
                               reqSpecial.classList.contains("valid");
 
         const passwordsMatch = confirmPasswordInput.value === passwordInput.value && confirmPasswordInput.value !== "";
-
         const emailValid = emailInput.value.trim() !== "";
         const ignValid = ignInput.value.trim() !== "";
 
@@ -124,10 +95,15 @@ document.addEventListener("DOMContentLoaded", function () {
         event.preventDefault();
 
         const ign = ignInput.value.trim();
+        let users = JSON.parse(localStorage.getItem("users")) || [];
 
-        // Check if IGN is already taken
-        if (localStorage.getItem(ign)) {
+        // Check if IGN or Email is already taken
+        if (users.some(user => user.ign === ign)) {
             alert("This IGN is already taken. Please choose another.");
+            return;
+        }
+        if (users.some(user => user.email === emailInput.value)) {
+            alert("This email is already registered. Please use another.");
             return;
         }
 
@@ -135,42 +111,37 @@ document.addEventListener("DOMContentLoaded", function () {
             playerID: playerIDInput.value,
             email: emailInput.value,
             ign: ign,
-            password: passwordInput.value
+            password: passwordInput.value,
+            level: "1",
+            team: "No Team"
         };
 
-        // Save user with IGN as the key
-        localStorage.setItem(ign, JSON.stringify(userData));
+        users.push(userData);
+        localStorage.setItem("users", JSON.stringify(users));
 
-        alert("Registration successful! Redirecting to login...");
-        window.location.href = "logIn.html";
+        // Automatically log in the new user
+        localStorage.setItem("loggedInUser", JSON.stringify(userData));
+
+        alert("Registration successful! Redirecting to profile...");
+        window.location.href = "profile.html";
     });
 
-    // 🔹 Login Form Validation
+    // 🔹 Login Function
     document.getElementById("loginForm").addEventListener("submit", function (event) {
         event.preventDefault();
 
         const ign = document.getElementById("ign").value.trim();
         const password = document.getElementById("password").value;
 
-        console.log("Attempting login with IGN:", ign); // Debugging line
+        let users = JSON.parse(localStorage.getItem("users")) || [];
+        let user = users.find(u => u.ign === ign && u.password === password);
 
-        const storedUser = localStorage.getItem(ign);
-
-        if (!storedUser) {
-            alert("❌ Username not found. Please register first.");
-            return;
+        if (user) {
+            localStorage.setItem("loggedInUser", JSON.stringify(user)); // Save logged-in user
+            alert(`✅ Login successful! Welcome back, ${ign}.`);
+            window.location.href = "profile page\profile.html"; // Redirect to profile page
+        } else {
+            alert("❌ Invalid username or password!");
         }
-
-        const userData = JSON.parse(storedUser);
-
-        console.log("Stored User Data:", userData); // Debugging line
-
-        if (password !== userData.password) {
-            alert("❌ Incorrect password. Please try again.");
-            return;
-        }
-
-        alert(`✅ Login successful! Welcome back, ${ign}.`);
-        window.location.href = "dashboard.html"; // Redirect after successful login
     });
 });

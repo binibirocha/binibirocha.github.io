@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon GO Trainer Profile</title>
+    <link rel="stylesheet" href="profileStyles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+    <div class="profile-container">
+        <!-- Sidebar Section -->
+        <aside class="sidebar">
+            <div class="profile-card">
+                <img src="trainer.jpg" alt="Trainer Avatar" class="profile-pic">
+                <h2 id="profile-name">Trainer</h2>
+                <p>Email: <span id="profile-email">No Email</span></p>
+                <p>Level: <span id="profile-level">1</span></p>
+                <p>Team: <span id="profile-team">No Team</span></p>
+                <p>Player ID: <span id="profile-player-id">0000 0000 0000</span></p>
+
+
+                <ul class="stats">
+                    <li><strong>250</strong> Pokédex</li>
+                    <li><strong>Dragonite</strong> Buddy Pokémon</li>
+                    <li><strong>10</strong> Gym Badges</li>
+                </ul>
+
+                <a href="#" class="view-profile-btn">View Public Profile</a>
+            </div>
+        </aside>
+
+        <!-- Main Section -->
+        <main class="settings-panel">
+            <div class="settings-header">
+                <h3>Account Settings</h3>
+                <nav>
+                    <a href="#" class="active">Account Settings</a>
+                    <a href="#">Game Stats</a>
+                    <a href="#">Notifications</a>
+                </nav>
+            </div>
+
+            <form class="settings-form">
+                <div class="form-group">
+                    <label for="trainer-name">Trainer Name</label>
+                    <input type="text" id="trainer-name" value="Trainer Anna">
+                </div>
+
+                <div class="form-group">
+                    <label for="trainer-level">Trainer Level</label>
+                    <input type="number" id="trainer-level" value="35">
+                </div>
+
+                <div class="form-group">
+                    <label for="team">Team</label>
+                    <select id="team">
+                        <option selected>Team Mystic</option>
+                        <option>Team Valor</option>
+                        <option>Team Instinct</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="friend-code">Friend Code</label>
+                    <input type="text" id="friend-code" value="1234 5678 9012">
+                </div>
+
+                <div class="form-group">
+                    <label for="country">Country</label>
+                    <select id="country">
+                        <option selected>Philippines</option>
+                        <option>United States</option>
+                        <option>Japan</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="update-btn">Update</button>
+            </form>
+        </main>
+    </div>
+</body>
+</html>
