@@ -636,11 +636,12 @@ footer {
     }
 
     .navbar .logo {
-        position: absolute;
-        top: 10px; /* Align it to the top */
-        left: 10px; 
-        gap: 3px; /* Add spacing between logo elements */
-        margin-bottom: 20px; /* Add margin below the logos */
+        display: flex;
+        align-items: left; 
+        justify-content: flex-start; /* Align logos to the left */
+        gap: 10px; /* Add spacing between logo elements */
+        width: 100%; /* Ensure the logo container spans the full width */
+        margin-bottom: 20px;/* Add margin below the logos */
     }
 
     .navbar .logo img {
