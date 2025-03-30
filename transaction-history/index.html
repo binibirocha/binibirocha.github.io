@@ -3,168 +3,294 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transaction History</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Pokémon GO Web Store - Transaction History</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
-
-    <div class="container">
-        <h1>Transaction History</h1>
-        <table class="transaction-table">
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Item</th>
-                    <th>Order ID</th>
-                    <th>Transaction Number</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Transaction Rows -->
-                <tr>
-                    <td>03/30/2025</td>
-                    <td>Super Incubator</td>
-                    <td>12345678</td>
-                    <td>789456123</td>
-                    <td>Completed</td>
-                </tr>
-                <tr>
-                    <td>03/30/2025</td>
-                    <td>Max Mushroom</td>
-                    <td>12345679</td>
-                    <td>789456124</td>
-                    <td>Completed</td>
-                </tr>
-                <tr>
-                    <td>03/30/2025</td>
-                    <td>Max Particle Pack</td>
-                    <td>12345680</td>
-                    <td>789456125</td>
-                    <td>Completed</td>
-                </tr>
-                <tr>
-                    <td>03/30/2025</td>
-                    <td>Ticket Box</td>
-                    <td>12345681</td>
-                    <td>789456126</td>
-                    <td>Completed</td>
-                </tr>
-                <tr>
-                    <td>03/30/2025</td>
-                    <td>Battle Pass</td>
-                    <td>12345682</td>
-                    <td>789456127</td>
-                    <td>Completed</td>
-                </tr>
-                <tr>
-                    <td>03/30/2025</td>
-                    <td>Max Revive</td>
-                    <td>12345683</td>
-                    <td>789456128</td>
-                    <td>Completed</td>
-                </tr>
-                <tr>
-                    <td>03/30/2025</td>
-                    <td>Egg Incubator</td>
-                    <td>12345684</td>
-                    <td>789456129</td>
-                    <td>Completed</td>
-                </tr>
-                <tr>
-                    <td>03/30/2025</td>
-                    <td>Ultra Trainer Bundle</td>
-                    <td>12345685</td>
-                    <td>789456130</td>
-                    <td>Completed</td>
-                </tr>
-                <tr>
-                    <td>03/30/2025</td>
-                    <td>GO Starter Bundle</td>
-                    <td>12345686</td>
-                    <td>789456131</td>
-                    <td>Completed</td>
-                </tr>
-                <tr>
-                    <td>03/30/2025</td>
-                    <td>Mastery Box</td>
-                    <td>12345687</td>
-                    <td>789456132</td>
-                    <td>Completed</td>
-                </tr>
-                <tr>
-                    <td>03/30/2025</td>
-                    <td>Ultra Raid Box</td>
-                    <td>12345688</td>
-                    <td>789456133</td>
-                    <td>Completed</td>
-                </tr>
-                <tr>
-                    <td>03/30/2025</td>
-                    <td>Ultra Trainer Bundle</td>
-                    <td>12345689</td>
-                    <td>789456134</td>
-                    <td>Completed</td>
-                </tr>
-                <tr>
-                    <td>03/30/2025</td>
-                    <td>GO Starter Bundle</td>
-                    <td>12345690</td>
-                    <td>789456135</td>
-                    <td>Completed</td>
-                </tr>
-                <tr>
-                    <td>03/30/2025</td>
-                    <td>Mastery Box</td>
-                    <td>12345691</td>
-                    <td>789456136</td>
-                    <td>Completed</td>
-                </tr>
-                <tr>
-                    <td>03/30/2025</td>
-                    <td>Ultra Raid Box</td>
-                    <td>12345692</td>
-                    <td>789456137</td>
-                    <td>Completed</td>
-                </tr>
-                <tr>
-                    <td>03/30/2025</td>
-                    <td>Super Incubator</td>
-                    <td>12345693</td>
-                    <td>789456138</td>
-                    <td>Completed</td>
-                </tr>
-                <tr>
-                    <td>03/30/2025</td>
-                    <td>Max Mushroom</td>
-                    <td>12345694</td>
-                    <td>789456139</td>
-                    <td>Completed</td>
-                </tr>
-                <tr>
-                    <td>03/30/2025</td>
-                    <td>Max Particle Pack</td>
-                    <td>12345695</td>
-                    <td>789456140</td>
-                    <td>Completed</td>
-                </tr>
-                <tr>
-                    <td>03/30/2025</td>
-                    <td>Ticket Box</td>
-                    <td>12345696</td>
-                    <td>789456141</td>
-                    <td>Completed</td>
-                </tr>
-                <tr>
-                    <td>03/30/2025</td>
-                    <td>Battle Pass</td>
-                    <td>12345697</td>
-                    <td>789456142</td>
-                    <td>Completed</td>
-                </tr>
-            </tbody>
-        </table>
+    <!-- navbar -->
+    <div class="banner">
+        15% discount for your first Web Store purchase on any item $9.99 or more!
     </div>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="navbar-footer.html">
+                <img src="pokemonlogo.png" alt="Pokémon GO Logo">
+            </a>
+            <a>Web Store</a>
+            <h1>×</h1>
+            <img src="binibirocha-logo.png" alt="Binibirocha Group Logo" class="group-logo">
+        </div>
+        <div class="links">
+            <a href="https://store.pokemongolive.com/offer-redemption" target="_blank" rel="noopener noreferrer">Code Redemption</a>
+            <a href="https://tickets.nianticlabs.com/events/#/login?returnUrl=%2Feventlisting&appId=pgo" target="_blank" rel="noopener noreferrer">Event Ticketing</a>
+        </div>
+        <a href="https://binibirocha.github.io/registration-logIn/profile.html">
+            <button class="button">Profile</button>
+        </a>
+    </nav>
+    
+    <!-- body: transaction history -->
+        <header>
+            <div class="header-container">
+                <div class="user-info">
+                    <span class="username">binibirocha</span>
+                    <span class="level">Level 2</span>
+                    <img src="pokecoin.png"><span class="pokecoins">245 PokéCoins</span>
+                    <button class="sign-out">Sign Out</button>
+                </div>
+            </div>
+        </header>
 
+        <div class="container">
+            <video class="video-background" autoplay loop muted>
+                <source src="container-bg.mp4" type="video/mp4">
+            </video>
+            <h2>Transaction History</h2>
+            <table class="transaction-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Item</th>
+                        <th>Order ID</th>
+                        <th>Transaction Number</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>03/01/2025</td>
+                        <td>Super Incubator</td>
+                        <td>98765432</td>
+                        <td>123789456</td>
+                        <td>Completed</td>
+                    </tr>
+                    <tr>
+                        <td>03/05/2025</td>
+                        <td>Max Mushroom</td>
+                        <td>45612378</td>
+                        <td>987321654</td>
+                        <td>Completed</td>
+                    </tr>
+                    <tr>
+                        <td>03/03/2025</td>
+                        <td>Max Particle Pack</td>
+                        <td>78965412</td>
+                        <td>654987321</td>
+                        <td>Completed</td>
+                    </tr>
+                    <tr>
+                        <td>03/10/2025</td>
+                        <td>Ticket Box</td>
+                        <td>32198765</td>
+                        <td>789123654</td>
+                        <td>Completed</td>
+                    </tr>
+                    <tr>
+                        <td>03/07/2025</td>
+                        <td>Battle Pass</td>
+                        <td>65432198</td>
+                        <td>321654987</td>
+                        <td>Completed</td>
+                    </tr>
+                    <tr>
+                        <td>03/15/2025</td>
+                        <td>Max Revive</td>
+                        <td>12345678</td>
+                        <td>987654321</td>
+                        <td>Completed</td>
+                    </tr>
+                    <tr>
+                        <td>03/12/2025</td>
+                        <td>Egg Incubator</td>
+                        <td>78912345</td>
+                        <td>456789123</td>
+                        <td>Completed</td>
+                    </tr>
+                    <tr>
+                        <td>03/18/2025</td>
+                        <td>Ultra Trainer Bundle</td>
+                        <td>32165498</td>
+                        <td>654123789</td>
+                        <td>Completed</td>
+                    </tr>
+                    <tr>
+                        <td>03/20/2025</td>
+                        <td>GO Starter Bundle</td>
+                        <td>98732165</td>
+                        <td>123456789</td>
+                        <td>Completed</td>
+                    </tr>
+                    <tr>
+                        <td>03/08/2025</td>
+                        <td>Mastery Box</td>
+                        <td>45678912</td>
+                        <td>789654123</td>
+                        <td>Completed</td>
+                    </tr>
+                    <tr>
+                        <td>03/02/2025</td>
+                        <td>Ultra Raid Box</td>
+                        <td>65498732</td>
+                        <td>321987654</td>
+                        <td>Completed</td>
+                    </tr>
+                    <tr>
+                        <td>03/14/2025</td>
+                        <td>Super Incubator</td>
+                        <td>12378945</td>
+                        <td>987123654</td>
+                        <td>Completed</td>
+                    </tr>
+                    <tr>
+                        <td>03/06/2025</td>
+                        <td>Max Mushroom</td>
+                        <td>78932165</td>
+                        <td>654789123</td>
+                        <td>Completed</td>
+                    </tr>
+                    <tr>
+                        <td>03/17/2025</td>
+                        <td>Max Particle Pack</td>
+                        <td>32198745</td>
+                        <td>123654789</td>
+                        <td>Completed</td>
+                    </tr>
+                    <tr>
+                        <td>03/09/2025</td>
+                        <td>Ticket Box</td>
+                        <td>45612398</td>
+                        <td>789321654</td>
+                        <td>Completed</td>
+                    </tr>
+                    <tr>
+                        <td>03/11/2025</td>
+                        <td>Battle Pass</td>
+                        <td>65478912</td>
+                        <td>321456987</td>
+                        <td>Completed</td>
+                    </tr>
+                    <tr>
+                        <td>03/04/2025</td>
+                        <td>Max Revive</td>
+                        <td>98765412</td>
+                        <td>456123789</td>
+                        <td>Completed</td>
+                    </tr>
+                    <tr>
+                        <td>03/13/2025</td>
+                        <td>Egg Incubator</td>
+                        <td>12345698</td>
+                        <td>789987123</td>
+                        <td>Completed</td>
+                    </tr>
+                    <tr>
+                        <td>03/16/2025</td>
+                        <td>Ultra Trainer Bundle</td>
+                        <td>78965432</td>
+                        <td>654321987</td>
+                        <td>Completed</td>
+                    </tr>
+                    <tr>
+                        <td>03/19/2025</td>
+                        <td>GO Starter Bundle</td>
+                        <td>32112345</td>
+                        <td>987789654</td>
+                        <td>Completed</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    <!-- footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-links-container">
+                    <div class="footer-links">
+                        <div class="column">
+                            <a href="https://pokemongolive.com/" target="_blank" rel="noopener noreferrer">Pokémon GO Live</a>
+                            <a href="https://pokemongolive.com/leaderboard" target="_blank" rel="noopener noreferrer">Leaderboard</a>
+                            <a href="https://pokemongolive.com/events" target="_blank" rel="noopener noreferrer">Events</a>
+                            <a href="https://pokemongolive.com/news" target="_blank" rel="noopener noreferrer">News</a>
+                        </div>
+                        <div class="column">
+                            <a href="https://store.pokemongolive.com/support" target="_blank" rel="noopener noreferrer">Support</a>
+                            <a href="https://store.pokemongolive.com/offer-redemption" target="_blank" rel="noopener noreferrer">Code Redemption</a>
+                            <a href="https://store.pokemongolive.com/offer-redemption" target="_blank" rel="noopener noreferrer">Community Day Map</a>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="footer-logos">
+                    <a href="https://www.pokemon.com/us" target="_blank">
+                        <img src="company-logo.png" alt="The Pokémon Company">
+                    </a>
+                    <a href="https://nianticlabs.com/" target="_blank">
+                        <img src="niantic-logo.png" alt="Niantic">
+                    </a>
+                </div>
+                
+            </div>
+            
+            <div class="footer-actions">
+                <div class="footer-bottom">
+                    <div class="social-media">
+                        <a href="https://www.youtube.com/@pokemongo" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.facebook.com/PokemonGO/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/pokemongoapp/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@pokemongo" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                    
+                    <div class="language-selector">
+                        <button class="language-button">🌏︎ English</button>
+                        <div class="language-dropdown">
+                            <div class="language-option">Deutsch</div>
+                            <div class="language-option">English</div>
+                            <div class="language-option">Español (ES)</div>
+                            <div class="language-option">Español (MX)</div>
+                            <div class="language-option">Français</div>
+                            <div class="language-option">Indonesia</div>
+                            <div class="language-option">Italiano</div>
+                            <div class="language-option">日本語</div>
+                            <div class="language-option">한국어</div>
+                            <div class="language-option">Português</div>
+                            <div class="language-option">Русский</div>
+                            <div class="language-option">ไทย</div>
+                            <div class="language-option">Türkçe</div>
+                            <div class="language-option">中文</div>
+                            <div class="language-option">हिन्दी</div>
+                        </div>
+                    </div>                
+                </div>
+            </div>
+    
+            <div class="footer-divider"></div>
+    
+            <div class="footer-policy">
+                <a href="https://nianticlabs.com/terms" target="_blank" rel="noopener noreferrer">Terms of Service</a>
+                <a href="https://nianticlabs.com/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+                <a href="https://nianticlabs.com/ip-policy" target="_blank" rel="noopener noreferrer">Copyright Policy</a>
+                <a href="https://nianticlabs.com/guidelines" target="_blank" rel="noopener noreferrer">Player Guidelines</a>
+            </div>
+            
+            <div class="footer-divider"></div>
+
+            <p class="language-support">
+                Pokémon GO is playable in English, French, German, Italian, Russian, Japanese, Spanish, Traditional Chinese, Korean, Thai, Brazilian Portuguese, Turkish, and Indonesian.
+            </p>
+            <br>
+            <p class="copyright">
+                ©2023 Niantic, Inc. ©2023 Pokémon. ©1995–2023 Nintendo / Creatures Inc. / GAME FREAK inc. Pokémon and Pokémon character names are trademarks of Nintendo. Apple and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc. Android, Google Play and the Google Play logo are trademarks of Google LLC. During gameplay, please be aware of your surroundings and play safely.
+            </p>
+            <div class="footer-disclaimer">
+                <p>© Niantic. The copyright owner of the images used is Niantic. This project is for educational purposes only and no copyright infringement is intended.</p>
+            </div>
+            <img src="binibirocha-logo.png" alt="Binibirocha Group Logo" class="footer-group-logo">
+        </div>
+    </footer>
+
+    <script src="language-selector.js"></script>
+    
 </body>
 </html>

@@ -6,6 +6,7 @@ body {
     padding: 0;
 }
 
+/* navbar */
 .banner {
     background-color: #6795f7b9;
     text-align: center;
@@ -314,6 +315,7 @@ strong {
     }
 }
 
+/* footer */
 footer {
     background: linear-gradient(to bottom right, #97adb8, #061738);
     color: #9EB8D9;
@@ -511,6 +513,7 @@ footer {
     max-width: 150px; 
 }
 
+/* responsiveness */
 @media (max-width: 1024px) {
     .navbar {
         padding: 15px 20px;
@@ -702,7 +705,7 @@ footer {
         text-decoration: none;
         transition: color 0.3s ease;
     }
-    
+
     .footer-bottom {
         display: flex;
         flex-direction: column;
