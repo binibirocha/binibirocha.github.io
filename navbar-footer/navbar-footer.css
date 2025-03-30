@@ -649,7 +649,7 @@ footer {
     }
 
     .btn {
-        font-size: 0.6rem; /* Adjust font size for Sign In button */
+        font-size: 6px; /* Adjust font size for Sign In button */
         padding: 0.4rem 0.8rem; /* Adjust padding */
         width: 6rem; /* Adjust width */
         height: 2rem; /* Adjust height */
@@ -683,20 +683,26 @@ footer {
     }
 
     .footer-links-container {
-        display: grid; /* Use grid layout */
-        grid-template-columns: repeat(2, 1fr); /* Two equal-width columns */
+        display: flex; /* Use flexbox for alignment */
+        flex-direction: column; /* Stack links vertically */
+        align-items: center; /* Center-align the links */
+        text-align: center; /* Center-align the text */
         gap: 10px; /* Add spacing between columns */
-        justify-content: center; /* Center the grid items */
         width: 100%; /* Full width */
     }
 
     .footer-links {
-        text-align: left; /* Align text to the left */
+        display: grid; /* Use grid layout for two columns */
+        grid-template-columns: 1fr 1fr; /* Two equal-width columns */
+        gap: 10px; /* Add spacing between links */
+        justify-content: center; /* Center the grid items */
+        width: 100%; /* Full width */
     }
 
     .footer-links a {
         font-size: 14px; /* Adjust font size for mobile screens */
         padding: 5px 0; /* Add spacing between links */
+        text-align: center; /* Center-align each link */
     }
 
     .footer-bottom {
