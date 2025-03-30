@@ -20,8 +20,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // Auto-fill Player ID field
     if (playerIDInput) {
         playerIDInput.value = generatePlayerID();
-    } else {
-        console.error("Player ID input field not found!");
     }
 
     // Password validation elements
@@ -90,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
     emailInput.addEventListener("input", validateForm);
     ignInput.addEventListener("input", validateForm);
 
-    // 🔹 Save Registration Data to Local Storage & Redirect to Login
+    // 🔹 Save Registration Data to Local Storage & Redirect to Login Page
     document.getElementById("registrationForm").addEventListener("submit", function (event) {
         event.preventDefault();
 
@@ -119,29 +117,7 @@ document.addEventListener("DOMContentLoaded", function () {
         users.push(userData);
         localStorage.setItem("users", JSON.stringify(users));
 
-        // Automatically log in the new user
-        localStorage.setItem("loggedInUser", JSON.stringify(userData));
-
-        alert("Registration successful! Redirecting to profile...");
-        window.location.href = "profile.html";
-    });
-
-    // 🔹 Login Function
-    document.getElementById("loginForm").addEventListener("submit", function (event) {
-        event.preventDefault();
-
-        const ign = document.getElementById("ign").value.trim();
-        const password = document.getElementById("password").value;
-
-        let users = JSON.parse(localStorage.getItem("users")) || [];
-        let user = users.find(u => u.ign === ign && u.password === password);
-
-        if (user) {
-            localStorage.setItem("loggedInUser", JSON.stringify(user)); // Save logged-in user
-            alert(`✅ Login successful! Welcome back, ${ign}.`);
-            window.location.href = "profile page\profile.html"; // Redirect to profile page
-        } else {
-            alert("❌ Invalid username or password!");
-        }
+        alert("Registration successful! Redirecting to login page...");
+        window.location.href = "logIn.html"; // ✅ Redirects to login page after registration
     });
 });

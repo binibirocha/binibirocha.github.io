@@ -20,7 +20,7 @@ function login(event) {
         localStorage.setItem("loggedInUser", JSON.stringify(user));
 
         alert(`✅ Login successful! Welcome back, ${ign}.`);
-        window.location.href = "profile page\profile.html"; // Redirect to profile page
+        window.location.href = "profile.html"; // Redirect to profile page
     } else {
         alert("❌ Invalid username or password.");
     }
