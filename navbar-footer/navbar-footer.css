@@ -630,7 +630,7 @@ footer {
     .navbar {
         display: flex;
         flex-direction: column; /* Stack elements vertically */
-        align-items: flex-start; /* Align logos to the top-left */
+        align-items: flex-start; /* Align all child elements to the left */
         padding: 10px;
         position: relative; /* Allow positioning of the hamburger */
     }
@@ -638,7 +638,9 @@ footer {
     .navbar .logo {
         display: flex;
         align-items: center; /* Align logos vertically */
+        justify-content: flex-start; /* Align logos to the left */
         gap: 10px; /* Add spacing between logo elements */
+        width: 100%; /* Ensure the logo container spans the full width */
         margin-bottom: 20px; /* Add margin below the logos */
     }
 
@@ -665,6 +667,7 @@ footer {
         cursor: pointer;
         color: #000;
     }
+    
 
     /* Footer */
     .footer-content {
