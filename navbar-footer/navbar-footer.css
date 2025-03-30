@@ -632,14 +632,13 @@ footer {
         flex-direction: column; /* Stack elements vertically */
         align-items: center; /* Center-align all elements */
         padding: 10px;
-        position: relative; /* Allow positioning of the hamburger */
+        gap: 15px; /* Add spacing between rows */
     }
 
     .navbar .logo {
         display: flex;
-        flex-direction: column; /* Stack logo elements vertically */
-        align-items: center; /* Center-align the logos */
-        gap: 10px; /* Add spacing between logo elements */
+        justify-content: center; /* Center the logos */
+        align-items: center;
     }
 
     .navbar .logo img {
@@ -649,9 +648,8 @@ footer {
     .navbar .btn {
         font-size: 0.6rem; /* Adjust font size for Sign In button */
         padding: 0.4rem 0.8rem; /* Adjust padding */
-        width: 6rem; /* Adjust width */
+        width: 7rem; /* Adjust width */
         height: 2rem; /* Adjust height */
-        margin-top: 10px; /* Add spacing below the logos */
     }
 
     .hamburger {
