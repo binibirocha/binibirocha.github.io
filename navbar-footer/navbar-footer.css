@@ -649,7 +649,13 @@ footer {
     }
 
     .navbar .btn {
-        display: none;
+        font-size: 0.6rem; /* Adjust font size for Sign In button */
+        padding: 0.4rem 0.8rem; /* Adjust padding */
+        width: 20rem; /* Adjust width */
+        height: 2rem; /* Adjust height */
+        display: flex;
+        justify-content: center;
+        margin: 0 auto; /* Center the button horizontally */
     }
 
     .hamburger {
