@@ -648,8 +648,8 @@ footer {
         display: none; /* Hide links on mobile screens */
     }
 
-    .btn {
-        font-size: 6px; /* Adjust font size for Sign In button */
+    .navbar .btn {
+        font-size: 0.6rem; /* Adjust font size for Sign In button */
         padding: 0.4rem 0.8rem; /* Adjust padding */
         width: 6rem; /* Adjust width */
         height: 2rem; /* Adjust height */
@@ -673,26 +673,30 @@ footer {
 
     /* Footer */
     .footer-content {
-        flex-direction: column;
-        align-items: center;
+        display: flex;
+        flex-direction: column; /* Stack footer elements vertically */
+        align-items: center; /* Center-align all elements */
+        gap: 20px; /* Add spacing between footer elements */
     }
 
     .footer-logos {
-        order: -1; /* Move logos to the top */
-        margin-bottom: 20px;
+        display: flex;
+        justify-content: center; /* Center the logos */
+        gap: 20px; /* Add spacing between logos */
+        margin-bottom: 20px; /* Add spacing below the logos */
     }
 
     .footer-links-container {
-        display: flex; /* Use flexbox for alignment */
-        flex-direction: column; /* Stack links vertically */
-        align-items: center; /* Center-align the links */
-        text-align: center; /* Center-align the text */
-        gap: 10px; /* Add spacing between columns */
+        display: flex;
+        justify-content: center; /* Center the links container */
+        flex-wrap: wrap; /* Allow wrapping for smaller screens */
         width: 100%; /* Full width */
+        max-width: 300px; /* Limit the width of the links container */
+        text-align: center; /* Center-align the text */
     }
 
     .footer-links {
-        display: grid; /* Use grid layout for two columns */
+        display: grid; /* Use grid layout for links */
         grid-template-columns: 1fr 1fr; /* Two equal-width columns */
         gap: 10px; /* Add spacing between links */
         justify-content: center; /* Center the grid items */
@@ -700,9 +704,12 @@ footer {
     }
 
     .footer-links a {
-        font-size: 14px; /* Adjust font size for mobile screens */
+        font-size: 14px; /* Adjust font size */
         padding: 5px 0; /* Add spacing between links */
         text-align: center; /* Center-align each link */
+        color: #FFF; /* Ensure text color matches the footer theme */
+        text-decoration: none; /* Remove underline */
+        transition: color 0.3s ease;
     }
 
     .footer-bottom {
