@@ -637,18 +637,28 @@ footer {
     }
 
     .navbar .logo a {
-        font-size: 0.8rem; /* Adjust font size for mobile screens */
+        flex-direction: row;
+        font-size: 0.7rem; /* Adjust font size for mobile screens */
+    }
+
+    .navbar .links {
+        display: grid; /* Use grid layout for two columns */
+        grid-template-columns: 1fr 1fr; /* Two equal columns */
+        gap: 10px; /* Add spacing between links */
+        width: 100%; /* Full width */
+        text-align: center; /* Center-align the text */
     }
 
     .navbar .links a {
-        display: none;
+        font-size: 0.8rem; /* Smaller font size for links */
+        padding: 5px 0; /* Adjust padding for smaller screens */
     }
 
     .btn {
-        font-size: 0.7rem; /* Smallest font size */
-        padding: 0.5rem 1rem; /* Adjust padding */
-        width: 7rem; /* Adjust width */
-        height: 2.2rem; /* Adjust height */
+        font-size: 0.4rem; /* Smallest font size for Sign In button */
+        padding: 0.4rem 0.8rem; /* Adjust padding */
+        width: 6rem; /* Adjust width */
+        height: 2rem; /* Adjust height */
     }
 
     /* Footer */

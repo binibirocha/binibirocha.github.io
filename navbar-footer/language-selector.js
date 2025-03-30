@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
     languageOptions.forEach(option => {
         option.addEventListener("click", function () {
             languageButton.innerHTML = `🌏︎ ${this.textContent}`; 
+            languageDropdown.style.display = "none"; // Close the dropdown after selecting a language
         });
     });
 
