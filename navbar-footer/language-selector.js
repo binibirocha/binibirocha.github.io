@@ -1,5 +1,10 @@
 function toggleMenu() {
-    document.getElementById("navMenu").classList.toggle("show");
+    let links = document.querySelector(".navbar .links");
+    if (links.style.display === "flex") {
+        links.style.display = "none";
+    } else {
+        links.style.display = "flex";
+    }
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -14,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     languageOptions.forEach(option => {
         option.addEventListener("click", function () {
-            languageButton.innerHTML = `🌏︎ ${this.textContent} ↴`; 
+            languageButton.innerHTML = `🌏︎ ${this.textContent}`; 
         });
     });
 
