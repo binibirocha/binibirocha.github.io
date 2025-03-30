@@ -638,21 +638,21 @@ footer {
     .navbar .logo {
         display: flex;
         align-items: center; /* Align logos vertically */
-        justify-content: flex-start; /* Align logos to the left */
         gap: 10px; /* Add spacing between logo elements */
-        width: 100%; /* Ensure the logo container spans the full width */
         margin-bottom: 20px; /* Add margin below the logos */
     }
 
     .navbar .logo img {
-        height: 35px; /* Adjust logo size for mobile screens */
+        height: 40px; /* Adjust logo size for mobile screens */
     }
 
     .navbar .btn {
         font-size: 0.6rem; /* Adjust font size for Sign In button */
         padding: 0.4rem 0.8rem; /* Adjust padding */
-        width: 6rem; /* Adjust width */
+        width: 20rem; /* Adjust width */
         height: 2rem; /* Adjust height */
+        display: flex;
+        justify-content: center;
         margin: 0 auto; /* Center the button horizontally */
     }
 
