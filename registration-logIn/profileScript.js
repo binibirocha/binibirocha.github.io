@@ -10,14 +10,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Get elements using correct IDs from your HTML
     const trainerNameInput = document.getElementById("trainer-name");
-    const emailInput = document.getElementById("trainer-email");  
+    const emailInput = document.getElementById("trainer-email");
     const levelInput = document.getElementById("trainer-level");
     const teamSelect = document.getElementById("team");
-    const playerIDInput = document.getElementById("player-id");  
+    const playerIDInput = document.getElementById("player-id");
     const deleteAccountBtn = document.getElementById("delete-account-btn");
     const profilePic = document.querySelector(".profile-pic");
     const avatarInput = document.getElementById("avatarInput");
     const changeAvatarBtn = document.getElementById("changeAvatarBtn");
+    const pokecoinsBalance = document.getElementById("pokecoins-balance"); // PokéCoins balance display
+    const purchaseList = document.getElementById("purchase-list"); // Recent purchases list
 
     // Get modal elements
     const deleteModal = document.getElementById("deleteModal");
@@ -36,6 +38,35 @@ document.addEventListener("DOMContentLoaded", function () {
     if (teamSelect) teamSelect.value = loggedInUser.team || "No Team";
     if (playerIDInput) playerIDInput.value = loggedInUser.playerID || "N/A";
 
+    // Ensure PokéCoins exist in storage
+    if (loggedInUser.pokecoins === undefined) {
+        loggedInUser.pokecoins = 0;
+        localStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
+    }
+
+    // Display PokéCoins balance
+    if (pokecoinsBalance) {
+        pokecoinsBalance.textContent = loggedInUser.pokecoins;
+    }
+
+    // Load and display purchase history
+    if (purchaseList) {
+        let purchases = JSON.parse(localStorage.getItem("purchases_" + loggedInUser.playerID)) || [];
+
+        // Clear list before adding items
+        purchaseList.innerHTML = "";
+
+        if (purchases.length > 0) {
+            purchases.slice(-5).reverse().forEach(purchase => {
+                let li = document.createElement("li");
+                li.textContent = `${purchase.item} ×${purchase.quantity} - ${purchase.date}`;
+                purchaseList.appendChild(li);
+            });
+        } else {
+            purchaseList.innerHTML = "<li>No recent purchases.</li>";
+        }
+    }
+
     // Handle profile update
     const profileForm = document.getElementById("profileForm");
     if (profileForm) {
@@ -52,6 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         email: emailInput.value.trim(),
                         level: levelInput.value,
                         team: teamSelect.value,
+                        pokecoins: loggedInUser.pokecoins, // Keep the PokéCoins balance
                     };
                 }
                 return user;

@@ -327,3 +327,43 @@ body {
 .cancel-btn:hover {
   background: #31b0d5;
 }
+
+.pokecoins-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.pokecoin-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.recent-purchases {
+  margin-top: 20px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.recent-purchases h3 {
+  margin-bottom: 10px;
+}
+
+#purchase-list {
+  list-style: none;
+  padding: 0;
+}
+
+#purchase-list li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+#purchase-list li:last-child {
+  border-bottom: none;
+}
