@@ -630,15 +630,17 @@ footer {
     .navbar {
         display: flex;
         flex-direction: column; /* Stack elements vertically */
-        align-items: flex-start; /* Align all child elements to the left */
+        align-items: center; /* Center-align all child elements */
         padding: 10px;
         position: relative; /* Allow positioning of the hamburger */
     }
 
     .navbar .logo {
         display: flex;
+        justify-content: center; /* Center the logos */
         align-items: center; /* Align logos vertically */
         gap: 10px; /* Add spacing between logo elements */
+        width: 100%; /* Ensure the logo container spans the full width */
         margin-bottom: 20px; /* Add margin below the logos */
     }
 
@@ -647,13 +649,7 @@ footer {
     }
 
     .navbar .btn {
-        font-size: 0.6rem; /* Adjust font size for Sign In button */
-        padding: 0.4rem 0.8rem; /* Adjust padding */
-        width: 20rem; /* Adjust width */
-        height: 2rem; /* Adjust height */
-        display: flex;
-        justify-content: center;
-        margin: 0 auto; /* Center the button horizontally */
+        display: none;
     }
 
     .hamburger {
@@ -663,7 +659,7 @@ footer {
         display: flex;
         font-size: 1.5rem; /* Adjust hamburger size */
         background: none;
-        border: none;
+        border-radius: 5px blue;
         cursor: pointer;
         color: #000;
     }
