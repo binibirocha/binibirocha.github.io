@@ -641,7 +641,7 @@ footer {
         justify-content: flex-start; /* Align logos to the left */
         gap: 10px; /* Add spacing between logo elements */
         width: 100%; /* Ensure the logo container spans the full width */
-        margin-bottom: 20px;/* Add margin below the logos */
+        margin-bottom: 80px;/* Add margin below the logos */
     }
 
     .navbar .logo img {
