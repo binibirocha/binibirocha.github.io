@@ -490,7 +490,7 @@ footer {
 @media screen and (max-width: 480px) {
     .banner {
         text-align: center;
-        font-size: 13px;
+        font-size: 14px;
         padding: 10px;
     }
 
@@ -506,6 +506,7 @@ footer {
     }
 
     .hamburger {
+        display: flex;
         font-size: 22px;
         background: none;
         border: none;
@@ -547,18 +548,20 @@ footer {
         height: 40px;
     }
 
+    .footer-links-container {
+        display: flex;
+    }
+    
     .footer-links {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        text-align: center;
-        gap: 15px;
-        max-width: 300px;
+        gap: 3px;
+        align-items: flex-start;
     }
-
-    .footer-links a {
-        font-size: 13px;
-        color: white;
+    
+    .column {
+        display: flex;
+        flex-direction: column;
+        width: 20px;
     }
 
     .social-media {
@@ -569,17 +572,15 @@ footer {
     }
 
     .social-media img {
-        height: 30px;
+        height: 20px;
     }
 
     .language-selector {
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-top: 15px;
+        margin-top: 10px;
         border: 1px solid white;
-        padding: 8px 15px;
-        border-radius: 25px;
         color: white;
         font-size: 13px;
         cursor: pointer;
