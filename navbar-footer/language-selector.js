@@ -1,3 +1,12 @@
+function toggleMenu() {
+    let links = document.querySelector(".navbar .links");
+    if (links.style.display === "flex") {
+        links.style.display = "none";
+    } else {
+        links.style.display = "flex";
+    }
+}
+
 document.addEventListener("DOMContentLoaded", function () {
     const languageButton = document.querySelector(".language-button");
     const languageDropdown = document.querySelector(".language-dropdown");
@@ -10,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     languageOptions.forEach(option => {
         option.addEventListener("click", function () {
-            languageButton.innerHTML = `🌏︎ ${this.textContent} ↴`; 
+            languageButton.innerHTML = `🌏︎ ${this.textContent}`; 
         });
     });
 

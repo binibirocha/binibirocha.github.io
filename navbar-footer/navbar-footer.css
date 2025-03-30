@@ -12,14 +12,14 @@ body {
     text-align: center;
     padding: 8px;
     color: white;
-    font-size: 14px;
+    font-size: 1rem;
 }
 
 .navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 15px 40px;
+    padding: 1rem 2rem;
     background-image: url(banner.gif);
     background-position: center top; 
     background-size: cover;
@@ -28,8 +28,7 @@ body {
 .navbar .logo {
     display: flex;
     align-items: center;
-    gap: 6px;
-    padding-left: 20px;
+    gap: 10px;
 }
 
 .logo a {
@@ -39,19 +38,21 @@ body {
 }
 
 .navbar .logo img {
-    height: 60px;
-    margin-right: 1px;
+    max-height: 60px;
+    width: auto;
 }
 
-.navbar a {
-    text-decoration: none;
-    color: #023247; 
-    font-size: 17px;
-    font-weight: bold;
+.hamburger {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #000;
 }
 
 .navbar .links {
-    margin-left: 500px;
+    align-items: right;
     display: flex;
     gap: 20px;
 }
@@ -59,11 +60,11 @@ body {
 .navbar .links a {
     text-decoration: none;
     color: #000; 
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 600;
     transition: border-radius 0.3s ease-in-out, background-color 0.3s ease-in-out;
     padding: 8px 12px;
-    border-radius: 5px;
+    border-radius: 1rem;
 }
 
 .navbar .links a:hover {
@@ -74,6 +75,8 @@ body {
 }
 
 .btn {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -87,12 +90,12 @@ body {
     transition: 0.5s;
     animation: gradient_301 5s ease infinite;
     border: double 4px transparent;
-    background-image: linear-gradient(#6689e9, #115888),
+    background-image: linear-gradient(#6689e9, #1f6899),
       linear-gradient(
         137.48deg,
-        #507687 10%,
-        #9EB8D9 45%,
-        #7C93C3 67%,
+        #aadbf1 10%,
+        #297ae4 45%,
+        #7f9bd6 67%,
         #384B70 87%
       );
     background-origin: border-box;
@@ -143,7 +146,7 @@ strong {
   
 .btn:hover #container-stars {
     z-index: 1;
-    background-color: #122870;
+    background-color: #B8001F;
 }
   
 .btn:hover {
@@ -250,22 +253,11 @@ strong {
     }
 }
 
-@media (max-width: 1000px) {
-    .navbar {
-        flex-direction: column;
-        align-items: center;
-    }
-    .navbar .links {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
-}
-
 /* footer */
 footer {
     background: linear-gradient(to bottom right, #97adb8, #061738);
     color: #9EB8D9;
+    padding: 3rem 1rem;
     padding: 40px 20px;
 }
 
@@ -276,18 +268,22 @@ footer {
 
 .footer-content {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
-    align-items: flex-start;
+    gap: 20px;
 }
 
 .footer-links-container {
     display: flex;
-    margin-bottom: 55px;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .footer-links {
     display: flex;
     gap: 5px;
+    flex-direction: row;
+    margin-bottom: 50px;
     align-items: flex-start;
 }
 
@@ -317,6 +313,7 @@ footer {
 }
 
 .footer-logos img {
+    max-width: 100%;
     height: 70px;
     transition: transform 0.3s ease;
 }
@@ -338,8 +335,9 @@ footer {
 }
 
 .social-media a {
+    font-size: 1.5rem;
+    margin: 0 8px;
     color: #FFF;
-    font-size: 24px;
     text-decoration: none;
     transition: color 0.3s ease, transform 0.3s ease;
 }
@@ -453,12 +451,152 @@ footer {
     max-width: 150px; 
 }
 
-@media (max-width: 1000px) {
-    .footer-container {
+/* Responsive Design */
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+    
+    .navbar .links {
+        gap: 10px;
+    }
+    
+    .btn {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Navbar */
+    .navbar {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 10px 20px;
+    }
+
+    .navbar .links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: rgba(255, 255, 255, 0.9);
+        width: 100%;
+        padding: 15px 0;
+        text-align: center;
+    }
+
+    .navbar .links a {
+        display: block;
+        padding: 10px;
+    }
+
+    .hamburger {
+        display: flex;
+        font-size: 22px;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    .navbar .links.show {
+        display: block;
+    }
+
+    /* Footer */
+    .footer-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-logos {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 20px; 
+        order: -1;
+    }
+
+    .footer-links-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-links {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Two columns */
+        gap: 10px;
+        justify-content: center;
+        text-align: left;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .footer-links a {
+        display: block;
+        color: #FFF;
+        text-decoration: none;
+        font-size: 14px;
+        padding: 5px 0;
+        transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+        color: #384B70;
+        text-decoration: underline;
+    }
+
+    .footer-policy {
         flex-direction: column;
         align-items: center;
     }
-    .footer-bottom {
+}
+
+@media (max-width: 480px) {
+    /* Navbar */
+    .navbar {
+        flex-direction: row;
+        padding: 10px;
+    }
+
+    .btn {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    /* Footer */
+    .footer-content {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
         text-align: center;
+    }
+
+    .footer-links {
+        grid-template-columns: 1fr 1fr;
+        gap: 5px;
+    }
+
+    .footer-policy {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .social-media {
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .language-selector {
+        display: flex;
+        align-items: center;
+        margin-top: 15px;
     }
 }
