@@ -8,7 +8,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const passwordMatchMsg = document.getElementById("password-match-msg");
     const registerButton = document.querySelector("button[type='submit']");
 
-    // Function to generate a random Player ID
+    // Password validation elements
+    const reqLength = document.getElementById("req-length");
+    const reqUppercase = document.getElementById("req-uppercase");
+    const reqLowercase = document.getElementById("req-lowercase");
+    const reqNumber = document.getElementById("req-number");
+    const reqSpecial = document.getElementById("req-special");
+
+    // Generate a random Player ID
     function generatePlayerID() {
         return (
             Math.floor(1000 + Math.random() * 9000) + " " +
@@ -22,17 +29,9 @@ document.addEventListener("DOMContentLoaded", function () {
         playerIDInput.value = generatePlayerID();
     }
 
-    // Password validation elements
-    const reqLength = document.getElementById("req-length");
-    const reqUppercase = document.getElementById("req-uppercase");
-    const reqLowercase = document.getElementById("req-lowercase");
-    const reqNumber = document.getElementById("req-number");
-    const reqSpecial = document.getElementById("req-special");
-
     // Function to check password requirements
     function checkPasswordRequirements() {
         const password = passwordInput.value;
-
         const lengthValid = password.length >= 8;
         const uppercaseValid = /[A-Z]/.test(password);
         const lowercaseValid = /[a-z]/.test(password);
@@ -52,8 +51,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     passwordInput.addEventListener("input", checkPasswordRequirements);
 
-    // Check password match
-    confirmPasswordInput.addEventListener("input", function () {
+    // Function to check if passwords match
+    function checkPasswordMatch() {
         if (confirmPasswordInput.value === passwordInput.value && confirmPasswordInput.value !== "") {
             passwordMatchMsg.style.color = "green";
             passwordMatchMsg.innerHTML = "✅ Passwords match!";
@@ -64,8 +63,9 @@ document.addEventListener("DOMContentLoaded", function () {
             passwordMatchMsg.style.display = "block";
         }
         validateForm();
-    });
+    }
 
+    confirmPasswordInput.addEventListener("input", checkPasswordMatch);
     confirmPasswordInput.addEventListener("blur", function () {
         passwordMatchMsg.style.display = "none";
     });
@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
     emailInput.addEventListener("input", validateForm);
     ignInput.addEventListener("input", validateForm);
 
-    // 🔹 Save Registration Data to Local Storage & Redirect to Login Page
+    // Handle form submission
     document.getElementById("registrationForm").addEventListener("submit", function (event) {
         event.preventDefault();
 
@@ -97,27 +97,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Check if IGN or Email is already taken
         if (users.some(user => user.ign === ign)) {
-            alert("This IGN is already taken. Please choose another.");
+            alert("❌ This IGN is already taken. Please choose another.");
             return;
         }
         if (users.some(user => user.email === emailInput.value)) {
-            alert("This email is already registered. Please use another.");
+            alert("❌ This email is already registered. Please use another.");
             return;
         }
 
+        // Store new user data
         const userData = {
             playerID: playerIDInput.value,
-            email: emailInput.value,
+            email: emailInput.value.trim(),
             ign: ign,
             password: passwordInput.value,
             level: "1",
             team: "No Team"
         };
 
+        // Save user in local storage
         users.push(userData);
         localStorage.setItem("users", JSON.stringify(users));
 
-        alert("Registration successful! Redirecting to login page...");
-        window.location.href = "logIn.html"; // ✅ Redirects to login page after registration
+        alert("✅ Registration successful! Redirecting to login page...");
+        window.location.href = "logIn.html"; // ✅ Redirects to login page
     });
 });
