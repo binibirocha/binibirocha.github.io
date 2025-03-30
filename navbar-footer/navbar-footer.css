@@ -636,14 +636,15 @@ footer {
     }
 
     .navbar .logo {
-        display: flex;
-        align-items: center; /* Align logos vertically */
-        gap: 10px; /* Add spacing between logo elements */
+        position: absolute;
+        top: 10px; /* Align it to the top */
+        left: 10px; 
+        gap: 3px; /* Add spacing between logo elements */
         margin-bottom: 20px; /* Add margin below the logos */
     }
 
     .navbar .logo img {
-        height: 35px; /* Adjust logo size for mobile screens */
+        height: 40px; /* Adjust logo size for mobile screens */
     }
 
     .navbar .btn {
@@ -651,6 +652,8 @@ footer {
         padding: 0.4rem 0.8rem; /* Adjust padding */
         width: 20rem; /* Adjust width */
         height: 2rem; /* Adjust height */
+        display: flex;
+        justify-content: center;
         margin: 0 auto; /* Center the button horizontally */
     }
 
