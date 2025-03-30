@@ -506,7 +506,6 @@ footer {
     }
 
     .hamburger {
-        display: flex;
         font-size: 22px;
         background: none;
         border: none;
