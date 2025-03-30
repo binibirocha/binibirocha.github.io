@@ -1,8 +1,3 @@
-document.querySelector('.close-btn').addEventListener('click', () => {
-    const sidebar = document.getElementById('sidebar');
-    sidebar.classList.remove('active'); 
-});
-
 document.addEventListener("DOMContentLoaded", function () {
     const languageButton = document.querySelector(".language-button");
     const languageDropdown = document.querySelector(".language-dropdown");
