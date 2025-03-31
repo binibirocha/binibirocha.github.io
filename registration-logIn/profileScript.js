@@ -1,156 +1,96 @@
+// Function to toggle sidebar menu
+function toggleMenu() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('active');
+}
+
+// Function to close sidebar when clicking the close button
+document.querySelector('.close-btn').addEventListener('click', () => {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.remove('active'); 
+});
+
+// Function to redirect to login page
+function redirectToSignIn() {
+    window.location.href = "https://binibirocha.github.io/registration-logIn/logIn.html";
+}
+
+// Function to preview and save uploaded profile image
+function previewImage(event) {
+    console.log("File selected");
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    
+    reader.onload = function() {
+        const imageData = reader.result; 
+        localStorage.setItem('profilePicture', imageData); // Save image to local storage
+        document.querySelector('.profile-pic').src = imageData; // Update profile picture
+    };
+
+    if (file) {
+        reader.readAsDataURL(file);
+    } else {
+        console.log("No file selected");
+    }
+}
+
+// Function to load saved profile picture on page load
+function loadProfilePicture() {
+    const savedImage = localStorage.getItem('profilePicture');
+    if (savedImage) {
+        document.querySelector('.profile-pic').src = savedImage;
+    }
+}
+
+// Functionality for the language dropdown
 document.addEventListener("DOMContentLoaded", function () {
-    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+    loadProfilePicture(); // Load the saved profile picture when the page loads
 
-    console.log("Loaded user data:", loggedInUser); // Debugging - check if data exists
+    const languageButton = document.querySelector(".language-button");
+    const languageDropdown = document.querySelector(".language-dropdown");
+    const languageOptions = document.querySelectorAll(".language-option");
 
-    if (!loggedInUser) {
-        window.location.href = "login.html"; // Redirect if not logged in
-        return;
-    }
-
-    // Get elements using correct IDs from your HTML
-    const trainerNameInput = document.getElementById("trainer-name");
-    const emailInput = document.getElementById("trainer-email");
-    const levelInput = document.getElementById("trainer-level");
-    const teamSelect = document.getElementById("team");
-    const playerIDInput = document.getElementById("player-id");
-    const deleteAccountBtn = document.getElementById("delete-account-btn");
-    const profilePic = document.querySelector(".profile-pic");
-    const avatarInput = document.getElementById("avatarInput");
-    const changeAvatarBtn = document.getElementById("changeAvatarBtn");
-    const pokecoinsBalance = document.getElementById("pokecoins-balance"); // PokéCoins balance display
-    const purchaseList = document.getElementById("purchase-list"); // Recent purchases list
-
-    // Get modal elements
-    const deleteModal = document.getElementById("deleteModal");
-    const confirmDeleteBtn = document.getElementById("confirmDelete");
-    const cancelDeleteBtn = document.getElementById("cancelDelete");
-
-    // Load saved avatar from localStorage
-    if (loggedInUser.avatar) {
-        profilePic.src = loggedInUser.avatar;
-    }
-
-    // Check if elements exist before setting values
-    if (trainerNameInput) trainerNameInput.value = loggedInUser.ign || "";
-    if (emailInput) emailInput.value = loggedInUser.email || "N/A";
-    if (levelInput) levelInput.value = loggedInUser.level || "1";
-    if (teamSelect) teamSelect.value = loggedInUser.team || "No Team";
-    if (playerIDInput) playerIDInput.value = loggedInUser.playerID || "N/A";
-
-    // Ensure PokéCoins exist in storage
-    if (loggedInUser.pokecoins === undefined) {
-        loggedInUser.pokecoins = 0;
-        localStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
-    }
-
-    // Display PokéCoins balance
-    if (pokecoinsBalance) {
-        pokecoinsBalance.textContent = loggedInUser.pokecoins;
-    }
-
-    // Load and display purchase history
-    if (purchaseList) {
-        let purchases = JSON.parse(localStorage.getItem("purchases_" + loggedInUser.playerID)) || [];
-
-        // Clear list before adding items
-        purchaseList.innerHTML = "";
-
-        if (purchases.length > 0) {
-            purchases.slice(-5).reverse().forEach(purchase => {
-                let li = document.createElement("li");
-                li.textContent = `${purchase.item} ×${purchase.quantity} - ${purchase.date}`;
-                purchaseList.appendChild(li);
-            });
-        } else {
-            purchaseList.innerHTML = "<li>No recent purchases.</li>";
-        }
-    }
-
-    // Handle profile update
-    const profileForm = document.getElementById("profileForm");
-    if (profileForm) {
-        profileForm.addEventListener("submit", function (event) {
-            event.preventDefault();
-
-            let users = JSON.parse(localStorage.getItem("users")) || [];
-
-            let updatedUsers = users.map(user => {
-                if (user.playerID === loggedInUser.playerID) {
-                    return {
-                        ...user,
-                        ign: trainerNameInput.value.trim(),
-                        email: emailInput.value.trim(),
-                        level: levelInput.value,
-                        team: teamSelect.value,
-                        pokecoins: loggedInUser.pokecoins, // Keep the PokéCoins balance
-                    };
-                }
-                return user;
-            });
-
-            localStorage.setItem("users", JSON.stringify(updatedUsers));
-
-            // Update logged-in user session
-            loggedInUser.ign = trainerNameInput.value.trim();
-            loggedInUser.email = emailInput.value.trim();
-            loggedInUser.level = levelInput.value;
-            loggedInUser.team = teamSelect.value;
-            localStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
-
-            alert("Profile updated successfully!");
-        });
-    }
-
-    // Handle avatar change
-    changeAvatarBtn.addEventListener("click", () => {
-        avatarInput.click();
+    languageButton.addEventListener("click", function () {
+        languageDropdown.style.display = 
+            languageDropdown.style.display === "block" ? "none" : "block";
     });
 
-    avatarInput.addEventListener("change", function (event) {
-        const file = event.target.files[0];
+    languageOptions.forEach(option => {
+        option.addEventListener("click", function () {
+            languageButton.innerHTML = `🌏︎ ${this.textContent}`; 
+            languageDropdown.style.display = "none"; 
+        });
+    });
 
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function (e) {
-                const newAvatar = e.target.result;
-
-                // Update UI
-                profilePic.src = newAvatar;
-
-                // Save new avatar in localStorage
-                loggedInUser.avatar = newAvatar;
-                localStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
-
-                // Update stored users list
-                let users = JSON.parse(localStorage.getItem("users")) || [];
-                users = users.map(user => user.playerID === loggedInUser.playerID ? { ...user, avatar: newAvatar } : user);
-                localStorage.setItem("users", JSON.stringify(users));
-            };
-            reader.readAsDataURL(file);
+    // Close the dropdown when clicking outside of it
+    document.addEventListener("click", function (event) {
+        if (!languageButton.contains(event.target) && !languageDropdown.contains(event.target)) {
+            languageDropdown.style.display = "none";
         }
     });
 
-    // Show modal when delete button is clicked
-    if (deleteAccountBtn) {
-        deleteAccountBtn.addEventListener("click", function () {
-            deleteModal.style.display = "flex"; // Show modal
-        });
-    }
-
-    // Close modal when cancel is clicked
-    cancelDeleteBtn.addEventListener("click", function () {
-        deleteModal.style.display = "none";
+    // Attach event listener to "Change Avatar" button
+    document.getElementById('changeAvatarBtn').addEventListener('click', function() {
+        document.getElementById('avatarInput').click(); // Trigger the file input when button is clicked
     });
 
-    // Confirm account deletion
-    confirmDeleteBtn.addEventListener("click", function () {
-        let users = JSON.parse(localStorage.getItem("users")) || [];
-        users = users.filter(user => user.playerID !== loggedInUser.playerID);
-        localStorage.setItem("users", JSON.stringify(users));
-        localStorage.removeItem("loggedInUser");
+    // Attach event listener to file input
+    document.getElementById('avatarInput').addEventListener('change', previewImage);
 
-        alert("Your account has been deleted. Redirecting to login page...");
-        window.location.href = "login.html";
+    // Account Deletion Modal Logic
+    document.getElementById('delete-account-btn').addEventListener('click', function() {
+        // Show the delete confirmation modal
+        document.getElementById('deleteModal').style.display = 'flex';
+    });
+
+    document.getElementById('cancelDeleteBtn').addEventListener('click', function() {
+        // Hide the modal when cancel is clicked
+        document.getElementById('deleteModal').style.display = 'none';
+    });
+
+    document.getElementById('confirmDeleteBtn').addEventListener('click', function() {
+        // Handle the deletion logic here (e.g., confirm and delete account)
+        alert('Account Deleted');
+        document.getElementById('deleteModal').style.display = 'none';
     });
 });

@@ -1,7 +1,7 @@
 // Function to check if the user is logged in
 function checkAuth() {
     if (!localStorage.getItem("loggedInUser")) {
-        window.location.href = "login.html"; // Redirect if not logged in
+        window.location.href = "https://riavenice.github.io//finallanding/index.html"; // Redirect to the provided link if not logged in
     }
 }
 
@@ -20,7 +20,7 @@ function login(event) {
         localStorage.setItem("loggedInUser", JSON.stringify(user));
 
         alert(`✅ Login successful! Welcome back, ${user.ign}.`);
-        window.location.href = "profile.html"; // Redirect to profile page
+        window.location.href = "https://riavenice.github.io//finallanding/index.html"; // Redirect to the provided link after successful login
     } else {
         alert("❌ Invalid IGN, email, or password.");
     }
@@ -30,7 +30,7 @@ function login(event) {
 function logout() {
     localStorage.removeItem("loggedInUser"); // Remove user session
     alert("You have been logged out!");
-    window.location.href = "login.html"; // Redirect to login page
+    window.location.href = "https://riavenice.github.io//finallanding/index.html"; // Redirect to the provided link after logout
 }
 
 // Check authentication when loading the profile page
