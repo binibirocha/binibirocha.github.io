@@ -93,4 +93,52 @@ document.addEventListener("DOMContentLoaded", function () {
         alert('Account Deleted');
         document.getElementById('deleteModal').style.display = 'none';
     });
+
+    // Change Password Functionality
+    const changePasswordBtn = document.getElementById("change-password-btn");
+    const passwordChangeSection = document.getElementById("password-change-section");
+    const savePasswordBtn = document.getElementById("save-password-btn");
+
+    if (changePasswordBtn) {
+        changePasswordBtn.addEventListener("click", function () {
+            passwordChangeSection.style.display = "block";
+        });
+    }
+
+    if (savePasswordBtn) {
+        savePasswordBtn.addEventListener("click", function () {
+            const newPassword = document.getElementById("new-password").value.trim();
+            const confirmPassword = document.getElementById("confirm-password").value.trim();
+
+            if (newPassword.length < 6) {
+                alert("❌ Password must be at least 6 characters.");
+                return;
+            }
+
+            if (newPassword !== confirmPassword) {
+                alert("❌ Passwords do not match!");
+                return;
+            }
+
+            // Retrieve logged-in user
+            let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+            let users = JSON.parse(localStorage.getItem("users")) || [];
+
+            if (loggedInUser) {
+                // Update password in users list
+                let userIndex = users.findIndex(user => user.email === loggedInUser.email);
+                if (userIndex !== -1) {
+                    users[userIndex].password = newPassword;
+                    localStorage.setItem("users", JSON.stringify(users));
+
+                    // Update logged-in user
+                    loggedInUser.password = newPassword;
+                    localStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
+
+                    alert("✅ Password updated successfully!");
+                    passwordChangeSection.style.display = "none";
+                }
+            }
+        });
+    }
 });
