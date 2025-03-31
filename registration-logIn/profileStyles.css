@@ -743,6 +743,7 @@ footer {
   margin: 20px auto; /* Center the profile container */
   box-sizing: border-box;
   justify-content: center; /* Center the items within the container */
+  padding: 0;
 }
 
 /* Sidebar */
@@ -773,6 +774,7 @@ footer {
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
   margin-bottom: 20px;
   animation: pokeball-glow 3s infinite ease-in-out;
+  margin-left: 0;
 }
 
 @keyframes pokeball-glow {
@@ -793,6 +795,7 @@ footer {
 .profile-pic-container:hover {
   animation: pokeball-glow-intense 2s infinite ease-in-out;
 }
+
 
 .settings-header {
   display: flex;
@@ -995,7 +998,139 @@ footer {
   flex-direction: column;
   align-items: center;
   margin-bottom: 20px;
-  background-image: url(prbg.gif);
+  background-image: url('pokemon-background.jpg');
+  background-size: cover;
+  padding: 20px;
+  border-radius: 10px;
+  animation: pulse 4s infinite ease-in-out; /* Pulse effect */
+  width: 100%;
+  max-width: 500px; /* Set a max width for larger screens */
+  box-sizing: border-box;
+}
+
+/* Profile Card */
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  background-image: url('pokemon-background.jpg');
+  background-size: cover;
+  padding: 20px;
+  border-radius: 10px;
+  animation: pulse 4s infinite ease-in-out; /* Pulse effect */
+  width: 100%;
+  max-width: 500px; /* Set a max width for larger screens */
+  box-sizing: border-box;
+}
+
+/* Laptop Responsiveness */
+@media (max-width: 1024px) {
+  .profile-card {
+    padding: 18px; /* Slightly reduced padding for laptops */
+    max-width: 80%; /* Allow the profile card to take up more width on laptops */
+  }
+
+  .profile-pic-container {
+    width: 200px; /* Larger profile picture size for laptops */
+    height: 200px; /* Larger profile picture size for laptops */
+  }
+
+  .profile-pic {
+    width: 200px; /* Larger profile picture size for laptops */
+    height: 200px; /* Larger profile picture size for laptops */
+  }
+
+  .change-avatar-btn {
+    font-size: 14px; /* Slightly larger font size on laptops */
+    padding: 10px 15px; /* Adjusted padding for better button size */
+  }
+
+  /* Adjust form layout for laptop screens */
+  .settings-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  .form-group {
+    width: 48%; /* Ensure form fields are properly sized for laptop screens */
+    margin-right: 10px;
+  }
+
+  /* Form group adjustments */
+  .form-group label {
+    display: block;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+  }
+
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 2px solid #ffcb05; /* Pokémon Yellow */
+    border-radius: 8px;
+  }
+
+  /* Ensure button width is adjusted */
+  .update-btn {
+    width: 100%; /* Ensure the button doesn't overflow */
+  }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .profile-card {
+    padding: 15px; /* Adjust padding for smaller screens */
+    max-width: 90%; /* Ensure profile card doesn't take up too much width on mobile */
+  }
+
+  .profile-pic-container {
+    width: 150px; /* Adjust the profile picture size on mobile */
+    height: 150px; /* Adjust the profile picture size on mobile */
+  }
+
+  .profile-pic {
+    width: 150px; /* Adjust the profile picture size on mobile */
+    height: 150px; /* Adjust the profile picture size on mobile */
+  }
+
+  .change-avatar-btn {
+    font-size: 12px; /* Smaller font size for mobile */
+    padding: 8px 12px; /* Adjust button padding */
+  }
+
+  /* Adjust form layout for mobile screens */
+  .settings-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  .form-group {
+    width: 100%; /* Ensure form fields are full width on mobile */
+    margin-right: 0;
+  }
+
+  /* Ensure the input fields fit properly on mobile */
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    padding: 8px; /* Adjust padding for mobile */
+    font-size: 14px;
+  }
+
+  .update-btn {
+    width: 100%; /* Ensure button takes up full width */
+  }
 }
 
 .change-avatar-btn {
@@ -1061,14 +1196,6 @@ footer {
   100% {
     transform: scale(1);
   }
-}
-
-.profile-card {
-  background: url('pokemon-background.jpg') no-repeat center center;
-  background-size: cover;
-  padding: 20px;
-  border-radius: 10px;
-  animation: pulse 4s infinite ease-in-out; /* Pulse effect */
 }
 
 /* Sidebar Navigation */

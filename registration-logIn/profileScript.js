@@ -95,21 +95,33 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Change Password Functionality
-    const changePasswordBtn = document.getElementById("change-password-btn");
-    const passwordChangeSection = document.getElementById("password-change-section");
-    const savePasswordBtn = document.getElementById("save-password-btn");
+    const changePasswordBtn = document.getElementById('changePasswordBtn');
+    const changePasswordModal = document.getElementById('changePasswordModal');
+    const cancelChangePasswordBtn = document.getElementById('cancelChangePasswordBtn');
+    const savePasswordBtn = document.getElementById('savePasswordBtn');
 
+    // Open the modal when the "Change Password" button is clicked
     if (changePasswordBtn) {
-        changePasswordBtn.addEventListener("click", function () {
-            passwordChangeSection.style.display = "block";
+        changePasswordBtn.addEventListener('click', function () {
+            changePasswordModal.style.display = 'block';
         });
     }
 
-    if (savePasswordBtn) {
-        savePasswordBtn.addEventListener("click", function () {
-            const newPassword = document.getElementById("new-password").value.trim();
-            const confirmPassword = document.getElementById("confirm-password").value.trim();
+    // Close the modal when the "Cancel" button is clicked
+    if (cancelChangePasswordBtn) {
+        cancelChangePasswordBtn.addEventListener('click', function () {
+            changePasswordModal.style.display = 'none';
+        });
+    }
 
+    // Save new password when "Change Password" button in modal is clicked
+    if (savePasswordBtn) {
+        savePasswordBtn.addEventListener('click', function () {
+            const currentPassword = document.getElementById('current-password').value.trim();
+            const newPassword = document.getElementById('new-password').value.trim();
+            const confirmPassword = document.getElementById('confirm-new-password').value.trim();
+
+            // Simple validation checks
             if (newPassword.length < 6) {
                 alert("❌ Password must be at least 6 characters.");
                 return;
@@ -120,25 +132,38 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
-            // Retrieve logged-in user
-            let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
-            let users = JSON.parse(localStorage.getItem("users")) || [];
+            // Assuming user is logged in and their info is stored in local storage
+            let loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+            let users = JSON.parse(localStorage.getItem('users')) || [];
 
             if (loggedInUser) {
-                // Update password in users list
+                // Check if the current password matches
+                if (loggedInUser.password !== currentPassword) {
+                    alert("❌ Current password is incorrect!");
+                    return;
+                }
+
+                // Update the user's password
                 let userIndex = users.findIndex(user => user.email === loggedInUser.email);
                 if (userIndex !== -1) {
                     users[userIndex].password = newPassword;
-                    localStorage.setItem("users", JSON.stringify(users));
+                    localStorage.setItem('users', JSON.stringify(users));
 
-                    // Update logged-in user
+                    // Update logged-in user info
                     loggedInUser.password = newPassword;
-                    localStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
+                    localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
 
                     alert("✅ Password updated successfully!");
-                    passwordChangeSection.style.display = "none";
+                    changePasswordModal.style.display = 'none';
                 }
             }
         });
     }
+
+    // Optional: Close the modal if the user clicks outside of it
+    window.addEventListener('click', (event) => {
+        if (event.target === changePasswordModal) {
+            changePasswordModal.style.display = 'none';
+        }
+    });
 });
