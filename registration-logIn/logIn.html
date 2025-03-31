@@ -17,10 +17,11 @@
             <label for="password">Password:</label>
             <div class="password-container">
                 <input type="password" id="password" placeholder="Enter your password">
-                <span class="toggle-password" onclick="togglePassword('password', 'toggleIcon')">
+                <span class="toggle-password" id="togglePassword" onclick="togglePassword()">
                     <i id="toggleIcon" class="fa fa-eye"></i>
                 </span>
             </div>
+
 
             <p id="loginMessage" style="display: none; font-size: 14px;"></p>
 

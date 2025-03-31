@@ -70,6 +70,35 @@ document.addEventListener("DOMContentLoaded", function () {
         passwordMatchMsg.style.display = "none";
     });
 
+    // Password toggle functionality
+    function togglePassword(inputID, iconID) {
+        const input = document.getElementById(inputID);
+        const icon = document.getElementById(iconID);
+
+        // Toggle input type between 'password' and 'text'
+        if (input.type === "password") {
+            input.type = "text";
+            icon.classList.remove("fa-eye");
+            icon.classList.add("fa-eye-slash");
+        } else {
+            input.type = "password";
+            icon.classList.remove("fa-eye-slash");
+            icon.classList.add("fa-eye");
+        }
+    }
+
+    // Toggle password visibility for both fields
+    const togglePassword1 = document.querySelector('#toggleIcon1');
+    const togglePassword2 = document.querySelector('#toggleIcon2');
+    
+    togglePassword1.addEventListener('click', function () {
+        togglePassword('password', 'toggleIcon1');
+    });
+
+    togglePassword2.addEventListener('click', function () {
+        togglePassword('confirmPassword', 'toggleIcon2');
+    });
+
     // Validate form before enabling register button
     function validateForm() {
         const passwordValid = reqLength.classList.contains("valid") &&

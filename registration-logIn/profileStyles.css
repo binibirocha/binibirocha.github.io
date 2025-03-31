@@ -794,20 +794,6 @@ footer {
   animation: pokeball-glow-intense 2s infinite ease-in-out;
 }
 
-/* Stats Section */
-.stats {
-  list-style: none;
-  padding: 0;
-  margin: 20px 0;
-}
-
-/* Settings Panel */
-.settings-panel {
-  width: 70%;
-  padding: 30px;
-  box-sizing: border-box; /* Ensures padding doesn't affect the overall width */
-}
-
 .settings-header {
   display: flex;
   justify-content: space-between;
