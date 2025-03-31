@@ -1084,3 +1084,24 @@ footer {
   border-radius: 10px;
   animation: pulse 4s infinite ease-in-out; /* Pulse effect */
 }
+
+/* Sidebar Navigation */
+.sidebar2 nav a {
+  text-decoration: none;
+  color: #666;
+  font-weight: bold;
+  padding: 10px 20px;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar2 nav a.active {
+  color: #0074cc;
+  border-bottom: 2px solid #0074cc;
+  padding-bottom: 5px;
+}
+
+.sidebar2 nav a:hover {
+  background-color: #f1f1f1;
+  color: #0074cc;
+}
