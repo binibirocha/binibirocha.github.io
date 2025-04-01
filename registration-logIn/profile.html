@@ -22,7 +22,7 @@
             <img src="binibirocha-logo.png" alt="Binibirocha Group Logo" class="group-logo">
         </div>
         <div class="links">
-            <a href="https://binibirocha.github.io//registration-logIn/store.html" target="_blank" rel="noopener noreferrer">Store</a>
+            <a href="store.html" target="_blank" rel="noopener noreferrer">Store</a>
             <a href="https://binibirocha.github.io//transaction-history/index.html" target="_blank" rel="noopener noreferrer">Transaction History</a>
             <a href="https://binibirocha.github.io/payment-cart/cart-page.html" class="cart-container"><i class="fa-solid fa-cart-shopping"></i><span class="cart-badge">0</span></a> 
         </div>
@@ -48,7 +48,7 @@
     <div id="sidebar" class="sidebar">
         <button class="close-btn" onclick="toggleSidebar()">×</button>
         <div class="sidebar-links">
-            <a href="https://binibirocha.github.io//registration-logIn/store.html" target="_blank" rel="noopener noreferrer" onclick="toggleSidebar()">Store</a>
+            <a href="store.html" target="_blank" rel="noopener noreferrer" onclick="toggleSidebar()">Store</a>
             <a href="https://binibirocha.github.io//transaction-history/index.html" target="_blank" rel="noopener noreferrer" onclick="toggleSidebar()">Transaction History</a>
             <button type="button" class="btn" onclick="redirectToSignIn()">
                 <strong>LOG OUT</strong>
@@ -64,71 +64,78 @@
     </div>
 
     <!-- PROFILE SECTION -->
-    <div class="profile-container">
-        <!-- Sidebar Section -->
-        <aside class="sidebar2">
-            <!-- Profile Card with Poké Ball Frame for Profile Picture -->
-            <div class="profile-card">
-                <div class="profile-pic-container">
-                    <img src="def.jpg" alt="Trainer Avatar" class="profile-pic">
-                </div>
-                <input type="file" id="avatarInput" accept="image/*" style="display: none;">
-                <button id="changeAvatarBtn" class="pokemon-btn">Change Avatar</button>
+<div class="profile-container">
+    <!-- Sidebar Section -->
+    <aside class="sidebar2">
+        <!-- Profile Card with Poké Ball Frame for Profile Picture -->
+        <div class="profile-card">
+            <div class="profile-pic-container">
+                <img src="def.jpg" alt="Trainer Avatar" class="profile-pic">
             </div>
+            <input type="file" id="avatarInput" accept="image/*" style="display: none;">
+            <button id="changeAvatarBtn" class="pokemon-btn">Change Avatar</button>
+        </div>
 
-            <!-- PokéCoins Balance -->
-            <div class="pokecoins-container">
-                <img src="pokecoin.png" alt="PokéCoins" class="pokecoin-icon">
-                <span id="pokecoins-balance">100</span>
-            </div>
-        </aside>
+        <!-- PokéCoins Balance -->
+        <div class="pokecoins-container">
+            <img src="pokecoin.png" alt="PokéCoins" class="pokecoin-icon">
+            <span id="pokecoins-balance">100</span>
+        </div>
+    </aside>
 
-        <!-- Main Section -->
-        <main class="settings-panel">
-            <div class="settings-header">
-                <h3>Account Settings</h3>
-                <nav>
-                    <a href="#" class="active">User Information</a>
-                </nav>
-            </div>
+    <!-- Main Section -->
+    <main class="settings-panel">
 
-            <!-- Form for Profile Details -->
-            <form id="profileForm" class="settings-form">
-                <div class="form-group">
-                    <label for="trainer-name">IGN</label>
-                    <input type="text" id="trainer-name">
-                </div>
+        <!-- Form for Profile Details -->
+        <form id="profileForm" class="settings-form">
+                <div class="profile-info">
+                    <h3>Your Profile</h3>
+                    <div class="info-group">
+                        <label for="profile-ign">IGN:</label>
+                        <span id="profile-ign-display"></span>  <!-- Display the current IGN -->
+                        <input type="text" id="profile-ign" class="profile-input" style="display: none;"> <!-- Hidden input -->
+                        <button type="button" id="edit-ign" class="edit-btn">Edit</button> <!-- Edit button -->
+                    </div>
+        
+                    <div class="info-group">
+                        <label for="profile-email">Email:</label>
+                        <span id="profile-email-display"></span>  <!-- Display the current email -->
+                        <input type="email" id="profile-email" class="profile-input" style="display: none;"> <!-- Hidden input -->
+                        <button type="button" id="edit-email" class="edit-btn">Edit</button> <!-- Edit button -->
+                    </div>
+        
+                    <div class="info-group">
+                        <label for="profile-playerID">Player ID:</label>
+                        <span id="profile-playerID-display"></span>  <!-- Display the current Player ID -->
+                    </div>
 
-                <div class="form-group">
-                    <label for="trainer-email">Email</label>
-                    <input type="email" id="trainer-email">
-                </div>
-
-                <div class="form-group">
-                    <label for="trainer-password">Password</label>
-                    <input type="password" id="trainer-password">
-                </div>
-
-                <div class="form-group">
-                    <label for="player-id">IG Player ID</label>
-                    <input type="text" id="player-id" readonly>
-                </div>
-
-                <button type="submit" class="update-btn">Save Changes</button>
-                <button type="button" id="delete-account-btn" class="delete-btn">Delete Account</button>
+                    <button type="submit" class="update-btn" style="display: none;" id="save-btn">Save Changes</button>
+                    <button type="button" id="delete-account-btn" class="delete-btn">Delete Account</button>
+                </div>    
             </form>
         </main>
     </div>
+</div>
 
-
-    <!-- Modal for Delete Confirmation -->
-    <div id="deleteModal" class="modal">
-        <div class="modal-content">
-            <p>Are you sure you want to delete your account?</p>
-            <button id="confirmDeleteBtn">Yes, Delete</button>
-            <button id="cancelDeleteBtn">Cancel</button>
-        </div>
+<!-- Modal for Delete Confirmation -->
+<div id="deleteModal" class="modal">
+    <div class="modal-content">
+        <p>Are you sure you want to delete your account?</p>
+        <button id="confirmDeleteBtn">Yes, Delete</button>
+        <button id="cancelDeleteBtn">Cancel</button>
     </div>
+</div>
+
+
+<!-- Modal for Delete Confirmation -->
+<div id="deleteModal" class="modal">
+    <div class="modal-content">
+        <p>Are you sure you want to delete your account?</p>
+        <button id="confirmDeleteBtn">Yes, Delete</button>
+        <button id="cancelDeleteBtn">Cancel</button>
+    </div>
+</div>
+
 
 
     <!-- footer -->

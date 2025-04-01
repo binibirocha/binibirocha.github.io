@@ -1,18 +1,30 @@
-// Function to check if the user is logged in
-function checkAuth() {
-    // Check if there's a logged-in user in localStorage
-    if (!localStorage.getItem("loggedInUser")) {
-        // If not logged in, redirect to the homepage (or any page you'd like)
-        window.location.href = "store.html"; 
+// Function to toggle the password visibility
+function togglePassword(inputId, iconId) {
+    const passwordField = document.getElementById(inputId);
+    const toggleIcon = document.getElementById(iconId);
+
+    // Check the current type of the input and change it to show or hide the password
+    if (passwordField.type === "password") {
+        passwordField.type = "text"; // Change to 'text' to show the password
+        toggleIcon.classList.remove("fa-eye"); // Remove the eye icon (hidden)
+        toggleIcon.classList.add("fa-eye-slash"); // Add the slash eye icon (visible)
+    } else {
+        passwordField.type = "password"; // Change to 'password' to hide the password
+        toggleIcon.classList.remove("fa-eye-slash"); // Remove the slash eye icon
+        toggleIcon.classList.add("fa-eye"); // Add the eye icon (hidden)
     }
 }
 
+// Function to log in the user
 // Function to log in the user
 function login(event) {
     event.preventDefault(); // Prevent form submission
 
     const loginInput = document.getElementById("ign").value.trim(); // Accept both IGN and email
     const password = document.getElementById("password").value.trim();
+
+    // Debugging: Log the values of loginInput and password
+    console.log(`Login attempt with IGN/email: ${loginInput} and Password: ${password}`);
 
     // Retrieve users from localStorage
     let users = JSON.parse(localStorage.getItem("users")) || [];
@@ -26,45 +38,23 @@ function login(event) {
         
         // Display success message and redirect
         alert(`✅ Login successful! Welcome back, ${user.ign}.`);
-        window.location.href = "https://binibirocha.github.io/registration-logIn/store.html"; // Redirect to the homepage
+        window.location.href = "store.html"; // Redirect to the homepage
     } else {
         // If no match found, alert the user
         alert("❌ Invalid IGN, email, or password.");
     }
 }
 
-// Function to log out the user
-function logout() {
-    // Remove the logged-in user session from localStorage
-    localStorage.removeItem("loggedInUser");
-    alert("You have been logged out!");
-
-    // Redirect to the homepage after logout
-    window.location.href = "main.html";
-}
-
-// Add password toggle functionality
-function togglePassword(inputId, iconId) {
-    const passwordInput = document.getElementById(inputId);
-    const icon = document.getElementById(iconId);
-
-    if (passwordInput.type === "password") {
-        passwordInput.type = "text";  // Change password field to text
-        icon.classList.remove("fa-eye");  // Remove 'eye' icon
-        icon.classList.add("fa-eye-slash");  // Add 'eye-slash' icon
-    } else {
-        passwordInput.type = "password";  // Change password field back to password
-        icon.classList.remove("fa-eye-slash");  // Remove 'eye-slash' icon
-        icon.classList.add("fa-eye");  // Add 'eye' icon
-    }
-}
 
 // Ensure DOM is fully loaded before attaching event listeners
 document.addEventListener("DOMContentLoaded", function () {
     // Add event listener to the login form
     const loginForm = document.getElementById("loginForm");
     if (loginForm) {
-        loginForm.addEventListener("submit", login);
+        loginForm.addEventListener("submit", function(event) {
+            console.log("Login form submitted"); // Debugging
+            login(event);  // Call the login function
+        });
     }
 
     // Add event listener for password visibility toggle

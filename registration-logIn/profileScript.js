@@ -1,169 +1,149 @@
-// Function to toggle sidebar menu
-function toggleMenu() {
-    const sidebar = document.getElementById('sidebar');
-    sidebar.classList.toggle('active');
-}
+document.addEventListener("DOMContentLoaded", function () {
+    // Function to check if the user is logged in (to be used on Profile or Store pages)
+    function checkAuth() {
+        if (!localStorage.getItem("loggedInUser")) {
+            // If not logged in, redirect to the log-in page
+            window.location.href = "logIn.html"; 
+        }
+    }
 
-// Function to close sidebar when clicking the close button
-document.querySelector('.close-btn').addEventListener('click', () => {
-    const sidebar = document.getElementById('sidebar');
-    sidebar.classList.remove('active'); 
-});
+    // Function to load user data into the profile page
+    function loadUserProfile() {
+        const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
-// Function to redirect to login page
-function redirectToSignIn() {
-    window.location.href = "https://binibirocha.github.io/registration-logIn/logIn.html";
-}
+        if (loggedInUser) {
+            // Update profile information with logged-in user data
+            document.getElementById("profile-ign-display").textContent = loggedInUser.ign;
+            document.getElementById("profile-email-display").textContent = loggedInUser.email;
+            document.getElementById("profile-playerID-display").textContent = loggedInUser.playerID;
 
-// Function to preview and save uploaded profile image
-function previewImage(event) {
-    console.log("File selected");
-    const file = event.target.files[0];
-    const reader = new FileReader();
-    
-    reader.onload = function() {
-        const imageData = reader.result; 
-        localStorage.setItem('profilePicture', imageData); // Save image to local storage
-        document.querySelector('.profile-pic').src = imageData; // Update profile picture
+            // Load profile picture if available
+            const savedImage = localStorage.getItem("profilePicture");
+            if (savedImage) {
+                document.querySelector(".profile-pic").src = savedImage;
+            }
+        } else {
+            alert("No user is logged in. Redirecting to sign-in page.");
+            window.location.href = "logIn.html"; // Redirect to login if no user is logged in
+        }
+    }
+
+    // Function to toggle between display and input mode for editable fields
+    function toggleEdit(fieldId) {
+        const displayField = document.getElementById(`${fieldId}-display`);
+        const inputField = document.getElementById(fieldId);
+        const saveBtn = document.getElementById("save-btn");
+
+        // Toggle visibility of display and input fields
+        displayField.style.display = displayField.style.display === "none" ? "inline" : "none";
+        inputField.style.display = inputField.style.display === "none" ? "inline" : "none";
+        saveBtn.style.display = saveBtn.style.display === "none" ? "inline" : "none";
+
+        // Pre-fill the input field with the current value
+        inputField.value = displayField.textContent;
+    }
+
+    // Function to save changes to the user profile
+// Function to save changes to the user profile
+function saveProfileChanges() {
+    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+
+    // Grab the updated values from the inputs, ensuring email is preserved if not changed
+    const updatedUser = {
+        ign: document.getElementById("profile-ign").value.trim(),
+        email: document.getElementById("profile-email").value.trim() || loggedInUser.email, // Preserve email if not changed
+        playerID: loggedInUser.playerID, // Keep playerID unchanged
+        password: loggedInUser.password // Keep the password unchanged
     };
 
-    if (file) {
-        reader.readAsDataURL(file);
-    } else {
-        console.log("No file selected");
-    }
+    // Remove the old user from the users list in localStorage
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+
+    // Remove the old IGN from users
+    users = users.filter(user => user.ign !== loggedInUser.ign); // Remove the old user by IGN
+    localStorage.setItem("users", JSON.stringify(users)); // Save the updated users list
+
+    // Add the updated user to the users list
+    users.push(updatedUser);
+    localStorage.setItem("users", JSON.stringify(users)); // Update the users list with new IGN
+
+    // Update the logged-in user in localStorage
+    localStorage.setItem("loggedInUser", JSON.stringify(updatedUser));
+
+    // Display success message
+    alert("✅ Profile updated successfully!");
+
+    // Now update the display fields with the new values
+    document.getElementById("profile-ign-display").textContent = updatedUser.ign;
+    document.getElementById("profile-email-display").textContent = updatedUser.email;
+
+    // Hide the input fields and save button
+    document.getElementById("profile-ign").style.display = "none";
+    document.getElementById("profile-email").style.display = "none";
+    document.getElementById("save-btn").style.display = "none";
+
+    // Show the updated values in the display fields
+    document.getElementById("profile-ign-display").style.display = "inline";
+    document.getElementById("profile-email-display").style.display = "inline";
 }
 
-// Function to load saved profile picture on page load
-function loadProfilePicture() {
-    const savedImage = localStorage.getItem('profilePicture');
-    if (savedImage) {
-        document.querySelector('.profile-pic').src = savedImage;
-    }
-}
-
-// Functionality for the language dropdown
-document.addEventListener("DOMContentLoaded", function () {
-    loadProfilePicture(); // Load the saved profile picture when the page loads
-
-    const languageButton = document.querySelector(".language-button");
-    const languageDropdown = document.querySelector(".language-dropdown");
-    const languageOptions = document.querySelectorAll(".language-option");
-
-    languageButton.addEventListener("click", function () {
-        languageDropdown.style.display = 
-            languageDropdown.style.display === "block" ? "none" : "block";
-    });
-
-    languageOptions.forEach(option => {
-        option.addEventListener("click", function () {
-            languageButton.innerHTML = `🌏︎ ${this.textContent}`; 
-            languageDropdown.style.display = "none"; 
-        });
-    });
-
-    // Close the dropdown when clicking outside of it
-    document.addEventListener("click", function (event) {
-        if (!languageButton.contains(event.target) && !languageDropdown.contains(event.target)) {
-            languageDropdown.style.display = "none";
+    // Account Deletion Modal
+    document.getElementById('delete-account-btn').addEventListener('click', function () {
+        if (confirm("Are you sure you want to delete your account? This action is irreversible.")) {
+            // Remove user from localStorage
+            localStorage.removeItem("loggedInUser");
+            alert("❌ Your account has been deleted.");
+            window.location.href = "landingPage.html"; // Redirect to landing page after deletion
         }
     });
 
-    // Attach event listener to "Change Avatar" button
-    document.getElementById('changeAvatarBtn').addEventListener('click', function() {
-        document.getElementById('avatarInput').click(); // Trigger the file input when button is clicked
+    // Load user profile on page load
+    checkAuth(); // Ensure user is logged in
+    loadUserProfile(); // Load user profile info
+
+    // Handle Edit Buttons for profile fields
+    document.getElementById("edit-ign").addEventListener("click", function () {
+        toggleEdit("profile-ign");
+    });
+    document.getElementById("edit-email").addEventListener("click", function () {
+        toggleEdit("profile-email");
     });
 
-    // Attach event listener to file input
-    document.getElementById('avatarInput').addEventListener('change', previewImage);
-
-    // Account Deletion Modal Logic
-    document.getElementById('delete-account-btn').addEventListener('click', function() {
-        // Show the delete confirmation modal
-        document.getElementById('deleteModal').style.display = 'flex';
-    });
-
-    document.getElementById('cancelDeleteBtn').addEventListener('click', function() {
-        // Hide the modal when cancel is clicked
-        document.getElementById('deleteModal').style.display = 'none';
-    });
-
-    document.getElementById('confirmDeleteBtn').addEventListener('click', function() {
-        // Handle the deletion logic here (e.g., confirm and delete account)
-        alert('Account Deleted');
-        document.getElementById('deleteModal').style.display = 'none';
-    });
-
-    // Change Password Functionality
-    const changePasswordBtn = document.getElementById('changePasswordBtn');
-    const changePasswordModal = document.getElementById('changePasswordModal');
-    const cancelChangePasswordBtn = document.getElementById('cancelChangePasswordBtn');
-    const savePasswordBtn = document.getElementById('savePasswordBtn');
-
-    // Open the modal when the "Change Password" button is clicked
-    if (changePasswordBtn) {
-        changePasswordBtn.addEventListener('click', function () {
-            changePasswordModal.style.display = 'block';
+    // Handle saving the changes to user profile on form submission
+    const profileForm = document.getElementById("profileForm");
+    if (profileForm) {
+        profileForm.addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent default form submission
+            saveProfileChanges(); // Call the saveProfileChanges function
         });
     }
 
-    // Close the modal when the "Cancel" button is clicked
-    if (cancelChangePasswordBtn) {
-        cancelChangePasswordBtn.addEventListener('click', function () {
-            changePasswordModal.style.display = 'none';
-        });
-    }
+    // Change Avatar Button Trigger
+    document.getElementById('changeAvatarBtn').addEventListener('click', function () {
+        document.getElementById('avatarInput').click();
+    });
 
-    // Save new password when "Change Password" button in modal is clicked
-    if (savePasswordBtn) {
-        savePasswordBtn.addEventListener('click', function () {
-            const currentPassword = document.getElementById('current-password').value.trim();
-            const newPassword = document.getElementById('new-password').value.trim();
-            const confirmPassword = document.getElementById('confirm-new-password').value.trim();
-
-            // Simple validation checks
-            if (newPassword.length < 6) {
-                alert("❌ Password must be at least 6 characters.");
-                return;
-            }
-
-            if (newPassword !== confirmPassword) {
-                alert("❌ Passwords do not match!");
-                return;
-            }
-
-            // Assuming user is logged in and their info is stored in local storage
-            let loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
-            let users = JSON.parse(localStorage.getItem('users')) || [];
-
-            if (loggedInUser) {
-                // Check if the current password matches
-                if (loggedInUser.password !== currentPassword) {
-                    alert("❌ Current password is incorrect!");
-                    return;
-                }
-
-                // Update the user's password
-                let userIndex = users.findIndex(user => user.email === loggedInUser.email);
-                if (userIndex !== -1) {
-                    users[userIndex].password = newPassword;
-                    localStorage.setItem('users', JSON.stringify(users));
-
-                    // Update logged-in user info
-                    loggedInUser.password = newPassword;
-                    localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
-
-                    alert("✅ Password updated successfully!");
-                    changePasswordModal.style.display = 'none';
-                }
-            }
-        });
-    }
-
-    // Optional: Close the modal if the user clicks outside of it
-    window.addEventListener('click', (event) => {
-        if (event.target === changePasswordModal) {
-            changePasswordModal.style.display = 'none';
+    // Handle file input for avatar upload
+    document.getElementById('avatarInput').addEventListener('change', function () {
+        const file = this.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function () {
+                const imageURL = reader.result;
+                document.querySelector(".profile-pic").src = imageURL;
+                localStorage.setItem("profilePicture", imageURL); // Save to localStorage
+            };
+            reader.readAsDataURL(file);
         }
+
+    // Function to log out the user
+function logout() {
+    // Remove loggedInUser from localStorage
+    localStorage.removeItem("loggedInUser");
+    
+    // Redirect to login page
+    window.location.href = "logIn.html"; 
+}
+
     });
 });
