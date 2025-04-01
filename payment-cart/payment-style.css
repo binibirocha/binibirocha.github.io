@@ -923,6 +923,7 @@ input:checked + .payment-method-item::before {
     font-weight: bold;
   }
   
+  
   .close-button:hover,
   .close-button:focus {
     color: black;
