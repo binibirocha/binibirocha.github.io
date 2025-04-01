@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Toggle password visibility for both fields
     const togglePassword1 = document.querySelector('#toggleIcon1');
     const togglePassword2 = document.querySelector('#toggleIcon2');
-    
+
     togglePassword1.addEventListener('click', function () {
         togglePassword('password', 'toggleIcon1');
     });
@@ -148,7 +148,10 @@ document.addEventListener("DOMContentLoaded", function () {
         users.push(userData);
         localStorage.setItem("users", JSON.stringify(users));
 
-        alert("✅ Registration successful! Redirecting to login page...");
-        window.location.href = "logIn.html"; // ✅ Redirects to login page
+        // ✅ Set this user as the logged-in user
+        localStorage.setItem("loggedInUser", JSON.stringify(userData));
+
+        alert("✅ Registration successful! Redirecting to profile...");
+        window.location.href = "profile.html"; // ✅ Redirects to profile page after registration
     });
 });
