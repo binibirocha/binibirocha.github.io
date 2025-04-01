@@ -26,7 +26,7 @@ function login(event) {
         
         // Display success message and redirect
         alert(`✅ Login successful! Welcome back, ${user.ign}.`);
-        window.location.href = "store.html"; // Redirect to the homepage
+        window.location.href = "https://binibirocha.github.io/registration-logIn/store.html"; // Redirect to the homepage
     } else {
         // If no match found, alert the user
         alert("❌ Invalid IGN, email, or password.");
