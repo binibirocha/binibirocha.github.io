@@ -9,7 +9,7 @@ body {
     display: flex;
     justify-content: flex-start; /* Ensure the content is aligned at the top */
     flex-direction: column; /* Make sure the content flows vertically */
-    background-size: cover;
+    background-size: cover
 }
 
 body::-webkit-scrollbar {
@@ -24,7 +24,7 @@ body::-webkit-scrollbar {
     padding: 25px;
     margin: 100px auto;
     margin-top: 150px;
-    margin-bottom: 250px;
+    margin-bottom: 200px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(255, 221, 87, 0.7); /* Soft yellow glow */
 }
