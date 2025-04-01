@@ -145,5 +145,15 @@ function logout() {
     window.location.href = "logIn.html"; 
 }
 
+function toggleMenu() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('active');
+}
+
+document.querySelector('.close-btn').addEventListener('click', () => {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.remove('active'); 
+});
+
     });
 });
