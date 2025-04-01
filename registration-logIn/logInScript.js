@@ -1,7 +1,9 @@
 // Function to check if the user is logged in
 function checkAuth() {
+    // Check if there's a logged-in user in localStorage
     if (!localStorage.getItem("loggedInUser")) {
-        window.location.href = "login.html"; // Redirect if not logged in
+        // If not logged in, redirect to the homepage (or any page you'd like)
+        window.location.href = "https://riavenice.github.io//finallanding/index.html"; 
     }
 }
 
@@ -9,45 +11,67 @@ function checkAuth() {
 function login(event) {
     event.preventDefault(); // Prevent form submission
 
-    const loginInput = document.getElementById("ign").value.trim(); // This will accept both IGN and email
-    const password = document.getElementById("password").value;
+    const loginInput = document.getElementById("ign").value.trim(); // Accept both IGN and email
+    const password = document.getElementById("password").value.trim();
 
+    // Retrieve users from localStorage
     let users = JSON.parse(localStorage.getItem("users")) || [];
-    let user = users.find((u) => (u.ign === loginInput || u.email === loginInput) && u.password === password);
+
+    // Find user by matching IGN or email and password
+    let user = users.find(u => (u.ign === loginInput || u.email === loginInput) && u.password === password);
 
     if (user) {
-        // Save the logged-in user in localStorage
+        // If user found, store the logged-in user data in localStorage
         localStorage.setItem("loggedInUser", JSON.stringify(user));
-
+        
+        // Display success message and redirect
         alert(`✅ Login successful! Welcome back, ${user.ign}.`);
-        window.location.href = "profile.html"; // Redirect to profile page
+        window.location.href = "https://riavenice.github.io//finallanding/index.html"; // Redirect to the homepage
     } else {
+        // If no match found, alert the user
         alert("❌ Invalid IGN, email, or password.");
     }
 }
 
 // Function to log out the user
 function logout() {
-    localStorage.removeItem("loggedInUser"); // Remove user session
+    // Remove the logged-in user session from localStorage
+    localStorage.removeItem("loggedInUser");
     alert("You have been logged out!");
-    window.location.href = "login.html"; // Redirect to login page
+
+    // Redirect to the homepage after logout
+    window.location.href = "https://riavenice.github.io//finallanding/index.html";
 }
 
-// Check authentication when loading the profile page
-if (window.location.pathname.includes("profile.html")) {
-    checkAuth();
+// Add password toggle functionality
+function togglePassword(inputId, iconId) {
+    const passwordInput = document.getElementById(inputId);
+    const icon = document.getElementById(iconId);
+
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";  // Change password field to text
+        icon.classList.remove("fa-eye");  // Remove 'eye' icon
+        icon.classList.add("fa-eye-slash");  // Add 'eye-slash' icon
+    } else {
+        passwordInput.type = "password";  // Change password field back to password
+        icon.classList.remove("fa-eye-slash");  // Remove 'eye-slash' icon
+        icon.classList.add("fa-eye");  // Add 'eye' icon
+    }
 }
 
-// Attach event listeners after the page loads
+// Ensure DOM is fully loaded before attaching event listeners
 document.addEventListener("DOMContentLoaded", function () {
+    // Add event listener to the login form
     const loginForm = document.getElementById("loginForm");
     if (loginForm) {
         loginForm.addEventListener("submit", login);
     }
 
-    // Ensure the logout button works
-    const logoutButton = document.getElementById("logoutButton");
-    if (logoutButton) {
-        logoutButton.addEventListener("click", logout);
+    // Add event listener for password visibility toggle
+    const togglePasswordButton = document.querySelector('.toggle-password');
+    if (togglePasswordButton) {
+        togglePasswordButton.addEventListener('click', function () {
+            togglePassword('password', 'toggleIcon');  // Call the togglePassword function
+        });
     }
 });
