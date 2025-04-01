@@ -35,7 +35,7 @@ html, body {
   align-items: center;
   justify-content: space-between;
   padding: 1rem 2rem;
-  background-image: url(images/banner.gif);
+  background-image: url(banner.gif);
   background-position: center top;
   background-size: cover;
 }
