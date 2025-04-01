@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="storeStyles.css">
+    <link rel="stylesheet" href="page.css">
 </head>
 <!-- BODY -->
 <body>
@@ -18,21 +18,23 @@
     </div>
     <nav class="navbar">
         <div class="logo">
-            <a href="navbar-footer.html">
-                <img src="pokemonlogo.png" alt="Pokémon GO Logo">
+            <a href="https://binibirocha.github.io/main.html">
+                <img src="images/pokemonlogo.png" alt="Pokémon GO Logo">
             </a>
             <a>Web Store</a>
             <h1>×</h1>
-            <img src="binibirocha-logo.png" alt="Binibirocha Group Logo" class="group-logo">
+            <img src="images/binibirocha-logo.png" alt="Binibirocha Group Logo" class="group-logo">
         </div>
         <div class="links">
             <a href="https://store.pokemongolive.com/offer-redemption" target="_blank" rel="noopener noreferrer">Code Redemption</a>
             <a href="https://tickets.nianticlabs.com/events/#/login?returnUrl=%2Feventlisting&appId=pgo" target="_blank" rel="noopener noreferrer">Event Ticketing</a>
+            <a href="https://binibirocha.github.io/main.html" class="cart-container"><i class="fa-solid fa-house"></i></a>
+            <a href="https://binibirocha.github.io/transaction-history/index.html" class="cart-container"><i class="fa-solid fa-clipboard-list"></i></i></a>
             <a href="https://binibirocha.github.io/payment-cart/cart-page.html" class="cart-container"><i class="fa-solid fa-cart-shopping"></i><span class="cart-badge">0</span></a> 
         </div>
-        <a href="profile.html">
+        <a href="https://binibirocha.github.io/registration-logIn/signIn.html">
             <button type="button" class="btn">
-                <strong>PROFILE</strong>
+                <strong>SIGN IN</strong>
                 <div id="container-stars">
                     <div id="stars"></div>
                 </div>
@@ -55,7 +57,7 @@
             <a href="https://store.pokemongolive.com/offer-redemption" target="_blank" rel="noopener noreferrer" onclick="toggleSidebar()">Code Redemption</a>
             <a href="https://tickets.nianticlabs.com/events/#/login?returnUrl=%2Feventlisting&appId=pgo" target="_blank" rel="noopener noreferrer" onclick="toggleSidebar()">Event Ticketing</a>
             <button type="button" class="btn" onclick="redirectToSignIn()">
-                <strong>PROFILE</strong>
+                <strong>SIGN IN</strong>
                 <div id="container-stars">
                     <div id="stars"></div>
                 </div>
@@ -71,14 +73,14 @@
     <section class="homepage">
         <div class="hero-carousel">
             <div class="carousel-slide active">
-                <img src="pokestop.jpg" alt="Banner">
+                <img src="images/pokestop.jpg" alt="Banner">
                 <div class="carousel-caption">
                     <h2>WELCOME TO POKEMON GO!</h2>
                     <p>Catch ‘Em, Collect ‘Em, Power Up!</p>
                 </div>
             </div>
             <div class="carousel-slide">
-                <img src="adventure.jpg" alt="Mystery box">
+                <img src="images/adventure.jpg" alt="Mystery box">
                 <div class="carousel-caption">
                     <h2>EXCLUSIVE ITEMS NOW AVAILABLE!</h2>
                     <p>Shop the best Pokémon gear and level up your adventure today!</p>
@@ -86,7 +88,7 @@
                 </div>
             </div>
             <div class="carousel-slide">
-                <img src="mystery.jpg" alt="Mystery box">
+                <img src="images/mystery.jpg" alt="Mystery box">
                 <div class="carousel-caption">
                     <h2>LIMITED EDITION MYSTERY BOX</h2>
                     <p>Unbox the Mystery, Catch the Surprise!</p>
@@ -113,7 +115,7 @@
     <!-- START OF FEATURED ITEMS -->
     <div class="container" id="featured">
         <div class="card">
-            <img src="feature.png" alt="Pokémon GO: PokéGO Safari Bundle">
+            <img src="images/feature.png" alt="Pokémon GO: PokéGO Safari Bundle">
             <div class="content">
                 <span class="featured-tag">FEATURED</span>
                 <br>
@@ -132,13 +134,13 @@
         <h2>Item Boxes</h2>
      </div>
      <section class="product">
-        <button class="pre-btn"><img src="arrow.png" alt=""></button>
-        <button class="nxt-btn"><img src="arrow.png" alt=""></button>
+        <button class="pre-btn"><img src="images/arrow.png" alt=""></button>
+        <button class="nxt-btn"><img src="images/arrow.png" alt=""></button>
         <div class="product-container">
             <div class="product-card">
                 <div class="product-image">
                     <span class="discount-tag">ONE TIME ONLY</span>
-                    <img src="card1.png" class="product-thumb" alt="">
+                    <img src="images/card1.png" class="product-thumb" alt="">
                     <button class="card-btn" onclick="addEventListener()">Add To Cart</button>
                 </div>
                 <div class="product-info">
@@ -150,7 +152,7 @@
             <div class="product-card">
                 <div class="product-image">
                     <span class="discount-tag">ONE TIME ONLY</span>
-                    <img src="card2.png" class="product-thumb" alt="">
+                    <img src="images/card2.png" class="product-thumb" alt="">
                     <button class="card-btn" onclick="addToCart()">Add To Cart</button>
                 </div>
                 <div class="product-info">
@@ -162,7 +164,7 @@
             <div class="product-card">
                 <div class="product-image">
                     <span class="discount-tag">ONE TIME ONLY</span>
-                    <img src="card3.png" class="product-thumb" alt="">
+                    <img src="images/card3.png" class="product-thumb" alt="">
                     <button class="card-btn" onclick="addToCart()">Add To Cart</button>
                 </div>
                 <div class="product-info">
@@ -174,7 +176,7 @@
             <div class="product-card">
                 <div class="product-image">
                     <span class="discount-tag">LIMITED-TIME ONLY</span>
-                    <img src="card4.png" class="product-thumb" alt="">
+                    <img src="images/card4.png" class="product-thumb" alt="">
                     <button class="card-btn" onclick="addToCart()">Add To Cart</button>
                 </div>
                 <div class="product-info">
@@ -185,7 +187,7 @@
             </div>
             <div class="product-card">
                 <div class="product-image">
-                    <img src="card5.png" class="product-thumb" alt="">
+                    <img src="images/card5.png" class="product-thumb" alt="">
                     <button class="card-btn" onclick="addToCart()">Add To Cart</button>
                 </div>
                 <div class="product-info">
@@ -196,7 +198,7 @@
             <div class="product-card">
                 <div class="product-image">
                     <span class="discount-tag">POPULAR</span>
-                    <img src="icard6.png" class="product-thumb" alt="">
+                    <img src="images/card6.png" class="product-thumb" alt="">
                     <button class="card-btn" onclick="addToCart()">Add To Cart</button>
                 </div>
                 <div class="product-info">
@@ -208,7 +210,7 @@
             <div class="product-card">
                 <div class="product-image">
                     <span class="discount-tag">POPULAR</span>
-                    <img src="card7.png" class="product-thumb" alt="">
+                    <img src="images/card7.png" class="product-thumb" alt="">
                     <button class="card-btn" onclick="addToCart()">Add To Cart</button>
                 </div>
                 <div class="product-info">
@@ -220,7 +222,7 @@
             <div class="product-card">
                 <div class="product-image">
                     <span class="discount-tag">POPULAR</span>
-                    <img src="card8.png" class="product-thumb" alt="">
+                    <img src="images/card8.png" class="product-thumb" alt="">
                     <button class="card-btn" onclick="addToCart()">Add To Cart</button>
                 </div>
                 <div class="product-info">
@@ -231,7 +233,7 @@
             </div>
             <div class="product-card">
                 <div class="product-image">
-                    <img src="card9.png" class="product-thumb" alt="">
+                    <img src="images/card9.png" class="product-thumb" alt="">
                     <button class="card-btn" onclick="addToCart()">Add To Cart</button>
                 </div>
                 <div class="product-info">
@@ -242,7 +244,7 @@
             </div>
             <div class="product-card">
                 <div class="product-image">
-                    <img src="card10.png" class="product-thumb" alt="">
+                    <img src="images/card10.png" class="product-thumb" alt="">
                     <button class="card-btn" onclick="addToCart()">Add To Cart</button>
                 </div>
                 <div class="product-info">
@@ -253,7 +255,7 @@
             </div>
             <div class="product-card">
                 <div class="product-image">
-                    <img src="card11.png" class="product-thumb" alt="">
+                    <img src="images/card11.png" class="product-thumb" alt="">
                     <button class="card-btn" onclick="addToCart()">Add To Cart</button>
                 </div>
                 <div class="product-info">
@@ -273,13 +275,13 @@
      </div>
    
     <section class="product">
-        <button class="pre-btn"><img src="arrow.png" alt=""></button>
-        <button class="nxt-btn"><img src="arrow.png" alt=""></button>
+        <button class="pre-btn"><img src="images/arrow.png" alt=""></button>
+        <button class="nxt-btn"><img src="images/arrow.png" alt=""></button>
         <div class="product-container">
             <div class="product-card">
                 <div class="product-image">
    
-                    <img src="card12.png" class="product-thumb" alt="">
+                    <img src="images/card12.png" class="product-thumb" alt="">
                     <button class="card-btn" onclick="addToCart()">Add To Cart</button>
                 </div>
                 <div class="product-info">
@@ -291,7 +293,7 @@
             <div class="product-card">
                 <div class="product-image">
                    
-                    <img src="card13.png" class="product-thumb" alt="">
+                    <img src="images/card13.png" class="product-thumb" alt="">
                     <button class="card-btn" onclick="addToCart()">Add To Cart</button>
                 </div>
                 <div class="product-info">
@@ -303,7 +305,7 @@
             <div class="product-card">
                 <div class="product-image">
                  
-                    <img src="card14.png" class="product-thumb" alt="">
+                    <img src="images/card14.png" class="product-thumb" alt="">
                     <button class="card-btn" onclick="addToCart()">Add To Cart</button>
                 </div>
                 <div class="product-info">
@@ -315,7 +317,7 @@
             <div class="product-card">
                 <div class="product-image">
                    
-                    <img src="card15.png" class="product-thumb" alt="">
+                    <img src="images/card15.png" class="product-thumb" alt="">
                     <button class="card-btn" onclick="addToCart()">Add To Cart</button>
                 </div>
                 <div class="product-info">
@@ -327,7 +329,7 @@
             <div class="product-card">
                 <div class="product-image">
                    
-                    <img src="card16.png" class="product-thumb" alt="">
+                    <img src="images/card16.png" class="product-thumb" alt="">
                     <button class="card-btn" onclick="addToCart()">Add To Cart</button>
                 </div>
                 <div class="product-info">
@@ -345,7 +347,7 @@
      </div>
     <div class="container" id="featured">
         <div class="card">
-            <img src="card17.png" alt="Pokémon GO Fest 2025 Ticket">
+            <img src="images/card17.png" alt="Pokémon GO Fest 2025 Ticket">
             <div class="content">
                 <br>
                 <br>
@@ -364,7 +366,7 @@
         <br>
         <br>
         <button id="confirm-yes">Proceed to Cart</button>
-        <button id="confirm-no">Keep Shopping!</button>
+        <button id="confirm-no" onclick = "handleAddToCartClick()">Keep Shopping!</button>
     </div>
    
 </main>
@@ -391,10 +393,10 @@
 
 <div class="footer-logos">
                     <a href="https://www.pokemon.com/us" target="_blank">
-                        <img src="company-logo.png" alt="The Pokémon Company">
+                        <img src="images/company-logo.png" alt="The Pokémon Company">
                     </a>
                     <a href="https://nianticlabs.com/" target="_blank">
-                        <img src="niantic-logo.png" alt="Niantic">
+                        <img src="images/niantic-logo.png" alt="Niantic">
                     </a>
                 </div>
                 
@@ -452,11 +454,11 @@
             <div class="footer-disclaimer">
                 <p>© Niantic. The copyright owner of the images used is Niantic. This project is for educational purposes only and no copyright infringement is intended.</p>
             </div>
-            <img src="binibirocha-logo.png" alt="Binibirocha Group Logo" class="footer-group-logo">
+            <img src="images/binibirocha-logo.png" alt="Binibirocha Group Logo" class="footer-group-logo">
         </div>
     </footer>
 
-    <script src="storeScript.js"></script>
+    <script src="land.js"></script>
 
 </body>
 </html>
