@@ -151,7 +151,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // ✅ Set this user as the logged-in user
         localStorage.setItem("loggedInUser", JSON.stringify(userData));
 
-        alert("✅ Registration successful! Redirecting to profile...");
-        window.location.href = "profile.html"; // ✅ Redirects to profile page after registration
+        alert("✅ Registration successful! Redirecting to login...");
+        window.location.href = "logIn.html"; // ✅ Redirects to profile page after registration
     });
 });
