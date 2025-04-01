@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="page.css">
+</head>
+<!-- BODY -->
+<body>
+    <!--NAVBAR-->
+    <div class="banner">
+        15% discount for your first Web Store purchase on any item $9.99 or more!
+    </div>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="https://binibirocha.github.io/main.html">
+                <img src="images/pokemonlogo.png" alt="Pokémon GO Logo">
+            </a>
+            <a>Web Store</a>
+            <h1>×</h1>
+            <img src="images/binibirocha-logo.png" alt="Binibirocha Group Logo" class="group-logo">
+        </div>
+        <div class="links">
+            <a href="https://store.pokemongolive.com/offer-redemption" target="_blank" rel="noopener noreferrer">Code Redemption</a>
+            <a href="https://tickets.nianticlabs.com/events/#/login?returnUrl=%2Feventlisting&appId=pgo" target="_blank" rel="noopener noreferrer">Event Ticketing</a>
+            <a href="https://binibirocha.github.io/main.html" class="cart-container"><i class="fa-solid fa-house"></i></a>
+            <a href="https://binibirocha.github.io/transaction-history/index.html" class="cart-container"><i class="fa-solid fa-clipboard-list"></i></i></a>
+            <a href="https://binibirocha.github.io/payment-cart/cart-page.html" class="cart-container"><i class="fa-solid fa-cart-shopping"></i><span class="cart-badge">0</span></a> 
+        </div>
+        <a href="https://binibirocha.github.io/registration-logIn/signIn.html">
+            <button type="button" class="btn">
+                <strong>SIGN IN</strong>
+                <div id="container-stars">
+                    <div id="stars"></div>
+                </div>
+            
+                <div id="glow">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+            </button>
+        </a>
+        <button class="hamburger" onclick="toggleMenu()">
+            ☰
+        </button>
+    </nav>
+
+    <!-- sidebar -->
+    <div id="sidebar" class="sidebar">
+        <button class="close-btn" onclick="toggleSidebar()">×</button>
+        <div class="sidebar-links">
+            <a href="https://store.pokemongolive.com/offer-redemption" target="_blank" rel="noopener noreferrer" onclick="toggleSidebar()">Code Redemption</a>
+            <a href="https://tickets.nianticlabs.com/events/#/login?returnUrl=%2Feventlisting&appId=pgo" target="_blank" rel="noopener noreferrer" onclick="toggleSidebar()">Event Ticketing</a>
+            <button type="button" class="btn" onclick="redirectToSignIn()">
+                <strong>SIGN IN</strong>
+                <div id="container-stars">
+                    <div id="stars"></div>
+                </div>
+                <div id="glow">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+            </button>
+        </div>
+    </div>
+    <!--END OF NAVBAR-->
+    <!--HOMEPAGE-->
+    <section class="homepage">
+        <div class="hero-carousel">
+            <div class="carousel-slide active">
+                <img src="images/pokestop.jpg" alt="Banner">
+                <div class="carousel-caption">
+                    <h2>WELCOME TO POKEMON GO!</h2>
+                    <p>Catch ‘Em, Collect ‘Em, Power Up!</p>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <img src="images/adventure.jpg" alt="Mystery box">
+                <div class="carousel-caption">
+                    <h2>EXCLUSIVE ITEMS NOW AVAILABLE!</h2>
+                    <p>Shop the best Pokémon gear and level up your adventure today!</p>
+                    <button class="homepage-btn" onclick="document.querySelector('#item-boxes').scrollIntoView()">Check it out!</button>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <img src="images/mystery.jpg" alt="Mystery box">
+                <div class="carousel-caption">
+                    <h2>LIMITED EDITION MYSTERY BOX</h2>
+                    <p>Unbox the Mystery, Catch the Surprise!</p>
+                    <button class="homepage-btn" onclick="document.querySelector('#daily-bundles').scrollIntoView()">Check it out!</button>
+                </div>
+            </div>
+            <button class="carousel-btn prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="carousel-btn next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+   
+         <!-- START OF MINI NAVBAR -->
+    <nav class="options">
+        <a href="#featured">Featured</a>
+        <a href="#item-boxes">Item Boxes</a>
+        <a href="#pokecoins">PokéCoins</a>
+        <a href="#daily-bundles">Daily Bundles</a>
+    </nav>
+    <!-- END OF MINI NAVBAR -->
+
+
+    </section>
+    <!--END OF HOMEPAGE-->
+    <main>
+    <!-- START OF FEATURED ITEMS -->
+    <div class="container" id="featured">
+        <div class="card">
+            <img src="images/feature.png" alt="Pokémon GO: PokéGO Safari Bundle">
+            <div class="content">
+                <span class="featured-tag">FEATURED</span>
+                <br>
+                <br>
+                <h2>Pokémon GO: PokéGO Safari Bundle</h2>
+                <p>Can only be purchased 1 time.</p>
+                <br>
+                <span class="price">₱500.00</span>
+            </div>
+        </div>
+    </div>
+    <!-- END OF FEATURED ITEMS -->
+
+    <!-- START OF ITEM BOXES -->
+     <div class="header" id="item-boxes">
+        <h2>Item Boxes</h2>
+     </div>
+     <section class="product">
+        <button class="pre-btn"><img src="images/arrow.png" alt=""></button>
+        <button class="nxt-btn"><img src="images/arrow.png" alt=""></button>
+        <div class="product-container">
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount-tag">ONE TIME ONLY</span>
+                    <img src="images/card1.png" class="product-thumb" alt="">
+                    <button class="card-btn" onclick="addEventListener()">Add To Cart</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">Ultra Trainer Bundle</h2>
+                    <p class="product-short-description">With Masterball 3x</p>
+                    <span class="price">₱159.00</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount-tag">ONE TIME ONLY</span>
+                    <img src="images/card2.png" class="product-thumb" alt="">
+                    <button class="card-btn" onclick="addToCart()">Add To Cart</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">GO Starter Bundle</h2>
+                    <p class="product-short-description">GreatBall 1x & Magic Candy 3x</p>
+                    <span class="price">₱159.00</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount-tag">ONE TIME ONLY</span>
+                    <img src="images/card3.png" class="product-thumb" alt="">
+                    <button class="card-btn" onclick="addToCart()">Add To Cart</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">Mastery Box</h2>
+                    <p class="product-short-description">PinapBerry 1x & UltraBall 5x</p>
+                    <span class="price">₱289.00</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount-tag">LIMITED-TIME ONLY</span>
+                    <img src="images/card4.png" class="product-thumb" alt="">
+                    <button class="card-btn" onclick="addToCart()">Add To Cart</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">Ultra Raid Box</h2>
+                    <p class="product-short-description">Can only be purchased 3 times</p>
+                    <span class="price">₱289.00</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/card5.png" class="product-thumb" alt="">
+                    <button class="card-btn" onclick="addToCart()">Add To Cart</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">Ticket Box</h2>
+                    <span class="price">₱59.00</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount-tag">POPULAR</span>
+                    <img src="images/card6.png" class="product-thumb" alt="">
+                    <button class="card-btn" onclick="addToCart()">Add To Cart</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">Battle Pass</h2>
+                    <p class="product-short-description">3 pieces</p>
+                    <span class="price">₱88.00</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount-tag">POPULAR</span>
+                    <img src="images/card7.png" class="product-thumb" alt="">
+                    <button class="card-btn" onclick="addToCart()">Add To Cart</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">Max Revive</h2>
+                    <p class="product-short-description">5 pieces</p>
+                    <span class="price">₱59.00</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount-tag">POPULAR</span>
+                    <img src="images/card8.png" class="product-thumb" alt="">
+                    <button class="card-btn" onclick="addToCart()">Add To Cart</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">Egg Incubator</h2>
+                    <p class="product-short-description">2 pieces</p>
+                    <span class="price">₱88.00</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/card9.png" class="product-thumb" alt="">
+                    <button class="card-btn" onclick="addToCart()">Add To Cart</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">Super Incubator</h2>
+                    <p class="product-short-description">3 pieces</p>
+                    <span class="price">₱90.00</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/card10.png" class="product-thumb" alt="">
+                    <button class="card-btn" onclick="addToCart()">Add To Cart</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">Max Mushroom</h2>
+                    <p class="product-short-description">3 pieces</p>
+                    <span class="price">₱289.00</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/card11.png" class="product-thumb" alt="">
+                    <button class="card-btn" onclick="addToCart()">Add To Cart</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">Max Particle Pack</h2>
+                    <p class="product-short-description">1 piece</p>
+                    <span class="price">₱235.00</span>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    <!-- END OF ITEM BOXES -->
+
+    <!-- START OF POKECOINS -->
+     <div class="header" id="pokecoins">
+        <h2>PokéCoins</h2>
+     </div>
+   
+    <section class="product">
+        <button class="pre-btn"><img src="images/arrow.png" alt=""></button>
+        <button class="nxt-btn"><img src="images/arrow.png" alt=""></button>
+        <div class="product-container">
+            <div class="product-card">
+                <div class="product-image">
+   
+                    <img src="images/card12.png" class="product-thumb" alt="">
+                    <button class="card-btn" onclick="addToCart()">Add To Cart</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">110 PokéCoins</h2>
+                    <p class="product-short-description">10 Web Store Bonus Coins</p>
+                    <span class="price">₱29.00</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                   
+                    <img src="images/card13.png" class="product-thumb" alt="">
+                    <button class="card-btn" onclick="addToCart()">Add To Cart</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">600 PokéCoins</h2>
+                    <p class="product-short-description">50 Web Store Bonus Coins</p>
+                    <span class="price">₱149.00</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                 
+                    <img src="images/card14.png" class="product-thumb" alt="">
+                    <button class="card-btn" onclick="addToCart()">Add To Cart</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">1,300 PokéCoins</h2>
+                    <p class="product-short-description">100 Web Store Bonus Coins</p>
+                    <span class="price">₱289.00</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                   
+                    <img src="images/card15.png" class="product-thumb" alt="">
+                    <button class="card-btn" onclick="addToCart()">Add To Cart</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">2,700 PokéCoins</h2>
+                    <p class="product-short-description">200 Web Store Bonus Coins</p>
+                    <span class="price">₱589.00</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                   
+                    <img src="images/card16.png" class="product-thumb" alt="">
+                    <button class="card-btn" onclick="addToCart()">Add To Cart</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">15,500 PokéCoins</h2>
+                    <p class="product-short-description">1,000 Web Store Bonus Coins</p>
+                    <span class="price">₱2,950.00</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END OF POKECOINS -->
+    <!-- START OF DAILY BUNDLES -->
+     <div class="header" id="daily-bundles">
+        <h2>Daily Bundles</h2>
+     </div>
+    <div class="container" id="featured">
+        <div class="card">
+            <img src="images/card17.png" alt="Pokémon GO Fest 2025 Ticket">
+            <div class="content">
+                <br>
+                <br>
+                <h2>Elite Mystery PokéPack</h2>
+                <p>3 Daily Bundles</p>
+                <br>
+                <span class="price">₱660.00</span>
+            </div>
+        </div>
+    </div>
+    <!-- END OF DAILY BUNDLES -->
+    <div id="overlay"></div>
+
+    <div id="custom-confirm">
+        <p>Added to cart!</p>
+        <br>
+        <br>
+        <button id="confirm-yes">Proceed to Cart</button>
+        <button id="confirm-no" onclick = "handleAddToCartClick()">Keep Shopping!</button>
+    </div>
+   
+</main>
+<!--FOOTER-->
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-links-container">
+                    <div class="footer-links">
+                        <div class="column">
+                            <a href="https://pokemongolive.com/" target="_blank" rel="noopener noreferrer">Pokémon GO Live</a>
+                            <a href="https://pokemongolive.com/leaderboard" target="_blank" rel="noopener noreferrer">Leaderboard</a>
+                            <a href="https://pokemongolive.com/events" target="_blank" rel="noopener noreferrer">Events</a>
+                            <a href="https://pokemongolive.com/news" target="_blank" rel="noopener noreferrer">News</a>
+                        </div>
+                        <div class="column">
+                            <a href="https://store.pokemongolive.com/support" target="_blank" rel="noopener noreferrer">Support</a>
+                            <a href="https://store.pokemongolive.com/offer-redemption" target="_blank" rel="noopener noreferrer">Code Redemption</a>
+                            <a href="https://store.pokemongolive.com/offer-redemption" target="_blank" rel="noopener noreferrer">Community Day Map</a>
+                        </div>
+                    </div>
+                </div>
+
+<div class="footer-logos">
+                    <a href="https://www.pokemon.com/us" target="_blank">
+                        <img src="images/company-logo.png" alt="The Pokémon Company">
+                    </a>
+                    <a href="https://nianticlabs.com/" target="_blank">
+                        <img src="images/niantic-logo.png" alt="Niantic">
+                    </a>
+                </div>
+                
+            </div>
+            
+            <div class="footer-actions">
+                <div class="footer-bottom">
+                    <div class="social-media">
+                        <a href="https://www.youtube.com/@pokemongo" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.facebook.com/PokemonGO/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/pokemongoapp/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@pokemongo" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
+                    </div>
+<div class="language-selector">
+                        <button class="language-button">🌏︎ English</button>
+                        <div class="language-dropdown">
+                            <div class="language-option">Deutsch</div>
+                            <div class="language-option">English</div>
+                            <div class="language-option">Español (ES)</div>
+                            <div class="language-option">Español (MX)</div>
+                            <div class="language-option">Français</div>
+                            <div class="language-option">Indonesia</div>
+                            <div class="language-option">Italiano</div>
+                            <div class="language-option">日本語</div>
+                            <div class="language-option">한국어</div>
+                            <div class="language-option">Português</div>
+                            <div class="language-option">Русский</div>
+                            <div class="language-option">ไทย</div>
+                            <div class="language-option">Türkçe</div>
+                            <div class="language-option">中文</div>
+                            <div class="language-option">हिन्दी</div>
+                        </div>
+                    </div>                
+                </div>
+            </div>
+
+<div class="footer-divider"></div>
+    
+            <div class="footer-policy">
+                <a href="https://nianticlabs.com/terms" target="_blank" rel="noopener noreferrer">Terms of Service</a>
+                <a href="https://nianticlabs.com/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+                <a href="https://nianticlabs.com/ip-policy" target="_blank" rel="noopener noreferrer">Copyright Policy</a>
+                <a href="https://nianticlabs.com/guidelines" target="_blank" rel="noopener noreferrer">Player Guidelines</a>
+            </div>
+            
+            <div class="footer-divider"></div>
+
+            <p class="language-support">
+                Pokémon GO is playable in English, French, German, Italian, Russian, Japanese, Spanish, Traditional Chinese, Korean, Thai, Brazilian Portuguese, Turkish, and Indonesian.
+            </p>
+            <br>
+            <p class="copyright">
+                ©2023 Niantic, Inc. ©2023 Pokémon. ©1995–2023 Nintendo / Creatures Inc. / GAME FREAK inc. Pokémon and Pokémon character names are trademarks of Nintendo. Apple and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc. Android, Google Play and the Google Play logo are trademarks of Google LLC. During gameplay, please be aware of your surroundings and play safely.
+            </p>
+            <div class="footer-disclaimer">
+                <p>© Niantic. The copyright owner of the images used is Niantic. This project is for educational purposes only and no copyright infringement is intended.</p>
+            </div>
+            <img src="images/binibirocha-logo.png" alt="Binibirocha Group Logo" class="footer-group-logo">
+        </div>
+    </footer>
+
+    <script src="land.js"></script>
+
+</body>
+</html>

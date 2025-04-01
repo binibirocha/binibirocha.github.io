@@ -1136,3 +1136,33 @@ hr.hr-16:after {
     color: white;
 }
 
+.button {
+    --bg: #EEF5FF;
+    --hover-bg: #9EB8D9;
+    --hover-text: #EEF5FF;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.8em 2em;
+    background: #384B70;
+    transition: 0.2s;
+    border-radius: 15px;
+    margin-left: 25px;
+}
+  
+.button:hover {
+    color: #fff;
+    font-weight: bold;
+    font-style: italic;
+    transform: translate(-0.25rem, -0.25rem);
+    border: 2px solid #7C93C3;
+    box-shadow: 0.25rem 0.25rem #152647;
+}
+  
+.button:active {
+    transform: translate(0);
+    box-shadow: none;
+}
