@@ -17,7 +17,7 @@
             <label for="password">Password:</label>
             <div class="password-container">
                 <input type="password" id="password" placeholder="Enter your password">
-                <span class="toggle-password" onclick="togglePassword('password', 'toggleIcon')">
+                <span class="toggle-password" id="togglePassword" onclick="togglePassword()">
                     <i id="toggleIcon" class="fa fa-eye"></i>
                 </span>
             </div>
@@ -33,8 +33,15 @@
         </form>
     </div>
 
-        
-
+    <!-- footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-disclaimer">
+                <p>© Niantic. The copyright owner of the images used is Niantic. This project is for educational purposes only and no copyright infringement is intended.</p>
+            </div>
+            <img src="binibirocha-logo.png" alt="Binibirocha Group Logo" class="footer-group-logo">
+        </div>
+    </footer>
 
     <script src="logInScript.js"></script>
 </body>

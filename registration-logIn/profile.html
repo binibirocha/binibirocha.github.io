@@ -3,41 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokémon GO Trainer Profile</title>
+    <title>Pokémon GO Web Store</title>
     <link rel="stylesheet" href="profileStyles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
+    <!-- navbar -->
+    <div class="banner">
+        15% discount for your first Web Store purchase on any item $9.99 or more!
+    </div>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="navbar-footer.html">
+                <img src="pokemonlogo.png" alt="Pokémon GO Logo">
+            </a>
+            <a>Web Store</a>
+            <h1>×</h1>
+            <img src="binibirocha-logo.png" alt="Binibirocha Group Logo" class="group-logo">
+        </div>
+        <div class="links">
+            <a href="https://riavenice.github.io/finallanding/index.html" target="_blank" rel="noopener noreferrer">Store</a>
+            <a href="https://binibirocha.github.io//transaction-history/index.html" target="_blank" rel="noopener noreferrer">Transaction History</a>
+            <a href="https://binibirocha.github.io/payment-cart/cart-page.html" class="cart-container"><i class="fa-solid fa-cart-shopping"></i><span class="cart-badge">0</span></a> 
+        </div>
+        <a href="https://binibirocha.github.io/registration-logIn/signIn.html">
+            <button type="button" class="btn">
+                <strong>LOG OUT</strong>
+                <div id="container-stars">
+                    <div id="stars"></div>
+                </div>
+            
+                <div id="glow">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+            </button>
+        </a>
+        <button class="hamburger" onclick="toggleMenu()">
+            ☰
+        </button>
+    </nav>
+
+    <!-- sidebar -->
+    <div id="sidebar" class="sidebar">
+        <button class="close-btn" onclick="toggleSidebar()">×</button>
+        <div class="sidebar-links">
+            <a href="https://store.pokemongolive.com/offer-redemption" target="_blank" rel="noopener noreferrer" onclick="toggleSidebar()">Code Redemption</a>
+            <a href="https://tickets.nianticlabs.com/events/#/login?returnUrl=%2Feventlisting&appId=pgo" target="_blank" rel="noopener noreferrer" onclick="toggleSidebar()">Event Ticketing</a>
+            <button type="button" class="btn" onclick="redirectToSignIn()">
+                <strong>SIGN IN</strong>
+                <div id="container-stars">
+                    <div id="stars"></div>
+                </div>
+                <div id="glow">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+            </button>
+        </div>
+    </div>
+
+    <!-- PROFILE SECTION -->
     <div class="profile-container">
         <!-- Sidebar Section -->
-        <aside class="sidebar">
+        <aside class="sidebar2">
+            <!-- Profile Card with Poké Ball Frame for Profile Picture -->
             <div class="profile-card">
-                <img src="trainer.jpg" alt="Trainer Avatar" class="profile-pic">
+                <div class="profile-pic-container">
+                    <img src="def.jpg" alt="Trainer Avatar" class="profile-pic">
+                </div>
                 <input type="file" id="avatarInput" accept="image/*" style="display: none;">
-                <button id="changeAvatarBtn" class="change-avatar-btn">Change Avatar</button>
+                <button id="changeAvatarBtn" class="pokemon-btn">Change Avatar</button>
             </div>
 
+            <!-- PokéCoins Balance -->
             <div class="pokecoins-container">
                 <img src="pokecoin.png" alt="PokéCoins" class="pokecoin-icon">
-                <span id="pokecoins-balance">0</span>
-            </div>            
+                <span id="pokecoins-balance">100</span>
+            </div>
         </aside>
-        
 
         <!-- Main Section -->
         <main class="settings-panel">
             <div class="settings-header">
                 <h3>Account Settings</h3>
                 <nav>
-                    <a href="#" class="active">Account Settings</a>
-                    <a href="#">Game Stats</a>
-                    <a href="#">Notifications</a>
+                    <a href="#" class="active">User Information</a>
                 </nav>
             </div>
 
+            <!-- Form for Profile Details -->
             <form id="profileForm" class="settings-form">
                 <div class="form-group">
-                    <label for="trainer-name">Trainer Name</label>
+                    <label for="trainer-name">IGN</label>
                     <input type="text" id="trainer-name">
                 </div>
 
@@ -47,46 +105,121 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="trainer-level">Trainer Level</label>
-                    <input type="number" id="trainer-level" min="1">
+                    <label for="trainer-password">Password</label>
+                    <input type="password" id="trainer-password">
                 </div>
 
                 <div class="form-group">
-                    <label for="team">Team</label>
-                    <select id="team">
-                        <option value="Mystic">Team Mystic</option>
-                        <option value="Valor">Team Valor</option>
-                        <option value="Instinct">Team Instinct</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="player-id">Player ID</label>
+                    <label for="player-id">IG Player ID</label>
                     <input type="text" id="player-id" readonly>
                 </div>
 
                 <button type="submit" class="update-btn">Save Changes</button>
-
                 <button type="button" id="delete-account-btn" class="delete-btn">Delete Account</button>
             </form>
         </main>
     </div>
 
-    <!-- Custom Delete Confirmation Modal -->
-    <!-- Delete Confirmation Modal -->
+
+    <!-- Modal for Delete Confirmation -->
     <div id="deleteModal" class="modal">
         <div class="modal-content">
-            <h3>⚠️ Confirm Deletion</h3>
-            <p>Are you sure you want to delete your account? This action cannot be undone.</p>
-            <div class="modal-buttons">
-                <button id="confirmDelete" class="confirm-btn">Yes, Delete</button>
-                <button id="cancelDelete" class="cancel-btn">Cancel</button>
-            </div>
+            <p>Are you sure you want to delete your account?</p>
+            <button id="confirmDeleteBtn">Yes, Delete</button>
+            <button id="cancelDeleteBtn">Cancel</button>
         </div>
     </div>
 
 
+    <!-- footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-links-container">
+                    <div class="footer-links">
+                        <div class="column">
+                            <a href="https://pokemongolive.com/" target="_blank" rel="noopener noreferrer">Pokémon GO Live</a>
+                            <a href="https://pokemongolive.com/leaderboard" target="_blank" rel="noopener noreferrer">Leaderboard</a>
+                            <a href="https://pokemongolive.com/events" target="_blank" rel="noopener noreferrer">Events</a>
+                            <a href="https://pokemongolive.com/news" target="_blank" rel="noopener noreferrer">News</a>
+                        </div>
+                        <div class="column">
+                            <a href="https://store.pokemongolive.com/support" target="_blank" rel="noopener noreferrer">Support</a>
+                            <a href="https://store.pokemongolive.com/offer-redemption" target="_blank" rel="noopener noreferrer">Code Redemption</a>
+                            <a href="https://store.pokemongolive.com/offer-redemption" target="_blank" rel="noopener noreferrer">Community Day Map</a>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="footer-logos">
+                    <a href="https://www.pokemon.com/us" target="_blank">
+                        <img src="company-logo.png" alt="The Pokémon Company">
+                    </a>
+                    <a href="https://nianticlabs.com/" target="_blank">
+                        <img src="niantic-logo.png" alt="Niantic">
+                    </a>
+                </div>
+                
+            </div>
+            
+            <div class="footer-actions">
+                <div class="footer-bottom">
+                    <div class="social-media">
+                        <a href="https://www.youtube.com/@pokemongo" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.facebook.com/PokemonGO/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/pokemongoapp/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@pokemongo" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                    
+                    <div class="language-selector">
+                        <button class="language-button">🌏︎ English</button>
+                        <div class="language-dropdown">
+                            <div class="language-option">Deutsch</div>
+                            <div class="language-option">English</div>
+                            <div class="language-option">Español (ES)</div>
+                            <div class="language-option">Español (MX)</div>
+                            <div class="language-option">Français</div>
+                            <div class="language-option">Indonesia</div>
+                            <div class="language-option">Italiano</div>
+                            <div class="language-option">日本語</div>
+                            <div class="language-option">한국어</div>
+                            <div class="language-option">Português</div>
+                            <div class="language-option">Русский</div>
+                            <div class="language-option">ไทย</div>
+                            <div class="language-option">Türkçe</div>
+                            <div class="language-option">中文</div>
+                            <div class="language-option">हिन्दी</div>
+                        </div>
+                    </div>                
+                </div>
+            </div>
+    
+            <div class="footer-divider"></div>
+    
+            <div class="footer-policy">
+                <a href="https://nianticlabs.com/terms" target="_blank" rel="noopener noreferrer">Terms of Service</a>
+                <a href="https://nianticlabs.com/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+                <a href="https://nianticlabs.com/ip-policy" target="_blank" rel="noopener noreferrer">Copyright Policy</a>
+                <a href="https://nianticlabs.com/guidelines" target="_blank" rel="noopener noreferrer">Player Guidelines</a>
+            </div>
+            
+            <div class="footer-divider"></div>
+
+            <p class="language-support">
+                Pokémon GO is playable in English, French, German, Italian, Russian, Japanese, Spanish, Traditional Chinese, Korean, Thai, Brazilian Portuguese, Turkish, and Indonesian.
+            </p>
+            <br>
+            <p class="copyright">
+                ©2023 Niantic, Inc. ©2023 Pokémon. ©1995–2023 Nintendo / Creatures Inc. / GAME FREAK inc. Pokémon and Pokémon character names are trademarks of Nintendo. Apple and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc. Android, Google Play and the Google Play logo are trademarks of Google LLC. During gameplay, please be aware of your surroundings and play safely.
+            </p>
+            <div class="footer-disclaimer">
+                <p>© Niantic. The copyright owner of the images used is Niantic. This project is for educational purposes only and no copyright infringement is intended.</p>
+            </div>
+            <img src="binibirocha-logo.png" alt="Binibirocha Group Logo" class="footer-group-logo">
+        </div>
+    </footer>
 
     <script src="profileScript.js"></script>
+    <script src="cart-icon.js"></script>
 </body>
 </html>

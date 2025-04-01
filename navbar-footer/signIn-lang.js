@@ -4,7 +4,7 @@ function toggleMenu() {
 }
 
 function redirectToSignIn() {
-    window.location.href = "https://binibirocha.github.io/registration-logIn/signIn.html";
+    window.location.href = "https://binibirocha.github.io/registration-logIn/logIn.html";
 }
 
 document.querySelector('.close-btn').addEventListener('click', () => {

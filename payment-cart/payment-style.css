@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
-/* start: Globals */
 * {
     margin: 0;
     padding: 0;
@@ -9,9 +8,9 @@
 }
 body{
     background: url("imgs/banner.gif") no-repeat fixed center;
-    background-size: cover; /* Ensures the background covers the entire body */
+    background-size: cover; 
     width: 100%;
-    height: 100vh; /* Use viewport height to cover the entire screen */
+    height: 100vh; 
 }
 
 /* navbar */
@@ -741,19 +740,18 @@ footer {
     margin: 0 auto;
     padding: 0 16px;
 }
-/* end: Globals */
 
 /* start: Payment */
 .payment-section {
     padding: 48px 0;
-    display: flex; /* Added to center content */
-    justify-content: center; /* Added to center content */
+    display: flex; 
+    justify-content: center; 
 }
 
 .payment-right {
     min-width: 0;
     width: 500px;
-    margin: 0; /* Adjusted margin */
+    margin: 0; 
 }
 .payment-form {
     padding: 24px;
@@ -876,9 +874,7 @@ input:checked + .payment-method-item::before {
 .payment-form-submit-button > i {
     margin-right: 8px;
 }
-/* end: Payment */
 
-/* start: Breakpoints */
 @media screen and (max-width: 767px) {
     .payment-wrapper {
         grid-template-columns: 1fr;
@@ -896,7 +892,7 @@ input:checked + .payment-method-item::before {
 }
 
 .modal {
-    display: none; /* Hidden by default */
+    display: none; 
     position: fixed;
     z-index: 1;
     left: 0;
@@ -904,7 +900,7 @@ input:checked + .payment-method-item::before {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
+    background-color: rgba(0, 0, 0, 0.4); 
   }
   
   .modal-content {
@@ -934,7 +930,7 @@ input:checked + .payment-method-item::before {
   .modal-title {
     margin-bottom: 10px;
     font-size: 20px;
-    font-weight: 600; /* Add some space between the title and message */
+    font-weight: 600; 
 }
-/* end: Breakpoints */
+
 
