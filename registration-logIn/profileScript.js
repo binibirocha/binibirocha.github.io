@@ -93,7 +93,7 @@ function saveProfileChanges() {
             // Remove user from localStorage
             localStorage.removeItem("loggedInUser");
             alert("❌ Your account has been deleted.");
-            window.location.href = "landingPage.html"; // Redirect to landing page after deletion
+            window.location.href = "main.html"; // Redirect to landing page after deletion
         }
     });
 
@@ -144,6 +144,16 @@ function logout() {
     // Redirect to login page
     window.location.href = "logIn.html"; 
 }
+
+function toggleMenu() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('active');
+}
+
+document.querySelector('.close-btn').addEventListener('click', () => {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.remove('active'); 
+});
 
     });
 });
