@@ -44,43 +44,48 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Function to save changes to the user profile
-    function saveProfileChanges() {
-        const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+// Function to save changes to the user profile
+function saveProfileChanges() {
+    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
-        // Grab the updated values from the inputs, ensuring email is preserved if not changed
-        const updatedUser = {
-            ign: document.getElementById("profile-ign").value.trim(),
-            email: document.getElementById("profile-email").value.trim() || loggedInUser.email, // Preserve email if not changed
-            playerID: loggedInUser.playerID, // Keep playerID unchanged
-            password: loggedInUser.password // Keep the password unchanged
-        };
+    // Grab the updated values from the inputs, ensuring email is preserved if not changed
+    const updatedUser = {
+        ign: document.getElementById("profile-ign").value.trim(),
+        email: document.getElementById("profile-email").value.trim() || loggedInUser.email, // Preserve email if not changed
+        playerID: loggedInUser.playerID, // Keep playerID unchanged
+        password: loggedInUser.password // Keep the password unchanged
+    };
 
-        // Debugging: Check the values before saving
-        console.log("Updated User:", updatedUser);
-        
-        // Update the logged-in user in localStorage
-        localStorage.setItem("loggedInUser", JSON.stringify(updatedUser));
-        
-        // Debugging: Verify localStorage update
-        const updatedStoredUser = JSON.parse(localStorage.getItem("loggedInUser"));
-        console.log("Updated in localStorage:", updatedStoredUser);
+    // Remove the old user from the users list in localStorage
+    let users = JSON.parse(localStorage.getItem("users")) || [];
 
-        // Display success message
-        alert("✅ Profile updated successfully!");
+    // Remove the old IGN from users
+    users = users.filter(user => user.ign !== loggedInUser.ign); // Remove the old user by IGN
+    localStorage.setItem("users", JSON.stringify(users)); // Save the updated users list
 
-        // Now update the display fields with the new values
-        document.getElementById("profile-ign-display").textContent = updatedUser.ign;
-        document.getElementById("profile-email-display").textContent = updatedUser.email;
+    // Add the updated user to the users list
+    users.push(updatedUser);
+    localStorage.setItem("users", JSON.stringify(users)); // Update the users list with new IGN
 
-        // Hide the input fields and save button
-        document.getElementById("profile-ign").style.display = "none";
-        document.getElementById("profile-email").style.display = "none";
-        document.getElementById("save-btn").style.display = "none";
+    // Update the logged-in user in localStorage
+    localStorage.setItem("loggedInUser", JSON.stringify(updatedUser));
 
-        // Show the updated values in the display fields
-        document.getElementById("profile-ign-display").style.display = "inline";
-        document.getElementById("profile-email-display").style.display = "inline";
-    }
+    // Display success message
+    alert("✅ Profile updated successfully!");
+
+    // Now update the display fields with the new values
+    document.getElementById("profile-ign-display").textContent = updatedUser.ign;
+    document.getElementById("profile-email-display").textContent = updatedUser.email;
+
+    // Hide the input fields and save button
+    document.getElementById("profile-ign").style.display = "none";
+    document.getElementById("profile-email").style.display = "none";
+    document.getElementById("save-btn").style.display = "none";
+
+    // Show the updated values in the display fields
+    document.getElementById("profile-ign-display").style.display = "inline";
+    document.getElementById("profile-email-display").style.display = "inline";
+}
 
     // Account Deletion Modal
     document.getElementById('delete-account-btn').addEventListener('click', function () {
@@ -130,5 +135,15 @@ document.addEventListener("DOMContentLoaded", function () {
             };
             reader.readAsDataURL(file);
         }
+
+    // Function to log out the user
+function logout() {
+    // Remove loggedInUser from localStorage
+    localStorage.removeItem("loggedInUser");
+    
+    // Redirect to login page
+    window.location.href = "logIn.html"; 
+}
+
     });
 });

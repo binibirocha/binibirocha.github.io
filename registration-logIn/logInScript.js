@@ -16,6 +16,7 @@ function togglePassword(inputId, iconId) {
 }
 
 // Function to log in the user
+// Function to log in the user
 function login(event) {
     event.preventDefault(); // Prevent form submission
 
@@ -43,6 +44,7 @@ function login(event) {
         alert("❌ Invalid IGN, email, or password.");
     }
 }
+
 
 // Ensure DOM is fully loaded before attaching event listeners
 document.addEventListener("DOMContentLoaded", function () {
