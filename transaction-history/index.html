@@ -24,11 +24,25 @@
         <div class="links">
             <a href="https://store.pokemongolive.com/offer-redemption" target="_blank" rel="noopener noreferrer">Code Redemption</a>
             <a href="https://tickets.nianticlabs.com/events/#/login?returnUrl=%2Feventlisting&appId=pgo" target="_blank" rel="noopener noreferrer">Event Ticketing</a>
+            <a href="https://binibirocha.github.io/payment-cart/cart-page.html" class="cart-container"><i class="fa-solid fa-cart-shopping"></i><span class="cart-badge">0</span></a> 
         </div>
         <a href="https://binibirocha.github.io/registration-logIn/profile.html">
             <button class="button">Profile</button>
         </a>
+        <button class="hamburger" onclick="toggleMenu()">
+            ☰
+        </button>
     </nav>
+
+    <!-- sidebar -->
+    <div id="sidebar" class="sidebar">
+        <button class="close-btn" onclick="toggleSidebar()">×</button>
+        <div class="sidebar-links">
+            <a href="https://store.pokemongolive.com/offer-redemption" target="_blank" rel="noopener noreferrer" onclick="toggleSidebar()">Code Redemption</a>
+            <a href="https://tickets.nianticlabs.com/events/#/login?returnUrl=%2Feventlisting&appId=pgo" target="_blank" rel="noopener noreferrer" onclick="toggleSidebar()">Event Ticketing</a>
+            <a href="https://binibirocha.github.io/payment-cart/cart-page.html" class="cart-container"><i class="fa-solid fa-cart-shopping"></i><span class="cart-badge">0</span></a> 
+        </div>
+    </div>
     
     <!-- body: transaction history -->
         <header>
