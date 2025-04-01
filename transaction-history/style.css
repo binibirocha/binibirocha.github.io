@@ -49,6 +49,69 @@ nav a {
   transition: all 0.3s ease;
 }
 
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 250px;
+  height: 100%;
+  background-color: #384B70;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: right 0.3s ease;
+  z-index: 1000;
+}
+
+.sidebar.active {
+  right: 0;
+}
+
+.sidebar .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+}
+
+.sidebar-links {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+}
+
+.sidebar-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.sidebar-links a:hover {
+  color: #7C93C3;
+  padding: 10px;
+  border-radius: 20px; 
+  background-color: #152647;
+  box-shadow: 4px 4px 0px rgba(124, 147, 195, 0.8); 
+}
+
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #000;
+}
+
 .navbar .links {
   display: flex;
   gap: 20px;
@@ -558,6 +621,10 @@ footer {
         display: none;
     }
 
+    .hamburger {
+      display: flex;
+    }
+
     .button {
         font-size: 0.8rem;
         padding: 0.6rem 1.2rem;
@@ -680,6 +747,18 @@ footer {
 
     .navbar .logo img {
         height: 40px;
+    }
+
+    .hamburger {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      display: flex;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #000;
     }
 
     header {
