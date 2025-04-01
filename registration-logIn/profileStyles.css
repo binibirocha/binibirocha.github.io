@@ -740,23 +740,23 @@ footer {
   background: white;
   border-radius: 10px;
   overflow: hidden;
-  margin: 20px auto; /* Center the profile container */
+  margin: 20px auto;
   box-sizing: border-box;
-  justify-content: center; /* Center the items within the container */
+  justify-content: center;
   padding: 0;
+  gap: 20px; /* Adds gap between profile picture and the form */
 }
 
 /* Sidebar */
 .sidebar2 {
   width: 30%;
-  background: white; /* Team Mystic Blue */
-  color: white;
+  background: white;
   text-align: center;
   padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* Keeps the content aligned at the top */
+  justify-content: flex-start;
   box-sizing: border-box;
 }
 
@@ -772,9 +772,8 @@ footer {
   align-items: center;
   background: linear-gradient(to top, white 50%, #cc0000 50%);
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
-  margin-bottom: 20px;
+  margin: 0 auto 20px;
   animation: pokeball-glow 3s infinite ease-in-out;
-  margin-left: 0;
 }
 
 @keyframes pokeball-glow {
@@ -795,7 +794,6 @@ footer {
 .profile-pic-container:hover {
   animation: pokeball-glow-intense 2s infinite ease-in-out;
 }
-
 
 .settings-header {
   display: flex;
@@ -838,11 +836,13 @@ footer {
   flex-wrap: wrap;
   gap: 15px;
   margin-top: 20px;
+  width: 100%; /* Ensures the form takes full width */
 }
 
 .form-group {
-  width: 48%;
+  width: 48%; /* Adjust width for laptop screens */
   margin-right: 10px;
+  box-sizing: border-box; /* Ensure padding is included in width */
 }
 
 .form-group label {
@@ -854,13 +854,14 @@ footer {
 
 .form-group input,
 .form-group select {
-  width: 100%;
+  width: 100%; /* Full width input */
   padding: 10px;
   font-size: 14px;
-  border-radius: 5px;
-  border: 2px solid #ffcb05; /* Pokémon Yellow */
   border-radius: 8px;
+  border: 2px solid #ffcb05;
+  box-sizing: border-box; /* Prevent overflow */
 }
+
 
 .update-btn {
   background: #0074cc;
@@ -915,53 +916,6 @@ footer {
   transform: scale(1.05);
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-  .profile-pic-container {
-    width: 200px; /* Slightly smaller for mobile */
-    height: 200px; /* Slightly smaller for mobile */
-  }
-
-  .sidebar {
-    width: 100%; /* Sidebar takes full width on small screens */
-    text-align: left;
-    padding: 10px;
-  }
-
-  .profile-pic-container {
-    max-width: 180px; /* Smaller for mobile screens */
-  }
-
-  .profile-pic {
-    width: 180px; /* Adjusted size for mobile */
-    height: 180px; /* Adjusted size for mobile */
-  }
-
-  .stats,
-  .view-profile-btn {
-    width: 100%; /* Full width for mobile */
-  }
-
-  .settings-panel {
-    width: 100%;
-    padding: 20px;
-  }
-
-  .form-group {
-    width: 100%;
-  }
-
-  .settings-header nav {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-
-  .settings-header nav a {
-    padding-bottom: 10px;
-  }
-}
-
 /* Delete Button */
 .delete-btn {
   background-color: red;
@@ -981,8 +935,8 @@ footer {
 .pokecoins-container {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-top: 10px;
+  gap: 5px;
+  margin-top: 15px;
   font-size: 18px;
   font-weight: bold;
 }
@@ -992,30 +946,12 @@ footer {
   height: 24px;
 }
 
-/* Styling for the profile picture and change button */
-.profile-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 20px;
-  background-image: url('pokemon-background.jpg');
-  background-size: cover;
-  padding: 20px;
-  border-radius: 10px;
-  animation: pulse 4s infinite ease-in-out; /* Pulse effect */
-  width: 100%;
-  max-width: 500px; /* Set a max width for larger screens */
-  box-sizing: border-box;
-}
-
 /* Profile Card */
 .profile-card {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 20px;
-  background-image: url('pokemon-background.jpg');
-  background-size: cover;
   padding: 20px;
   border-radius: 10px;
   animation: pulse 4s infinite ease-in-out; /* Pulse effect */
@@ -1024,112 +960,107 @@ footer {
   box-sizing: border-box;
 }
 
-/* Laptop Responsiveness */
-@media (max-width: 1024px) {
-  .profile-card {
-    padding: 18px; /* Slightly reduced padding for laptops */
-    max-width: 80%; /* Allow the profile card to take up more width on laptops */
+/* Mobile and smaller screens */
+@media (max-width: 768px) {
+  .profile-container {
+    flex-direction: column; /* Stack avatar and information in column */
+  }
+
+  .sidebar2 {
+    width: 100%; /* Make sidebar take full width on smaller screens */
+    text-align: center;
+    padding: 10px;
   }
 
   .profile-pic-container {
-    width: 200px; /* Larger profile picture size for laptops */
-    height: 200px; /* Larger profile picture size for laptops */
+    width: 200px;
+    height: 200px;
   }
 
   .profile-pic {
-    width: 200px; /* Larger profile picture size for laptops */
-    height: 200px; /* Larger profile picture size for laptops */
+    width: 180px;
+    height: 180px;
   }
 
-  .change-avatar-btn {
-    font-size: 14px; /* Slightly larger font size on laptops */
-    padding: 10px 15px; /* Adjusted padding for better button size */
-  }
-
-  /* Adjust form layout for laptop screens */
-  .settings-form {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-top: 20px;
+  .settings-panel {
     width: 100%;
+    padding: 20px;
+  }
+
+  .settings-header nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
   }
 
   .form-group {
-    width: 48%; /* Ensure form fields are properly sized for laptop screens */
-    margin-right: 10px;
+    width: 100%; /* Full width for form fields on small screens */
+    margin-right: 0;
+    margin-left: 0;
   }
 
-  /* Form group adjustments */
-  .form-group label {
-    display: block;
-    font-size: 14px;
-    color: #333;
-    margin-bottom: 5px;
-  }
-
-  .form-group input,
-  .form-group select {
-    width: 100%;
-    padding: 10px;
-    font-size: 14px;
-    border-radius: 5px;
-    border: 2px solid #ffcb05; /* Pokémon Yellow */
-    border-radius: 8px;
-  }
-
-  /* Ensure button width is adjusted */
   .update-btn {
-    width: 100%; /* Ensure the button doesn't overflow */
+    width: 100%; /* Ensure the button fits within the width */
+  }
+
+  /* Profile card adjustments */
+  .profile-card {
+    width: 100%;
+    max-width: none;
+    padding: 10px;
+    margin: 0 auto;
   }
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
+/* Laptop Responsiveness */
+@media (max-width: 1024px) {
   .profile-card {
-    padding: 15px; /* Adjust padding for smaller screens */
-    max-width: 90%; /* Ensure profile card doesn't take up too much width on mobile */
+    padding: 18px;
+    max-width: 80%;
   }
 
   .profile-pic-container {
-    width: 150px; /* Adjust the profile picture size on mobile */
-    height: 150px; /* Adjust the profile picture size on mobile */
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px; /* Add space below the profile picture */
   }
 
   .profile-pic {
-    width: 150px; /* Adjust the profile picture size on mobile */
-    height: 150px; /* Adjust the profile picture size on mobile */
+    width: 180px;
+    height: 180px;
   }
 
-  .change-avatar-btn {
-    font-size: 12px; /* Smaller font size for mobile */
-    padding: 8px 12px; /* Adjust button padding */
-  }
-
-  /* Adjust form layout for mobile screens */
-  .settings-form {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-top: 20px;
+  .settings-panel {
     width: 100%;
+    padding: 20px;
   }
 
   .form-group {
-    width: 100%; /* Ensure form fields are full width on mobile */
-    margin-right: 0;
+    width: 48%; /* Keep form fields responsive */
+    margin-right: 10px;
   }
 
-  /* Ensure the input fields fit properly on mobile */
+  .settings-form {
+    gap: 20px; /* Ensure there's space between form fields */
+    justify-content: center;
+  }
+
+  /* Adjust button and form layout for laptops */
+  .update-btn {
+    width: 100%;
+  }
+
   .form-group input,
   .form-group select {
-    width: 100%;
-    padding: 8px; /* Adjust padding for mobile */
     font-size: 14px;
+    border-radius: 8px;
+    border: 2px solid #ffcb05;
   }
 
-  .update-btn {
-    width: 100%; /* Ensure button takes up full width */
+  .settings-header nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
   }
 }
 
@@ -1198,7 +1129,6 @@ footer {
   }
 }
 
-/* Sidebar Navigation */
 .sidebar2 nav a {
   text-decoration: none;
   color: #666;
@@ -1215,6 +1145,6 @@ footer {
 }
 
 .sidebar2 nav a:hover {
-  background-color: #f1f1f1;
-  color: #0074cc;
+  background: #ffcb05;
+  color: black;
 }
