@@ -963,4 +963,7 @@ input:checked + .payment-method-item::before {
     transform: translate(0);
     box-shadow: none;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> bde83a967a58d97d41a0b1fb922385e3dde568c1

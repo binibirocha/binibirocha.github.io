@@ -1113,16 +1113,6 @@ footer {
     padding: 0 5vw;
     overflow-x: scroll;
   }
-    /**/
-    #custom-confirm {
-    width: 66%;
-    padding: 30px;
-  }
-  #confirm-yes, #confirm-no {
-    width: 90px;
-    font-size: 0.9rem;
-  }
-
 }
 
 @media (max-width: 480px) {
@@ -1241,29 +1231,4 @@ footer {
   .collection-container {
     grid-template-columns: 1fr;
   }
-    /**/
-    #custom-confirm {
-    width: 55%;
-    padding: 10px;
-  }
-  #confirm-yes, #confirm-no {
-    width: 80px;
-    font-size: 0.8rem;
-    padding: 10px;
-    margin: 5px;
-    justify-content: center;
-  }
-}
-
-@media (max-width: 412px){
-  .carousel-slide::after{
-    height: 91%;
-  }
-}
-
-@media (max-width: 390px){
-  .carousel-slide::after{
-    height: 90%;
-  }
-
 }

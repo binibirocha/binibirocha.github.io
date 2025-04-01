@@ -39,7 +39,7 @@ function addToCart() {
 }
 
 document.getElementById("confirm-yes").onclick = function () {
-    window.location.href = "https://binibirocha.github.io/payment-cart/cart-page.html"; // Redirects to cart page
+    window.location.href = "cart-page.html"; // Redirects to cart page
 };
 
 document.getElementById("confirm-no").onclick = function () {
