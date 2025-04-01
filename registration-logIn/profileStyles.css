@@ -758,6 +758,27 @@ footer {
   align-items: center;
   justify-content: flex-start;
   box-sizing: border-box;
+  position: relative;
+}
+
+.sidebar2 nav a {
+  text-decoration: none;
+  color: #666;
+  font-weight: bold;
+  padding: 10px 20px;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar2 nav a.active {
+  color: #0074cc;
+  border-bottom: 2px solid #0074cc;
+  padding-bottom: 5px;
+}
+
+.sidebar2 nav a:hover {
+  background: #ffcb05;
+  color: black;
 }
 
 /* Profile Picture - Poké Ball Border */
@@ -795,6 +816,7 @@ footer {
   animation: pokeball-glow-intense 2s infinite ease-in-out;
 }
 
+/* Settings Header */
 .settings-header {
   display: flex;
   justify-content: space-between;
@@ -834,7 +856,7 @@ footer {
 .settings-form {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 20px;
   margin-top: 20px;
   width: 100%; /* Ensures the form takes full width */
 }
@@ -861,7 +883,6 @@ footer {
   border: 2px solid #ffcb05;
   box-sizing: border-box; /* Prevent overflow */
 }
-
 
 .update-btn {
   background: #0074cc;
@@ -1011,6 +1032,53 @@ footer {
     margin: 0 auto;
   }
 }
+
+/* Laptop Responsiveness */
+@media (max-width: 1024px) {
+  .profile-card {
+    padding: 18px;
+    max-width: 80%;
+  }
+
+  .profile-pic-container {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px; /* Add space below the profile picture */
+  }
+
+  .profile-pic {
+    width: 180px;
+    height: 180px;
+  }
+
+  .settings-panel {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .form-group {
+    width: 48%; /* Keep form fields responsive */
+    margin-right: 10px;
+  }
+
+  .settings-form {
+    gap: 20px; /* Ensure there's space between form fields */
+    justify-content: center;
+  }
+
+  /* Adjust button and form layout for laptops */
+  .update-btn {
+    width: 100%;
+  }
+}
+
+  /* Profile card adjustments */
+  .profile-card {
+    width: 100%;
+    max-width: none;
+    padding: 10px;
+    margin: 0 auto;
+  }
 
 /* Laptop Responsiveness */
 @media (max-width: 1024px) {
