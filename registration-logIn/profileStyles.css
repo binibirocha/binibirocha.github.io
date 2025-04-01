@@ -816,7 +816,7 @@ footer {
   animation: pokeball-glow-intense 2s infinite ease-in-out;
 }
 
-/* Form Styling */
+/* Profile Form - Non-Editable Resting State Design */
 .profile-form {
   width: 100%;
   display: flex;
@@ -834,55 +834,86 @@ footer {
   box-sizing: border-box; /* Ensure padding is included in width */
 }
 
-/* Default input field design */
 .form-group input,
 .form-group select {
   width: 100%; /* Full width input */
-  padding: 10px;
-  font-size: 14px;
+  padding: 12px;
+  font-size: 16px;
   border-radius: 8px;
-  border: 2px solid #ffcb05; /* Yellow border for default state */
-  background-color: #f9f9f9; /* Light grey background */
+  border: 2px solid #ffcb05; /* Soft yellow border for default */
+  background-color: #f9f9f9; /* Light gray background to signal idle state */
+  color: #333; /* Dark text for readability */
+  font-weight: 400; /* Regular weight for text */
   box-sizing: border-box; /* Prevent overflow */
   transition: all 0.3s ease-in-out;
 }
 
-/* Input field design on focus */
-.form-group input:focus,
-.form-group select:focus {
-  border-color: #0074cc; /* Blue border on focus */
-  background-color: #ffffff; /* White background on focus */
-  box-shadow: 0 0 5px rgba(0, 116, 204, 0.7); /* Subtle blue glow on focus */
-}
-
-/* Input field with content (non-focus, non-edit state) */
-.form-group input:not(:focus):valid,
-.form-group select:not(:focus):valid {
-  background-color: #e8f4fc; /* Light blue background when content is valid */
-  border-color: #28a745; /* Green border when content is valid */
-}
-
-/* Placeholder styling */
+/* Placeholder Styling */
 .form-group input::placeholder,
 .form-group select::placeholder {
   color: #bbb;
   font-style: italic;
 }
 
-/* Hover effects */
-.form-group input:hover,
-.form-group select:hover {
-  border-color: #ff8c00; /* Orange border on hover */
-  background-color: #fff8e1; /* Slightly yellow background on hover */
+/* Resting State Design (when not editable or focused) */
+.form-group input:not(:focus):not(:disabled),
+.form-group select:not(:focus):not(:disabled) {
+  background-color: #f9f9f9; /* Ensure light gray background when not interacting */
+  border: 2px solid #ffcb05; /* Soft yellow border to show that it's an active field */
+  color: #333; /* Dark text */
+  cursor: default; /* Prevent text selection on non-editable fields */
 }
 
-/* Disabled input fields */
-.form-group input:disabled,
-.form-group select:disabled {
-  background-color: #f1f1f1;
-  border-color: #d1d1d1;
-  color: #999;
+/* Non-editable fields */
+.form-group input[readonly],
+.form-group select[readonly] {
+  background-color: #e0e0e0; /* Lighter background to indicate non-editable */
+  border-color: #b0b0b0; /* Lighter border */
+  color: #888; /* Soft gray text */
+  cursor: not-allowed; /* Show non-editable cursor */
 }
+
+/* Edit Button for enabling input */
+.edit-btn {
+  background: #0074cc;
+  color: white;
+  padding: 10px 20px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+/* Edit Button Hover */
+.edit-btn:hover {
+  background: #ffcb05;
+  color: black;
+  transform: scale(1.05);
+}
+
+/* Profile Card */
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  animation: pulse 4s infinite ease-in-out; /* Pulse effect */
+  width: 100%;
+  max-width: 500px; /* Set a max width for larger screens */
+  box-sizing: border-box;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
 
 /* Button Styling */
 .update-btn {
@@ -1108,3 +1139,4 @@ footer {
   background: #ffcb05;
   color: black;
 }
+
