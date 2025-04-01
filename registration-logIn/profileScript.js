@@ -93,7 +93,7 @@ function saveProfileChanges() {
             // Remove user from localStorage
             localStorage.removeItem("loggedInUser");
             alert("❌ Your account has been deleted.");
-            window.location.href = "landingPage.html"; // Redirect to landing page after deletion
+            window.location.href = "main.html"; // Redirect to landing page after deletion
         }
     });
 
