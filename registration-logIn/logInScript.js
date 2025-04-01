@@ -1,3 +1,20 @@
+// Function to toggle the password visibility
+function togglePassword(inputId, iconId) {
+    const passwordField = document.getElementById(inputId);
+    const toggleIcon = document.getElementById(iconId);
+
+    // Check the current type of the input and change it to show or hide the password
+    if (passwordField.type === "password") {
+        passwordField.type = "text"; // Change to 'text' to show the password
+        toggleIcon.classList.remove("fa-eye"); // Remove the eye icon (hidden)
+        toggleIcon.classList.add("fa-eye-slash"); // Add the slash eye icon (visible)
+    } else {
+        passwordField.type = "password"; // Change to 'password' to hide the password
+        toggleIcon.classList.remove("fa-eye-slash"); // Remove the slash eye icon
+        toggleIcon.classList.add("fa-eye"); // Add the eye icon (hidden)
+    }
+}
+
 // Function to log in the user
 function login(event) {
     event.preventDefault(); // Prevent form submission
@@ -34,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (loginForm) {
         loginForm.addEventListener("submit", function(event) {
             console.log("Login form submitted"); // Debugging
-            login(event);
+            login(event);  // Call the login function
         });
     }
 
