@@ -829,69 +829,94 @@ footer {
 }
 
 .form-group {
-  width: 48%; /* Adjust width for laptop screens */
-  margin-right: 10px;
-  box-sizing: border-box; /* Ensure padding is included in width */
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 90%; /* Responsive width */
+  margin: 0 auto; /* Centers it horizontally */
+  text-align: center; /* Centers text inside */
 }
 
-.form-group input,
-.form-group select {
-  width: 100%; /* Full width input */
-  padding: 12px;
+/* Label styling */
+.form-group label {
+  font-weight: bold;
+  font-size: 16px;
+  color: #555;
+}
+
+/* Ensure display fields (IGN, Email, Player ID) fit properly */
+.display-field {
+  width: 150%;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  background: #f5f5f5;
+  border-radius: 8px;
+  border: 2px solid #ffcb05;
+  color: #333;
+  text-align: center; /* Centers the text */
+  box-sizing: border-box;
+  word-break: break-word; /* Forces text to wrap */
+  overflow-wrap: break-word; /* Alternative wrapping method */
+  white-space: normal; /* Allows text to wrap */;
+}
+
+/* Ensure display field and input field never overlap */
+.display-field, .form-input {
+  display: block; /* Ensures each takes up its own space */
+  width: 200%; /* Full width */
+}
+
+/* Read-only styling for Player ID */
+.read-only {
+  background: #ddd; /* Light gray to show it's not editable */
+  color: #777;
+  border: 2px solid #aaa;
+}
+
+/* Input fields */
+.form-input {
+  width: 150%;
+  padding: 10px;
   font-size: 16px;
   border-radius: 8px;
-  border: 2px solid #ffcb05; /* Soft yellow border for default */
-  background-color: #f9f9f9; /* Light gray background to signal idle state */
-  color: #333; /* Dark text for readability */
-  font-weight: 400; /* Regular weight for text */
-  box-sizing: border-box; /* Prevent overflow */
-  transition: all 0.3s ease-in-out;
+  border: 2px solid #0074cc;
+  background-color: #fff;
+  transition: 0.3s;
+  box-sizing: border-box;
+  text-align: center; /* Centers input text */
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
 }
 
-/* Placeholder Styling */
-.form-group input::placeholder,
-.form-group select::placeholder {
-  color: #bbb;
-  font-style: italic;
+/* When input is active (focused for editing) */
+.form-input:focus {
+  border-color: #ffcb05;
+  box-shadow: 0px 0px 5px #ffcb05;
+  outline: none;
 }
 
-/* Resting State Design (when not editable or focused) */
-.form-group input:not(:focus):not(:disabled),
-.form-group select:not(:focus):not(:disabled) {
-  background-color: #f9f9f9; /* Ensure light gray background when not interacting */
-  border: 2px solid #ffcb05; /* Soft yellow border to show that it's an active field */
-  color: #333; /* Dark text */
-  cursor: default; /* Prevent text selection on non-editable fields */
-}
-
-/* Non-editable fields */
-.form-group input[readonly],
-.form-group select[readonly] {
-  background-color: #e0e0e0; /* Lighter background to indicate non-editable */
-  border-color: #b0b0b0; /* Lighter border */
-  color: #888; /* Soft gray text */
-  cursor: not-allowed; /* Show non-editable cursor */
-}
-
-/* Edit Button for enabling input */
+/* Edit button */
 .edit-btn {
   background: #0074cc;
   color: white;
-  padding: 10px 20px;
-  font-size: 14px;
-  border: none;
+  padding: 8px 12px;
   border-radius: 5px;
   cursor: pointer;
-  width: 100%;
-  margin-top: 10px;
+  font-size: 14px;
   transition: 0.3s;
+  border: none;
 }
 
-/* Edit Button Hover */
 .edit-btn:hover {
   background: #ffcb05;
   color: black;
-  transform: scale(1.05);
+}
+
+.edit-btn:hover {
+  background: #ffcb05;
+  color: black;
 }
 
 /* Profile Card */
@@ -906,6 +931,7 @@ footer {
   width: 100%;
   max-width: 500px; /* Set a max width for larger screens */
   box-sizing: border-box;
+  margin-right: 100px;
 }
 
 @keyframes pulse {
@@ -927,6 +953,8 @@ footer {
   width: 100%;
   margin-top: 10px;
   transition: 0.3s;
+  margin: auto;
+  margin-left: 15px;
 }
 
 @keyframes shake {
@@ -978,6 +1006,7 @@ footer {
   margin-top: 10px;
   cursor: pointer;
   border-radius: 8px;
+  margin-left: 15px;
 }
 
 .delete-btn:hover {
@@ -992,6 +1021,7 @@ footer {
   margin-top: 15px;
   font-size: 18px;
   font-weight: bold;
+  margin-right: 100px;
 }
 
 .pokecoin-icon {
@@ -1090,7 +1120,8 @@ footer {
 
   .form-group {
     width: 48%; /* Keep form fields responsive */
-    margin-right: 10px;
+    margin: auto;
+    max-width: none;
   }
 
   .settings-form {

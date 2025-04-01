@@ -92,25 +92,26 @@
               
                 <!-- In-Game Name (IGN) -->
                 <div class="form-group">
-                  <label for="profile-ign">In-Game Name (IGN)</label>
-                  <div id="profile-ign-display"></div>
-                  <input type="text" id="profile-ign">
-                  <button type="button" id="edit-ign" class="edit-btn">Edit</button>
+                    <label for="profile-ign">In-Game Name (IGN)</label>
+                    <div id="profile-ign-display" class="display-field"></div> <!-- Display Mode -->
+                    <input type="text" id="profile-ign" class="form-input" style="display: none;"> <!-- Edit Mode -->
+                    <button type="button" id="edit-ign" class="edit-btn">Edit</button>
                 </div>
-              
+
                 <!-- Email -->
                 <div class="form-group">
-                  <label for="profile-email">Email</label>
-                  <div id="profile-email-display"></div>
-                  <input type="email" id="profile-email" style="display: none;">
-                  <button type="button" id="edit-email" class="edit-btn">Edit</button>
+                    <label for="profile-email">Email</label>
+                    <div id="profile-email-display" class="display-field"></div> <!-- Display Mode -->
+                    <input type="email" id="profile-email" class="form-input" style="display: none;"> <!-- Edit Mode -->
+                    <button type="button" id="edit-email" class="edit-btn">Edit</button>
                 </div>
-              
-                <!-- Player ID (Display Only) -->
+
+                <!-- Player ID (Read-Only) -->
                 <div class="form-group">
-                  <label for="profile-playerID">Player ID</label>
-                  <div id="profile-playerID-display"></div>
+                    <label for="profile-playerID">Player ID</label>
+                    <div id="profile-playerID-display" class="display-field read-only"></div> <!-- Display Mode Only -->
                 </div>
+
               
                 <!-- Save Button -->
                 <button type="submit" id="save-btn" class="update-btn" style="display: none;">Save Changes</button>
