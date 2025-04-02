@@ -157,3 +157,4 @@ document.querySelector('.close-btn').addEventListener('click', () => {
 
     });
 });
+
