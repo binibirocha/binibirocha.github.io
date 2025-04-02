@@ -89,8 +89,9 @@ nav a {
 }
 
 .sidebar-links a .prof-sidebar: hover{
-   border: none;
-   text-decoration: none;
+  border-radius: none; 
+  background-color: none;
+  box-shadow: none;
 }
 
 .sidebar-links a:hover {
