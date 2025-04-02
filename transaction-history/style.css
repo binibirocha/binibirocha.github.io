@@ -88,10 +88,11 @@ nav a {
   text-align: center;
 }
 
-.sidebar-links a .prof-sidebar: hover{
-  border-radius: none; 
-  background-color: none;
-  box-shadow: none;
+.sidebar-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
 }
 
 .sidebar-links a:hover {
