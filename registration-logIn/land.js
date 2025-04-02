@@ -43,7 +43,8 @@ document.getElementById("confirm-yes").onclick = function () {
 };
 
 document.getElementById("confirm-no").onclick = function () {
-    window.location.href = "logIn.html"; // Redirects to cart page
+    document.getElementById("custom-confirm").style.display = "none";
+    document.getElementById("overlay").style.display = "none";
 };
 
 

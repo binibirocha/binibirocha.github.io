@@ -18,7 +18,7 @@
     </div>
     <nav class="navbar">
         <div class="logo">
-            <a href="https://store.pokemongolive.com/">
+            <a href="https://binibirocha.github.io/main.html">
                 <img src="pokemonlogo.png" alt="Pokémon GO Logo">
             </a>
             <a>Web Store</a>
@@ -28,9 +28,9 @@
         <div class="links">
             <a href="https://store.pokemongolive.com/offer-redemption" target="_blank" rel="noopener noreferrer">Code Redemption</a>
             <a href="https://tickets.nianticlabs.com/events/#/login?returnUrl=%2Feventlisting&appId=pgo" target="_blank" rel="noopener noreferrer">Event Ticketing</a>
-            <a href="https://binibirocha.github.io/main.html" class="cart-container"><i class="fa-solid fa-house"></i></a>
-            <a href="https://binibirocha.github.io/transaction-history/index.html" class="cart-container"><i class="fa-solid fa-clipboard-list"></i></i></a>
-            <a href="https://binibirocha.github.io/payment-cart/cart-page.html" class="cart-container"><i class="fa-solid fa-cart-shopping"></i><span class="cart-badge">0</span></a> 
+            <a href="#"><i class="fa-solid fa-house"></i></a>
+            <a href="logIn.html"><i class="fa-solid fa-clipboard-list"></i></i></a>
+            <a href="logIn.html"><i class="fa-solid fa-cart-shopping"></i><span class="cart-badge">0</span></a> 
         </div>
         <a href="signIn.html">
             <button type="button" class="btn">
@@ -56,9 +56,6 @@
         <div class="sidebar-links">
             <a href="https://store.pokemongolive.com/offer-redemption" target="_blank" rel="noopener noreferrer" onclick="toggleSidebar()">Code Redemption</a>
             <a href="https://tickets.nianticlabs.com/events/#/login?returnUrl=%2Feventlisting&appId=pgo" target="_blank" rel="noopener noreferrer" onclick="toggleSidebar()">Event Ticketing</a>
-            <a href="#" class="cart-container" onclick="toggleSidebar()"><i class="fa-solid fa-house"></i></a>
-            <a href="https://binibirocha.github.io/transaction-history/index.html" class="cart-container" onclick="toggleSidebar()"><i class="fa-solid fa-clipboard-list"></i></i></a>
-            <a href="https://binibirocha.github.io/payment-cart/cart-page.html" class="cart-container" onclick="toggleSidebar()"><i class="fa-solid fa-cart-shopping"></i><span class="cart-badge">0</span></a> 
             <button type="button" class="btn" onclick="redirectToSignIn()">
                 <strong>SIGN IN</strong>
                 <div id="container-stars">
@@ -144,7 +141,7 @@
                 <div class="product-image">
                     <span class="discount-tag">ONE TIME ONLY</span>
                     <img src="card1.png" class="product-thumb" alt="">
-                    <button class="card-btn" onclick="addToCart()">Add To Cart</button>
+                    <button class="card-btn" onclick="addEventListener()">Add To Cart</button>
                 </div>
                 <div class="product-info">
                     <h2 class="product-brand">Ultra Trainer Bundle</h2>
@@ -462,6 +459,6 @@
     </footer>
 
     <script src="land.js"></script>
-
+    <script src="logInScript copy.js"></script>
 </body>
 </html>
