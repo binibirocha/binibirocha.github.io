@@ -40,7 +40,7 @@ function logout() {
     alert("You have been logged out!");
 
     // Redirect to the homepage after logout
-    window.location.href = "Landing-Store\main.html";
+    window.location.href = "Landing-Store/main.html";
 }
 
 // Add password toggle functionality
